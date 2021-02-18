@@ -25,22 +25,27 @@ author:
     email: ted.ietf@gmail.com
 
   -
-    ins: M. Kühlewind
-    name: Mirja Kühlewind
-    org: Ericsson
-    email: mirja.kuehlewind@ericsson.com
-
-  -
     ins: T. Pauly
     name: Tommy Pauly
     org: Apple
     email: tpauly@apple.com
+
+  -
+    ins: M. Kühlewind
+    name: Mirja Kühlewind
+    org: Ericsson
+    email: mirja.kuehlewind@ericsson.com
 
 
 normative:
 
 
 informative:
+  RFC8558:
+  I-D.irtf-panrg-what-not-to-do:
+  I-D.per-app-networking-considerations:
+  RFC5218:
+  RFC6709.
 
 --- abstract
 
