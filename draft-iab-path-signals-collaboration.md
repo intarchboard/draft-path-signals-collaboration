@@ -45,7 +45,7 @@ informative:
   I-D.irtf-panrg-what-not-to-do:
   I-D.per-app-networking-considerations:
   RFC5218:
-  RFC6709.
+  RFC6709:
 
 --- abstract
 
