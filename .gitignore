@@ -1,7 +1,8 @@
 *.html
 *.redxml
 *.swp
-*.txt
+draft-iab-path-signals-collaboration.txt
+draft-arkko-path-signals-information.txt
 *.upload
 *~
 .refcache

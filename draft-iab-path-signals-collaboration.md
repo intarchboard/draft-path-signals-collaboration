@@ -41,13 +41,21 @@ normative:
 
 
 informative:
+  RFC5218: 
+  RFC6709: 
   RFC8558:
   I-D.irtf-panrg-what-not-to-do:
   I-D.per-app-networking-considerations:
-  RFC5218:
-  RFC6709:
   I-D.iab-covid19-workshop:
-
+   title: "Report from the IAB COVID-19 Network Impacts Workshop 2020"
+   author:
+    - ins: J. Arkko 
+    - ins: S. Farrell
+    - ins: M. Kühlewind
+    - ins: C. Perkins
+   date: February 2021
+   seriesinfo: "Internet Draft (Work in Progress), draft-iab-covid19-workshop, IETF"
+   
 --- abstract
 
 ...
