@@ -9,7 +9,7 @@ Expires: 26 August 2021
 
 
  Considerations on Information Passed between Networks and Applications
-              draft-arkko-path-signals-information-latest
+              draft-arkko-path-signals-information-00
 
 Abstract
 
