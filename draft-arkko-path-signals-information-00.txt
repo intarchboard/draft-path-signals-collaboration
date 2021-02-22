@@ -139,7 +139,7 @@ Internet-Draft              Path Signals Info              February 2021
    There are also more general guidance documents, e.g., [RFC5218]
    discusses protocol successes and failures, and provides general
    advice on incremental deployability etc.  Internet Technology
-   Adoption and Transition (ITAT) workshop report[RFC7305] is also
+   Adoption and Transition (ITAT) workshop report [RFC7305] is also
    recommended reading on this same general topic.  And [RFC6709]
    discusses protocol extensibility, and provides general advice on the
    importance of global interoperability and so on.
@@ -244,7 +244,7 @@ Internet-Draft              Path Signals Info              February 2021
 5.  Informative References
 
    [I-D.iab-covid19-workshop]
-              Arkko, J., Farrell, S., Kühlewind, M., and C. Perkins,
+              Arkko, J., Farrell, S., Kuhlewind, M., and C. Perkins,
               "Report from the IAB COVID-19 Network Impacts Workshop
               2020", Internet Draft (Work in Progress), draft-iab-
               covid19-workshop, IETF , February 2021.

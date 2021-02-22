@@ -35,7 +35,7 @@ informative:
    author:
     - ins: J. Arkko 
     - ins: S. Farrell
-    - ins: M. Kühlewind
+    - ins: M. Kuhlewind
     - ins: C. Perkins
    date: February 2021
    seriesinfo: "Internet Draft (Work in Progress), draft-iab-covid19-workshop, IETF"
@@ -103,19 +103,18 @@ be visible, or using explicit signals when it should be.
 
 {{I-D.irtf-panrg-what-not-to-do}} discusses many past failure cases, a
 catalogue of past issues to avoid. It also provides relevant
-guidelines
-for new work, from discussion of incentives to more specific
-observations,
-such as the need for outperforming end-to-end mechanisms
-(Section 4.4), considering the need for per-connection state
-(Section 4.6), and so on.
+guidelines for new work, from discussion of incentives to more
+specific observations, such as the need for outperforming end-to-end
+mechanisms (Section 4.4), considering the need for per-connection
+state (Section 4.6), and so on.
 
 There are also more general guidance documents, e.g., {{RFC5218}}
 discusses protocol successes and failures, and provides general advice
-on incremental deployability etc. Internet Technology Adoption and Transition (ITAT) workshop report  
-{{RFC7305}} is also recommended reading on this same general
-topic. And {{RFC6709}} discusses protocol extensibility, and provides
-general advice on the importance of global interoperability and so on.
+on incremental deployability etc. Internet Technology Adoption and
+Transition (ITAT) workshop report {{RFC7305}} is also recommended
+reading on this same general topic. And {{RFC6709}} discusses protocol
+extensibility, and provides general advice on the importance of global
+interoperability and so on.
 
 # Principles
 
