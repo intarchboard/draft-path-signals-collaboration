@@ -97,6 +97,10 @@ useful models to apply.
 
 ...
 
+## Parties Need to Consent
+
+...
+
 ## Information Specificity
 
 One common problem in finding a workable solution for network -
@@ -124,6 +128,16 @@ An architecture can follow the guideline from RFC 8558 in using
 explicit signals, but still fail to differentiate properly between
 information that should be kept private and information that should be
 shared.
+
+## Authenticating Discussion Partners 
+
+(even outside the client and server)
+
+...
+
+## Authentication does not equal Trust
+
+...
 
 ## Granularity
 
