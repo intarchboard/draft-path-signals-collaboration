@@ -145,6 +145,62 @@ useful models to apply.
 
 ...
 
+A large number of our protocol mechanisms today fall into one of two
+categories: authenticated and private communication that is only visible
+by the end-to-end nodes; and unauthenticated public communication that
+is visible to all nodes on a path. RFC 8558 explores the line between data
+that is protected and path signals.
+
+There is a danger in taking a position that is too extreme towards either
+exposing all information to the path, or hiding all information from the
+path. Exposed information encourages pervasive monitoring, which is
+described in RFC 7258. But a lack of all path signaling, on the other hand,
+may be harmful to network management and the ability for networks to
+provide useful services. There are many cases where elements on the network
+path can provide beneficial services, but only if they can coordinate with
+the endpoints. This tradeoff between privacy and network functions has in
+some cases led to an adversarial stance between privacy and the ability for
+the network path to provide intended functions.
+
+One way to resolve this conflict is to add more explicit trust and
+coordination between endpoints and network devices. VPNs are a good example
+of a case where there is an explicit authentication and negotiation with a
+network path element that’s used to optimize behavior or gain access to
+specific resources. 
+
+The goal of improving privacy and trust on the Internet does not necessarily
+need to remove the ability for network elements to perform beneficial
+functions. We should instead improve the way that these functions are
+achieved. Our goals should be:
+- To ensure that information is distributed intentionally, not accidentally; and,
+- To gate the distribution of information on the consent of the relevant parties
+
+These goals for distribution apply equally to senders, receivers, and path
+elements.
+
+We can establish some basic questions that any new network path functions
+should consider:
+- What is the minimum set of entities that need to be involved in order to perform this function?
+- What is the minimum information each entity in this set needs to perform its part of the function correctly and reliably?
+- Which entities must consent to each piece of information that is shared?
+
+Consent and trust must determine the distribution of information. The set of
+entities that need to consent is determined by the scope and specificity of
+the information being shared.  
+
+If we look at many of the ways network path functions are achieved today, we
+find that many if not most of them fall short the standard set up by the
+questions above. Too often, they rely on information being sent without
+limiting the scope of distribution or providing any negotiation or consent.
+
+Going forward, new standards work in the IETF needs to focus on addressing
+this gap by providing better alternatives and mechanisms for providing path
+functions. Note that not all of these functions can be achieved in a way that
+preserves a high level of user privacy from the network; in such cases, it is
+incumbent upon us to not ignore the use case, but instead to define the high
+bar for consent and trust, and thus define a limited applicability for those
+functions.
+
 ## Parties Need to Consent
 
 ...
