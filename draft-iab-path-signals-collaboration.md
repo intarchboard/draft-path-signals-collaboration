@@ -272,8 +272,7 @@ rather than requiring the path elements to behave in some specific fashion.
 
 One should also consider ways to verify the provided information, or
 understand the implications if the information provided from the
-application may not be correct, or if the information is manipulated
-in the network before it arrives to the intended network elements.
+application may not be correct, or has been modified.
 
 ## Authenticating Discussion Partners 
 
