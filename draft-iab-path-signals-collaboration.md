@@ -99,13 +99,14 @@ principles.
 # Past Guidance
 
 Incentives are a well understood problem in general but perhaps not
-fully internalised for various collaborative like designs. The
+fully internalised for various designs attempting to establish
+collaboration between applications and path elements. The
 principle is that both receiver and sender of information must acquire
 tangible and immediate benefits from the communication, such as
 improved performance,
 
-A related issue is understanding whether there is or is not a business
-model or ecosystem change. Some designs may work well without any
+A related issue is understanding whether a business
+model or ecosystem change is needed. Some designs may work well without any
 monetary or payment or cross-administrative domains agreements. For
 instance, I could ask my packets to be prioritised relative to each
 other and that shouldn’t affect anything else. Some other designs may
@@ -280,25 +281,6 @@ the granularity of operations {{I-D.iab-covid19-workshop}}.  There are
 many reasons why per-flow designs are problematic: scalability, need
 to release information about individual user’s individual activities,
 etc. Perhaps designs that work on aggregates would work better.
-
-## Incentives and Business Models
-
-Incentives are a well understood problem in general but perhaps
-not fully internalised for APN or QoS-like designs; a principle might
-be that both receiver and sender of information must acquire tangible
-and immediate benefits from the communication, such as improved
-performance,
-
-A related issue is understanding whether there is or is not a business
-model or ecosystem change. Some designs may work well without any
-monetary or payment or cross-administrative domains agreements. For
-instance, I could ask my packets to be prioritised relative to each
-other and that shouldn’t affect anything else. Some other designs may
-require a matching business ecosystem change to support what is being
-proposed, and may be much harder to achieve. For instance, requesting
-prioritisation over other people’s traffic may imply that you have to
-pay for that which may not be easy even for a single provider let
-alone across many.
 
 # Acknowledgments
 
