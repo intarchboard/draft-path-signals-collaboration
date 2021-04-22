@@ -207,7 +207,7 @@ functions.
 
 ...
 
-## Information Specificity
+## Nature of Information
 
 One common problem in finding a workable solution for network -
 application collaboration is information leakage. All parties are
@@ -264,6 +264,16 @@ information about the individual user (such as user's physical
 location) is not indirectly exposed through this
 information. Similarly, this information should not form a mechanism
 to provide a side-channel into what other users are doing.
+
+While information needs to be specific and provided on a per-need
+basis, it should also be declarative rather than specify some actions.
+The information should show what the application needs, for instance,
+rather than requiring the path elements to behave in some specific fashion.
+
+One should also consider ways to verify the provided information, or
+understand the implications if the information provided from the
+application may not be correct, or if the information is manipulated
+in the network before it arrives to the intended network elements.
 
 ## Authenticating Discussion Partners 
 
