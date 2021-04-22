@@ -173,7 +173,8 @@ The goal of improving privacy and trust on the Internet does not necessarily
 need to remove the ability for network elements to perform beneficial
 functions. We should instead improve the way that these functions are
 achieved. Our goals should be:
-- To ensure that information is distributed intentionally, not accidentally; and,
+- To ensure that information is distributed intentionally, not accidentally; 
+- To understand the privacy and other implications of any distributed  information; and
 - To gate the distribution of information on the consent of the relevant parties
 
 These goals for distribution apply equally to senders, receivers, and path
