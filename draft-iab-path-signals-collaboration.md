@@ -62,7 +62,7 @@ informative:
    
 --- abstract
 
-Path signals are messages seen by on-path elements examining transport
+Path signals are messages to or from on-path elements examining transport
 protocols. Current preference for good protocol design indicates
 desire for constructing explict rather than implicit signals to carry
 information. For instance, the ability of various middleboxes to read
@@ -80,7 +80,7 @@ or networks.
 # Introduction
 
 {{RFC8558}} discusses the topic of path signals: Path signals are
-messages seen by on-path elements examining transport protocols.
+messages to or from on-path elements examining transport protocols.
 There's a difference between implicit and explicit signals. For
 instance, TCP's well-known messages {{RFC0793}} are in the clear, and
 often interpreted in various ways by on-path elements. In contrast,
