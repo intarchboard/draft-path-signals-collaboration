@@ -1,7 +1,7 @@
 ---
 title: Considerations on Application - Network Collaboration Using Path Signals
 abbrev: Path Signals Collab
-docname: draft-iab-path-signals-collaboration-latest
+docname: draft-iab-path-signals-collaboration-00
 date:
 category: bcp
 
@@ -51,14 +51,6 @@ informative:
   I-D.per-app-networking-considerations:
   I-D.arkko-path-signals-information:
   I-D.iab-covid19-workshop:
-   title: "Report from the IAB COVID-19 Network Impacts Workshop 2020"
-   author:
-    - ins: J. Arkko 
-    - ins: S. Farrell
-    - ins: M. Kühlewind
-    - ins: C. Perkins
-   date: February 2021
-   seriesinfo: "Internet Draft (Work in Progress), draft-iab-covid19-workshop, IETF"
    
 --- abstract
 
@@ -147,7 +139,7 @@ alone across many.
 
 But on to more technical aspects.
 
-The main guidance in {{RFC8558} is to be aware that implicit signals
+The main guidance in {{RFC8558}} is to be aware that implicit signals
 will be used whether intended or not. Protocol designers should
 consider either hiding these signals when the information should not
 be visible, or using explicit signals when it should be.

@@ -32,6 +32,6 @@ compile actually-working-compile-without-v3-garbage: draft-iab-path-signals-coll
 	ssh jar@levy4.arkko.eu 'cd /tmp; xml2rfc -q --cache=/home/jar/.cache/xml2rfc draft-arkko-path-signals-information.xml -o draft-arkko-path-signals-information.html --html'
 	scp jar@levy4.arkko.eu:/tmp/draft-arkko-path-signals-information.txt ./old
 	scp jar@levy4.arkko.eu:/tmp/draft-arkko-path-signals-information.html ./old
-	scp jar@levy4.arkko.eu:/tmp/draft-iab-path-signals-information.txt .
-	scp jar@levy4.arkko.eu:/tmp/draft-iab-path-signals-information.html 
+	scp jar@levy4.arkko.eu:/tmp/draft-iab-path-signals-collaboration.txt .
+	scp jar@levy4.arkko.eu:/tmp/draft-iab-path-signals-collaboration.html .
 	scp draft-*-path-signals-*.txt draft-*-path-signals-*.html root@cloud3.arkko.eu:/var/www/www.arkko.com/html/ietf/iab
