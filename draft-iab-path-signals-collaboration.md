@@ -89,6 +89,35 @@ signaling becomes opaque for network elements in between. QUIC
 does provide some information, but has chosen to make these
 signals (such as the Spin bit) explicit {{I-D.ietf-quic-transport}}.
 
+In the past, applications and networks have evolved their interaction
+without comprehensive design for how this interaction should
+happen. Opportunities to read information were taken when information
+happened to be available, assumptions were made about behaviour of
+other parties, and so on. It is understandable why this happened,
+because information was available and because the chosen approach may
+have been the easiest option to solve a particular need.
+
+This kind of interaction ends up having several negative
+effects, however:
+
+* Ossifying protocols by introducing unintended parties that may not be updating
+* Creating systemic incentives against deploying more secure or private versions of protocols
+* Basing network behaviour on information that may be incomplete or incorrect
+* Creating a model where network entities expect to be able to use
+  rich information about sessions passing through
+
+For instance, features such as DNS resolution or TLS setup have been
+used beyond their original intent, such as name filtering, MAC
+addresses used for access control, captive portal implementations that
+employ taking over cleartext HTTP sessions, and so on.
+
+We should acknowledge that is was a mistake to provide some of the
+information without protection. But we also need to work on solutions
+for at least some of the the needs that inspired the previously used
+interactions.  Such solutions are likely more complex than the
+interactions they replace, but hopefully also architecturally cleaner,
+secure, and future proof.
+
 Many attempts have been made at network - application collaboration
 using path signals.  Section 2 discusses some of the experiences and
 guidelines determine from those attempts. This draft then focuses on
