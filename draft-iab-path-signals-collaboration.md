@@ -173,7 +173,7 @@ The goal of improving privacy and trust on the Internet does not necessarily
 need to remove the ability for network elements to perform beneficial
 functions. We should instead improve the way that these functions are
 achieved. Our goals should be:
-- To ensure that information is distributed intentionally, not accidentally; 
+- To ensure that information is distributed intentionally, not accidentally, as noted in {{RFC8558}};
 - To understand the privacy and other implications of any distributed  information; and
 - To gate the distribution of information on the consent of the relevant parties
 
@@ -188,7 +188,7 @@ should consider:
 
 Consent and trust must determine the distribution of information. The set of
 entities that need to consent is determined by the scope and specificity of
-the information being shared.  
+the information being shared. 
 
 If we look at many of the ways network path functions are achieved today, we
 find that many if not most of them fall short the standard set up by the
