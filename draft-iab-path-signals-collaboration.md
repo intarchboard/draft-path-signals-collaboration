@@ -71,51 +71,48 @@ or networks.
 
 # Introduction
 
-{{RFC8558}} discusses the topic of path signals: Path signals are
-messages to or from on-path elements examining transport protocols.
-There's a difference between implicit and explicit signals. For
-instance, TCP's well-known messages {{RFC0793}} are in the clear, and
-often interpreted in various ways by on-path elements. In contrast,
-QUIC protects almost all of this information, and hence end-to-end
-signaling becomes opaque for network elements in between. QUIC
-does provide some information, but has chosen to make these
-signals (such as the Spin bit) explicit {{I-D.ietf-quic-transport}}.
+Encryption, besides its important role in security in general, provides a tool
+to control information access and protects again ossification by avoiding
+unintended dependencies and requiring active maintenance. The increased
+deployment of encryption provides an opportunity to reconsider parts of
+Internet architecture that have rather used implicit derivation of input
+signals for on-path functions than explicit signaling, as recommended by RFC8558.
 
-In the past, applications and networks have evolved their interaction
+{{RFC8558}} defines the term path signals as signals to or from on-path
+elements. Today path signals are often implicit, e.g. derived from
+in-clear end-to-end information by e.g. examining transport protocols. For
+instance, on-path elements use various fields of the TCP header {{RFC0793}}
+to derive information about end-to-end latency as well as congestion.
+These techniques have evolved because the information was simply available
+and use of this information is easier and therefore also cheaper than any
+explicit and potentially complex cooperative approach.
+
+As such, applications and networks have evolved their interaction
 without comprehensive design for how this interaction should
-happen. Opportunities to read information were taken when information
-happened to be available, assumptions were made about behaviour of
-other parties, and so on. It is understandable why this happened,
-because information was available and because the chosen approach may
-have been the easiest option to solve a particular need.
+happen or which information would be desired for a certain function.
+This has lead to a situation where sometimes information is used that
+maybe incomplete or incorrect or often indirectly only derives the
+information that was actually desired. Further, dependencies on
+information and mechanisms that were designed for a different function
+limits the evolvability of the original intends. 
 
-This kind of interaction ends up having several negative
-effects, however:
+Increased deployment of encryption can and will change this situation.
+E.g. QUIC replaces TCP for various application and protects all end-to-end
+signals to only be accessible by the endpoint, ensuring evolvability. 
+QUIC does expose information dedicated for on-path elements to consume
+by design explicit signal for specific use cases, such as the Spin bit
+for latency measurements or connection ID that can be used by 
+load balancers {{I-D.ietf-quic-managability}} but information is limited
+to only those use cases. Each new use cases requires additional action.
 
-* Ossifying protocols by introducing unintended parties that may not be updating
-* Creating systemic incentives against deploying more secure or private versions of protocols
-* Basing network behaviour on information that may be incomplete or incorrect
-* Creating a model where network entities expect to be able to use
-  rich information about sessions passing through
+Such explicit signals that are specifically designed for the use of on-path
+function, while all other information is appropriately protected, enables
+an architecturally clean approach with the aims to use and manage the
+existing network infrastructure most efficiently as well as improve the
+quality of experience for those this technology is build for - the user.
 
-For instance, features such as DNS resolution or TLS setup have been
-used beyond their original intent, such as name filtering, MAC
-addresses used for access control, captive portal implementations that
-employ taking over cleartext HTTP sessions, and so on.
-
-We should acknowledge that is was a mistake to provide some of the
-information without protection. But we also need to work on solutions
-for at least some of the the needs that inspired the previously used
-interactions.  Such solutions are likely more complex than the
-interactions they replace, but hopefully also architecturally cleaner,
-secure, and future proof.
-
-Many attempts have been made at network - application collaboration
-using path signals.  Section 2 discusses some of the experiences and
-guidelines determine from those attempts. This draft then focuses on
-the specific question of what collaboration modes are useful. The
-draft attempts to provide guidance in the form of architectural
-principles.
+This draft then discusses different approaches for explicit collaboration
+and provides guidance on architectural principles to design new mechanisms.
 
 # Past Guidance
 
@@ -158,6 +155,22 @@ Transition (ITAT) workshop report {{RFC7305}} is also recommended
 reading on this same general topic. And {{RFC6709}} discusses protocol
 extensibility, and provides general advice on the importance of global
 interoperability and so on.
+
+# Problems with existing implicit signals
+
+This kind of interaction ends up having several negative
+effects:
+
+* Ossifying protocols by introducing unintended parties that may not be updating
+* Creating systemic incentives against deploying more secure or private versions of protocols
+* Basing network behaviour on information that may be incomplete or incorrect
+* Creating a model where network entities expect to be able to use
+  rich information about sessions passing through
+
+For instance, features such as DNS resolution or TLS setup have been
+used beyond their original intent, such as name filtering, MAC
+addresses used for access control, captive portal implementations that
+employ taking over cleartext HTTP sessions, and so on.
 
 # Principles
 
