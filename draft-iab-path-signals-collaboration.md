@@ -56,7 +56,7 @@ informative:
 
 Encryption and other security mechanisms are on the rise on all layers of
 the stack, protecting user data and making network operations more secured.
-Further encryption is also a tool to address ossification that has been observed
+Further, encryption is also a tool to address ossification that has been observed
 on various layers of the stack over time. Separation of functions into layers
 and enforcement of layer boundaries based on encryption supports selected exposure to
 those entities that are addressed by a function on a certain layer. A clear
