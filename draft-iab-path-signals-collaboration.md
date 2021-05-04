@@ -54,18 +54,16 @@ informative:
    
 --- abstract
 
-Path signals are messages to or from on-path elements examining transport
-protocols. Current preference for good protocol design indicates
-desire for constructing explict rather than implicit signals to carry
-information. For instance, the ability of various middleboxes to read
-TCP messaging was an implicit signal that lead to difficulties in
-evolving the TCP protocol without breaking connectivity through some
-of those middleboxes.
-
-This document discusses how information could be passed in these path
-signals, and provides some advice on what collaboration modes might be
-beneficial, and which might be less likely to be used by applications
-or networks.
+Encryption and other security mechansim are on the rise on all layers of
+the stack, protecting user data and making network opertations more secured.
+Further encryption is also a tool to address ossification that has been observed
+on various layers of the stack over time. Seperation of functions into layers
+and enforcement of layer bounderies based on encryption supports selectd exposure to
+those entities that are addressed by a function on a certain layer. A clear
+separation supports innovation and also enables new opportunities for collabortive
+functions. RFC8558 describes path signals as messages to or from on-path elements.
+This document states principles for designing mechansisms that use or provide
+path signals and calls for actions on specific valuable cases.
 
 --- middle
 
