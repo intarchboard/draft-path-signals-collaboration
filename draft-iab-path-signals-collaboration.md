@@ -54,15 +54,15 @@ informative:
    
 --- abstract
 
-Encryption and other security mechansim are on the rise on all layers of
-the stack, protecting user data and making network opertations more secured.
+Encryption and other security mechanisms are on the rise on all layers of
+the stack, protecting user data and making network operations more secured.
 Further encryption is also a tool to address ossification that has been observed
-on various layers of the stack over time. Seperation of functions into layers
-and enforcement of layer bounderies based on encryption supports selectd exposure to
+on various layers of the stack over time. Separation of functions into layers
+and enforcement of layer boundaries based on encryption supports selected exposure to
 those entities that are addressed by a function on a certain layer. A clear
-separation supports innovation and also enables new opportunities for collabortive
+separation supports innovation and also enables new opportunities for collaborative
 functions. RFC8558 describes path signals as messages to or from on-path elements.
-This document states principles for designing mechansisms that use or provide
+This document states principles for designing mechanisms that use or provide
 path signals and calls for actions on specific valuable cases.
 
 --- middle
