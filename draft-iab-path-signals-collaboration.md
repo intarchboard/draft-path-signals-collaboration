@@ -46,7 +46,8 @@ informative:
   RFC6709:
   RFC7305:
   RFC8558:
-  I-D.ietf-quic-transport:
+  RFC9000:
+  I-D.ietf-quic-manageability:
   I-D.irtf-panrg-what-not-to-do:
   I-D.per-app-networking-considerations:
   I-D.arkko-path-signals-information:
@@ -96,11 +97,11 @@ limits the evolvability of the original intends.
 
 Increased deployment of encryption can and will change this situation.
 E.g. QUIC replaces TCP for various application and protects all end-to-end
-signals to only be accessible by the endpoint, ensuring evolvability. 
+signals to only be accessible by the endpoint, ensuring evolvability {{RFC9000}}. 
 QUIC does expose information dedicated for on-path elements to consume
 by design explicit signal for specific use cases, such as the Spin bit
 for latency measurements or connection ID that can be used by 
-load balancers {{I-D.ietf-quic-managability}} but information is limited
+load balancers {{I-D.ietf-quic-manageability}} but information is limited
 to only those use cases. Each new use cases requires additional action.
 
 Such explicit signals that are specifically designed for the use of on-path
@@ -329,4 +330,5 @@ etc. Perhaps designs that work on aggregates would work better.
 The authors would like to thank everyone at the IETF, the IAB, and our
 day jobs for interesting thoughts and proposals in this space.
 Fragments of this document were also in
-{{I-D.arkko-path-signals-information}} that was published earlier.
+{{I-D.per-app-networking-considerations}} and 
+{{I-D.arkko-path-signals-information}} that were published earlier.
