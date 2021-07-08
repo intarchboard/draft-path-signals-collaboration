@@ -62,7 +62,7 @@ on various layers of the stack over time. Separation of functions into layers
 and enforcement of layer boundaries based on encryption supports selected exposure to
 those entities that are addressed by a function on a certain layer. A clear
 separation supports innovation and also enables new opportunities for collaborative
-functions. RFC8558 describes path signals as messages to or from on-path elements.
+functions. RFC 8558 describes path signals as messages to or from on-path elements.
 This document states principles for designing mechanisms that use or provide
 path signals and calls for actions on specific valuable cases.
 
@@ -75,9 +75,10 @@ to control information access and protects again ossification by avoiding
 unintended dependencies and requiring active maintenance. The increased
 deployment of encryption provides an opportunity to reconsider parts of
 Internet architecture that have rather used implicit derivation of input
-signals for on-path functions than explicit signaling, as recommended by RFC8558.
+signals for on-path functions than explicit signaling, as recommended
+by RFC 8558 {{RFC8558}}.
 
-{{RFC8558}} defines the term path signals as signals to or from on-path
+RFC 8558 defines the term path signals as signals to or from on-path
 elements. Today path signals are often implicit, e.g. derived from
 in-clear end-to-end information by e.g. examining transport protocols. For
 instance, on-path elements use various fields of the TCP header {{RFC0793}}
