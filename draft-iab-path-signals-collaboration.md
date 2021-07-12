@@ -44,7 +44,8 @@ informative:
   RFC0793:
   RFC5218: 
   RFC6709:
-  RFC7305:
+  RFC7258: 
+  RFC7305: 
   RFC8558:
   RFC9000:
   I-D.ietf-quic-manageability:
@@ -52,6 +53,13 @@ informative:
   I-D.per-app-networking-considerations:
   I-D.arkko-path-signals-information:
   I-D.iab-covid19-workshop:
+  Claffy2015:
+     title: "Adding Enhanced Services to the Internet: Lessons from History"
+     seriesinfo: "TPRC 43: The 43rd Research Conference on Communication, Information and Internet Policy Paper"
+     date: April 2015
+     author:
+     - ins: kc Claffy
+     - ins: D. Clark
    
 --- abstract
 
@@ -96,6 +104,20 @@ information that was actually desired. Further, dependencies on
 information and mechanisms that were designed for a different function
 limits the evolvability of the original intends. 
 
+This kind of interaction ends up having several negative
+effects:
+
+* Ossifying protocols by introducing unintended parties that may not be updating
+* Creating systemic incentives against deploying more secure or private versions of protocols
+* Basing network behaviour on information that may be incomplete or incorrect
+* Creating a model where network entities expect to be able to use
+  rich information about sessions passing through
+
+For instance, features such as DNS resolution or TLS setup have been
+used beyond their original intent, such as name filtering, MAC
+addresses used for access control, captive portal implementations that
+employ taking over cleartext HTTP sessions, and so on.
+
 Increased deployment of encryption can and will change this situation.
 E.g. QUIC replaces TCP for various application and protects all end-to-end
 signals to only be accessible by the endpoint, ensuring evolvability {{RFC9000}}. 
@@ -111,17 +133,22 @@ an architecturally clean approach with the aims to use and manage the
 existing network infrastructure most efficiently as well as improve the
 quality of experience for those this technology is build for - the user.
 
-This draft then discusses different approaches for explicit collaboration
-and provides guidance on architectural principles to design new mechanisms.
+This draft discusses different approaches for explicit collaboration
+and provides guidance on architectural principles to design new
+mechanisms. {{past}} discusses past guidance, {{principles}}
+principles that good design can follow, along with some examples as
+well explanation of situations that not following these principles can
+lead to. {{research}} points to topics that need more to be looked at
+more carefully before any guidance can be given.
 
-# Past Guidance
+# Past Guidance {#past}
 
 Incentives are a well understood problem in general but perhaps not
 fully internalised for various designs attempting to establish
 collaboration between applications and path elements. The
 principle is that both receiver and sender of information must acquire
 tangible and immediate benefits from the communication, such as
-improved performance,
+improved performance.
 
 A related issue is understanding whether a business
 model or ecosystem change is needed. Some designs may work well without any
@@ -146,7 +173,8 @@ catalogue of past issues to avoid. It also provides relevant
 guidelines for new work, from discussion of incentives to more
 specific observations, such as the need for outperforming end-to-end
 mechanisms (Section 4.4), considering the need for per-connection
-state (Section 4.6), and so on.
+state (Section 4.6), taking into account the latency involved in
+reacting to distant signals, and so on.
 
 There are also more general guidance documents, e.g., {{RFC5218}}
 discusses protocol successes and failures, and provides general advice
@@ -156,29 +184,10 @@ reading on this same general topic. And {{RFC6709}} discusses protocol
 extensibility, and provides general advice on the importance of global
 interoperability and so on.
 
-# Problems with existing implicit signals
-
-This kind of interaction ends up having several negative
-effects:
-
-* Ossifying protocols by introducing unintended parties that may not be updating
-* Creating systemic incentives against deploying more secure or private versions of protocols
-* Basing network behaviour on information that may be incomplete or incorrect
-* Creating a model where network entities expect to be able to use
-  rich information about sessions passing through
-
-For instance, features such as DNS resolution or TLS setup have been
-used beyond their original intent, such as name filtering, MAC
-addresses used for access control, captive portal implementations that
-employ taking over cleartext HTTP sessions, and so on.
-
-# Principles
+# Principles {#principles}
 
 This section attempts to provide some architecture-level principles
-that would help future designers, explain past issues and recommend
-useful models to apply.
-
-...
+that would help future designers and recommend useful models to apply.
 
 A large number of our protocol mechanisms today fall into one of two
 categories: authenticated and private communication that is only visible
@@ -186,16 +195,20 @@ by the end-to-end nodes; and unauthenticated public communication that
 is visible to all nodes on a path. RFC 8558 explores the line between data
 that is protected and path signals.
 
-There is a danger in taking a position that is too extreme towards either
-exposing all information to the path, or hiding all information from the
-path. Exposed information encourages pervasive monitoring, which is
-described in RFC 7258. But a lack of all path signaling, on the other hand,
-may be harmful to network management and the ability for networks to
-provide useful services. There are many cases where elements on the network
-path can provide beneficial services, but only if they can coordinate with
-the endpoints. This tradeoff between privacy and network functions has in
-some cases led to an adversarial stance between privacy and the ability for
-the network path to provide intended functions.
+There is a danger in taking a position that is too extreme towards
+either exposing all information to the path, or hiding all information
+from the path. Exposed information encourages pervasive monitoring,
+which is described in RFC 7258 {{RFC7258}}.
+
+But a lack of all path signaling, on the other hand, may be harmful to
+network management, debugging, or the ability for networks to provide
+the most efficient services. There are many cases where elements on
+the network path can provide beneficial services, but only if they can
+coordinate with the endpoints. This tradeoff between privacy and
+network functions has in some cases led to an adversarial stance
+between privacy and the ability for the network path to provide
+intended functions. It also affects the ability of service providers
+and others observe why problems occur {{I-D.iab-covid19-workshop}}.
 
 One way to resolve this conflict is to add more explicit trust and
 coordination between endpoints and network devices. VPNs are a good example
@@ -207,18 +220,20 @@ The goal of improving privacy and trust on the Internet does not necessarily
 need to remove the ability for network elements to perform beneficial
 functions. We should instead improve the way that these functions are
 achieved. Our goals should be:
-- To ensure that information is distributed intentionally, not accidentally, as noted in {{RFC8558}};
-- To understand the privacy and other implications of any distributed  information; and
-- To gate the distribution of information on the consent of the relevant parties
+
+* To ensure that information is distributed intentionally, not accidentally, as noted in {{RFC8558}};
+* To understand the privacy and other implications of any distributed  information; and
+* To gate the distribution of information on the consent of the relevant parties
 
 These goals for distribution apply equally to senders, receivers, and path
 elements.
 
 We can establish some basic questions that any new network path functions
 should consider:
-- What is the minimum set of entities that need to be involved in order to perform this function?
-- What is the minimum information each entity in this set needs to perform its part of the function correctly and reliably?
-- Which entities must consent to each piece of information that is shared?
+
+* What is the minimum set of entities that need to be involved in order to perform this function?
+* What is the minimum information each entity in this set needs to perform its part of the function correctly and reliably?
+* Which entities must consent to each piece of information that is shared?
 
 Consent and trust must determine the distribution of information. The set of
 entities that need to consent is determined by the scope and specificity of
@@ -237,32 +252,65 @@ incumbent upon us to not ignore the use case, but instead to define the high
 bar for consent and trust, and thus define a limited applicability for those
 functions.
 
-## Parties Need to Consent
+## Intentional Distribution
 
-...
+This guideline is best expressed in RFC 8558:
 
-## Nature of Information
+   "Fundamentally, this document recommends that implicit signals
+   should be avoided and that an implicit signal should be replaced
+   with an explicit signal only when the signal's originator intends
+   that it be used by the network elements on the path.  For many
+   flows, this may result in the signal being absent but allows it to
+   be present when needed."
 
-One common problem in finding a workable solution for network -
-application collaboration is information leakage. All parties are
-afraid of either their own propietary information or the users' data
-leaking to others. Oddly enough, no one is usually worried about
-users' data leaking to themselves, but we digress. :-) 
+Intentional distribution applies to other informal flow directions as
+well. For instance, a network element should not unintentionally leak
+information that is visible to endpoints. An explicit decision is
+needed for a specific information to be provided, along with analysis
+of the security and privacy implications of that information.
 
-{{I-D.per-app-networking-considerations}} discusses how applications
-may be identified through collaboration mechanisms. This can be
-harmful, as in extreme cases it may lead to undesirable prioritization
-decisions or even blocking certain
-applications. {{I-D.per-app-networking-considerations}} explains how
-to reduce the latter problem by categories or requested service rather
-than specific application identity, such as providing the category
-"video call service" rather than the name of a particular application
-performing conference call or video call services. This points to a
-more general principle of information specificity, providing only the
-information that is needed for the other party to perform the
-collaboration task that is desired by this party, and not more. This
-applies to information sent by an application about itself,
-information sent about users, or information sent by the network.
+## Minimum Set of Entities
+
+It is recommended that a design makes it clear which parties are
+needed to perform a particular function. In some cases this can be the
+application and all routers on the path. In other cases this can be a
+more limited set, e.g., the application and a network element that
+satisfy some additional condition, such as the ability to act in some
+specific way or the ability to securely process information provided
+by the other parties.
+
+## Consent of Parties
+
+Three distinct types of consent are recommended for collaboration or
+information sharing:
+
+* A corollary of the intentional distribution is that the sender
+  needs to agree to sending the information. Or that the requester
+  for an action needs to agree to make a request; it should not be an
+  implicit decision by the receiver that information was sent or a
+  request was made, just because a packet happened to be formed in a
+  particular way.
+
+* At the same time, the recipient of information or the target of a
+  request should agree to wishing to receive the information. It
+  should not be burdened with extra processing if it does not have
+  willigness or a need to do so. This happens naturally in most
+  protocol designs, but has been a problem for some cases where
+  "slow path" packet processing is required or implied, and the
+  recipient or router did not have willingness for this.
+
+* Internet communications are not made for the applications, they are
+  ultimately made on behalf of users. Information relating to the
+  users is something that both networks and applications should be
+  careful with, and not be shared without the user's consent.
+
+## Minimum Information
+
+Parties should provide only the information that is needed for the
+other party to perform the collaboration task that is desired by this
+party, and not more. This applies to information sent by an
+application about itself, information sent about users, or information
+sent by the network.
 
 An architecture can follow the guideline from RFC 8558 in using
 explicit signals, but still fail to differentiate properly between
@@ -287,44 +335,92 @@ of applications may be desirable to be given by application providers,
 if it enables prioritization that would improve service, e.g.,
 differentiation between interactive and non-interactive services.
 
-For the network to application direction there's less directly
-sensitive information. Various network conditions, predictive
+For the network to application direction there is similarly sensitive
+information, such as the precise location of the user.
+On the other hand, various generic network conditions, predictive
 bandwidth and latency capabilities, and so on might be attractive
 information that applications can use to determine, for instance,
 optimal strategies for changing codecs.
 
-However, care needs to be take to ensure that neither private
-information about the individual user (such as user's physical
-location) is not indirectly exposed through this
-information. Similarly, this information should not form a mechanism
+However, this information should not form a mechanism
 to provide a side-channel into what other users are doing.
 
 While information needs to be specific and provided on a per-need
-basis, it should also be declarative rather than specify some actions.
-The information should show what the application needs, for instance,
-rather than requiring the path elements to behave in some specific fashion.
+basis, it is often beneficial to provide declarative information that,
+for instance, expresses application needs than makes specific requests
+for action.
 
-One should also consider ways to verify the provided information, or
-understand the implications if the information provided from the
-application may not be correct, or has been modified.
+## Protecting Information and Authentication
 
-## Authenticating Discussion Partners 
+Some simple forms of information often exist in cleartext
+form, e.g, ECN bits from routers are generally not authenticated
+or integrity protected. This is possible when the information
+exchanges are advisory in their nature, and do not carry any
+significantly sensitive information from the parties.
 
-(even outside the client and server)
+In other cases it may be necessary to establish a secure
+channel for communication with a specific other party, e.g.,
+between a network element and an application. This channel
+may need to be authenticated, integrity protected and encrypted.
+This is necessary, for instance, if the particular information or
+request needs to be share in confidency only with a particular,
+trusted node, or there's a danger of an attack where someone else
+may forge messages that could endanger the communication.
 
-...
+However, it is important to note that authentication does not equal
+trust. Whether a communication is with an application server or
+network element that can be shown to be associated with a particular
+domain name, it does not follow that information about the user can be
+safely sent to it.
 
-## Authentication does not equal Trust
+In some cases, the ability of a party to show that it is on the path
+can be beneficial. For instance, an ICMP error that refers to a valid
+flow may be more trustworthy than any ICMP error claiming to come from
+an address.
 
-...
+Other cases may require more substantial assurances. For instance,
+a specific trust arrangement may be established between a particular
+network and application. Or technologies such as confidential
+computing can be applied to provide an assurance that information
+processed by a party is handled in an appropriate manner.
 
-## Granularity
+# Further Work {#research}
 
-In the IAB Covid-19 Network Impacts workshop Jana Iyengar brought up
-the granularity of operations {{I-D.iab-covid19-workshop}}.  There are
-many reasons why per-flow designs are problematic: scalability, need
-to release information about individual user’s individual activities,
-etc. Perhaps designs that work on aggregates would work better.
+This is a developing field, and it is expected that our understanding
+continues to grow. The recent changes with regards to much higher use
+of encryption at different protocol layers, the consolidation or more
+and more traffic to the same destinations, and so on have also greatly
+impacted the field.
+
+While there are some examples of modern, well-designed collaboration
+mechanisms, clearly more work is needed. Many complex cases would
+require significant developments in order to become feasible.
+
+Some of the most difficult areas are listed below. Research on these
+topics would be welcome.
+
+* Business arrangements. Many designs -- for instance those related to
+  quality-of-service -- involve an expectation of paying for a
+  service.  This is possible and has been successful within domains,
+  e.g., users can pay for higher data rates or data caps in their ISP
+  networks. However, it is a business-wise much harder proposition for
+  end-to-end connections across multiple administrative domains
+  {{Claffy2015}} {{I-D.irtf-panrg-what-not-to-do}}.
+
+* Secure communications with path elements. This has been a difficult
+  topic, both from the mechanics and scalability point view, but also
+  because there is no easy way to find out which parties to trust or
+  what trust roots would be appropriate. As a result, most
+  application-network element interaction in a modern
+
+* The use of path signals for reducing the effects of
+  denial-of-service attacks, e.g., in the form of modern "source
+  quench" designs.
+
+* Ways of protecting information when held by network elements or
+  servers, beyond communications security.
+
+* Sharing information from networks to applications.
 
 # Acknowledgments
 
