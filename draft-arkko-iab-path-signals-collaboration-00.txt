@@ -14,7 +14,7 @@ Expires: 13 January 2022                                           Cisco
 
 
 Considerations on Application - Network Collaboration Using Path Signals
-              draft-akhp-path-signals-collaboration-00
+              draft-arkko-iab-path-signals-collaboration-00
 
 Abstract
 
