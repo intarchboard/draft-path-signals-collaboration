@@ -53,6 +53,7 @@ informative:
   I-D.per-app-networking-considerations:
   I-D.arkko-path-signals-information:
   I-D.iab-covid19-workshop:
+  I-D.trammell-stackevo-explicit-coop:
   Claffy2015:
      title: "Adding Enhanced Services to the Internet: Lessons from History"
      seriesinfo: "TPRC 43: The 43rd Research Conference on Communication, Information and Internet Policy Paper"
@@ -221,9 +222,9 @@ need to remove the ability for network elements to perform beneficial
 functions. We should instead improve the way that these functions are
 achieved. Our goals should be:
 
-* To ensure that information is distributed intentionally, not accidentally, as noted in {{RFC8558}};
-* To understand the privacy and other implications of any distributed  information; and
-* To gate the distribution of information on the consent of the relevant parties
+* To ensure that information is distributed intentionally, not accidentally;
+* to understand the privacy and other implications of any distributed  information; and
+* to gate the distribution of information on the consent of the relevant parties
 
 These goals for distribution apply equally to senders, receivers, and path
 elements.
@@ -231,13 +232,9 @@ elements.
 We can establish some basic questions that any new network path functions
 should consider:
 
-* What is the minimum set of entities that need to be involved in order to perform this function?
-* What is the minimum information each entity in this set needs to perform its part of the function correctly and reliably?
-* Which entities must consent to each piece of information that is shared?
-
-Consent and trust must determine the distribution of information. The set of
-entities that need to consent is determined by the scope and specificity of
-the information being shared. 
+* What is the minimum set of entities that need to be involved?
+* What is the minimum information each entity in this set needs?
+* Which entities must consent to the information exchange?
 
 If we look at many of the ways network path functions are achieved today, we
 find that many if not most of them fall short the standard set up by the
@@ -271,15 +268,19 @@ of the security and privacy implications of that information.
 
 ## Minimum Set of Entities
 
-It is recommended that a design makes it clear which parties are
-needed to perform a particular function. In some cases this can be the
-application and all routers on the path. In other cases this can be a
-more limited set, e.g., the application and a network element that
-satisfy some additional condition, such as the ability to act in some
-specific way or the ability to securely process information provided
-by the other parties.
+It is recommended that a design identify the minimum number of
+entities needed to share a specific signal required for an identified
+function.  In some cases this will be a very limited set, e.g. when
+the application needs to provide a signal to a specific gateway
+function.  In other cases, such as congestion control, a signal might
+be shared with every router along the path, since each should be aware
+of the congestion.
 
 ## Consent of Parties
+
+Consent and trust must determine the distribution of information. The set of
+entities that need to consent is determined by the scope and specificity of
+the information being shared. 
 
 Three distinct types of consent are recommended for collaboration or
 information sharing:
@@ -336,14 +337,13 @@ if it enables prioritization that would improve service, e.g.,
 differentiation between interactive and non-interactive services.
 
 For the network to application direction there is similarly sensitive
-information, such as the precise location of the user.
-On the other hand, various generic network conditions, predictive
-bandwidth and latency capabilities, and so on might be attractive
-information that applications can use to determine, for instance,
-optimal strategies for changing codecs.
-
-However, this information should not form a mechanism
-to provide a side-channel into what other users are doing.
+information, such as the precise location of the user.  On the other
+hand, various generic network conditions, predictive bandwidth and
+latency capabilities, and so on might be attractive information that
+applications can use to determine, for instance, optimal strategies
+for changing codecs. However, information given by the network about
+load conditions and so on should not form a mechanism to provide a
+side-channel into what other users are doing.
 
 While information needs to be specific and provided on a per-need
 basis, it is often beneficial to provide declarative information that,
@@ -401,24 +401,33 @@ topics would be welcome.
 
 * Business arrangements. Many designs -- for instance those related to
   quality-of-service -- involve an expectation of paying for a
-  service.  This is possible and has been successful within domains,
-  e.g., users can pay for higher data rates or data caps in their ISP
-  networks. However, it is a business-wise much harder proposition for
-  end-to-end connections across multiple administrative domains
-  {{Claffy2015}} {{I-D.irtf-panrg-what-not-to-do}}.
+  service.  This is possible and has been successful within individual
+  domains, e.g., users can pay for higher data rates or data caps in
+  their ISP networks. However, it is a business-wise much harder
+  proposition for end-to-end connections across multiple
+  administrative domains {{Claffy2015}}
+  {{I-D.irtf-panrg-what-not-to-do}}.
 
 * Secure communications with path elements. This has been a difficult
   topic, both from the mechanics and scalability point view, but also
   because there is no easy way to find out which parties to trust or
-  what trust roots would be appropriate. As a result, most
-  application-network element interaction in a modern
+  what trust roots would be appropriate. Some application-network
+  element interaction designs have focused on information (such as ECN
+  bits) that is distributed openly within a path, but there are limited
+  examples of designs with secure information exchange with specific nodes.
 
 * The use of path signals for reducing the effects of
   denial-of-service attacks, e.g., in the form of modern "source
   quench" designs.
 
 * Ways of protecting information when held by network elements or
-  servers, beyond communications security.
+  servers, beyond communications security. For instance, host
+  applications commonly share sensitive information about the user's
+  actions with other nodes, starting from basic data such as domain
+  names learned by DNS infrastructure or source and destination
+  addresses and protocol header information learned by all routers on
+  the path, to detailed end user identity and other information
+  learned by the servers.
 
 * Sharing information from networks to applications.
 
@@ -428,4 +437,6 @@ The authors would like to thank everyone at the IETF, the IAB, and our
 day jobs for interesting thoughts and proposals in this space.
 Fragments of this document were also in
 {{I-D.per-app-networking-considerations}} and 
-{{I-D.arkko-path-signals-information}} that were published earlier.
+{{I-D.arkko-path-signals-information}} that were published earlier. We
+would also like to acknowledge {{I-D.trammell-stackevo-explicit-coop}}
+for presenting similar thoughts.
