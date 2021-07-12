@@ -3,7 +3,7 @@ title: Considerations on Application - Network Collaboration Using Path Signals
 abbrev: Path Signals Collab
 docname: draft-iab-path-signals-collaboration-latest
 date:
-category: bcp
+category: info
 
 ipr: trust200902
 keyword: Internet-Draft
