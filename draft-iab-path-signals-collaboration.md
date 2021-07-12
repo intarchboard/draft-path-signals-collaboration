@@ -54,6 +54,7 @@ informative:
   I-D.arkko-path-signals-information:
   I-D.iab-covid19-workshop:
   I-D.trammell-stackevo-explicit-coop:
+  I-D.flinck-mobile-throughput-guidance:
   Claffy2015:
      title: "Adding Enhanced Services to the Internet: Lessons from History"
      seriesinfo: "TPRC 43: The 43rd Research Conference on Communication, Information and Internet Policy Paper"
@@ -429,7 +430,10 @@ topics would be welcome.
   the path, to detailed end user identity and other information
   learned by the servers.
 
-* Sharing information from networks to applications.
+* Sharing information from networks to applications. Some proposals
+  have been made in this space (see, e.g.,
+  {{I-D.flinck-mobile-throughput-guidance}}) but there are no
+  successful or deployed mechanisms today.
 
 # Acknowledgments
 
