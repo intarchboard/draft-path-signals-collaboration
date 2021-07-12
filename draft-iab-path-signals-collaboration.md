@@ -55,6 +55,8 @@ informative:
   I-D.iab-covid19-workshop:
   I-D.trammell-stackevo-explicit-coop:
   I-D.flinck-mobile-throughput-guidance:
+  I-D.arkko-dns-confidential:
+  I-D.thomson-http-oblivious:
   Claffy2015:
      title: "Adding Enhanced Services to the Internet: Lessons from History"
      seriesinfo: "TPRC 43: The 43rd Research Conference on Communication, Information and Internet Policy Paper"
@@ -62,6 +64,20 @@ informative:
      author:
      - ins: kc Claffy
      - ins: D. Clark
+  Oblivious:
+   title: "Oblivious DNS: Practical privacy for DNS queries" 
+   date: 2019
+   author:
+    - ins: P. Schmitt
+   seriesinfo: "Proceedings on Privacy Enhancing Technologies 2019.2: 228-244"
+  PDoT:
+   title: "PDoT: Private DNS-over-TLS with TEE Support"
+   author:
+    - ins: Y. Nakatsuka
+    - ins: A. Paverd
+    - ins: G. Tsudik
+   date: February 2021
+   seriesinfo: "Digit. Threat.: Res. Pract., Vol. 2, No. 1, Article 3, https://dl.acm.org/doi/fullHtml/10.1145/3431171"
    
 --- abstract
 
@@ -304,7 +320,11 @@ information sharing:
 * Internet communications are not made for the applications, they are
   ultimately made on behalf of users. Information relating to the
   users is something that both networks and applications should be
-  careful with, and not be shared without the user's consent.
+  careful with, and not be shared without the user's consent. This is
+  not always easy, as the interests of the user and (for instance)
+  application developer may not always be inline; some applications
+  may wish to collect more information about the user than the user
+  would like.
 
 ## Minimum Information
 
@@ -428,7 +448,12 @@ topics would be welcome.
   names learned by DNS infrastructure or source and destination
   addresses and protocol header information learned by all routers on
   the path, to detailed end user identity and other information
-  learned by the servers.
+  learned by the servers. Some solutions are starting to exist for this
+  but are not widely deployed,
+  at least not today {{Oblivious}} {{PDoT}}
+  {{I-D.arkko-dns-confidential}} {{I-D.thomson-http-oblivious}}.
+  These solutions address also very specific parts of the issue,
+  and more work remains.
 
 * Sharing information from networks to applications. Some proposals
   have been made in this space (see, e.g.,
