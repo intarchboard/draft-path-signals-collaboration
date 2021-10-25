@@ -1,6 +1,7 @@
 *.html
 *.redxml
 *.swp
+.DS_Store
 draft-iab-path-signals-collaboration.txt
 draft-arkko-path-signals-information.txt
 *.upload
