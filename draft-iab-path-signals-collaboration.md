@@ -172,7 +172,7 @@ improved performance.
 A related issue is understanding whether a business model or ecosystem
 change is needed. For instance, relative prioritization between
 different flows of a user or an application does not require
-agreements or payments. But requesting prioritisation over other
+agreements or payments. But requesting prioritization over other
 people’s traffic may imply that you have to pay for that which may not
 be easy even for a single provider let alone across many.
 
