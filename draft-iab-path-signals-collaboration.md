@@ -183,7 +183,7 @@ will be used whether intended or not. Protocol designers should
 consider either hiding these signals when the information should not
 be visible, or using explicit signals when it should be.
 
-{{I-D.irtf-panrg-what-not-to-do}} discusses many past failure cases, a
+{{RFC9049}} discusses many past failure cases, a
 catalogue of past issues to avoid. It also provides relevant
 guidelines for new work, from discussion of incentives to more
 specific observations, such as the need for outperforming end-to-end
