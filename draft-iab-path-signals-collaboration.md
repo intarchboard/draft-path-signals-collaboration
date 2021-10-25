@@ -226,17 +226,17 @@ the network path can provide beneficial services, but only if they can
 coordinate with the endpoints. It also affects the ability of service providers
 and others observe why problems occur {{I-D.iab-covid19-workshop}}.
 
-This situation is sometimes cast as an adversarial tradeoff stance
+This situation is sometimes cast as an adversarial tradeoff
 between privacy and the ability for the network path to provide
 intended functions. However, this is perhaps an unnecessarily
-polarized characterization as a zero sum situation. Not all
+polarized characterization as a zero-sum situation. Not all
 information passing implies loss of privacy. For instance, performance
 information or preferences do not require disclosing user or
 application identity or what content is being accessed, network
 congestion status information does not have reveal network topology or
 the status of other users, and so on.
 
-This points to one way to resolve the adversity, the careful of design
+This points to one way to resolve the adversity: the careful of design
 of what information is passed.
 
 Another approach is to employ explicit trust and coordination between
