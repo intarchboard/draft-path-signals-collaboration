@@ -299,55 +299,21 @@ of the security and privacy implications of that information.
 
 It is recommended that a design identify the minimum number of
 entities needed to share a specific signal required for an identified
-function.  In some cases this will be a very limited set, e.g. when
-the application needs to provide a signal to a specific gateway
+function. In some cases this will be a very limited set, e.g. when the
+application needs to provide a signal to a specific gateway
 function. In other cases, such as congestion control, a signal might
 be shared with every router along the path, since each should be aware
 of the congestion.
 
-It is tempting to consider these limitations in the context of
-closed, private networks. While limiting distribution to a closed network
-can be useful in some cases, in general interactions relate to
-different entities for different use cases, and have to be considered
-separately, likely requiring a different treatment than simply allowing
-all information exchanges within the closed network.
-
-In general, we recommend specific analysis of the security issues
-surrounding any specific information exchange rather than relying a
-blanket closed network/other network model. Some examples:
-
-* A VPN gateway might inspect the status of the devices connecting to
-  it, including for instance installed software versions. However, we
-  generally do not let any node to perform such detailed inspection
-  just because it appears to be in the current network. Connection to
-  the VPN gateways is typically authenticated and explicit configured
-  to be trusted.
-
-* Congestion status, bandwidth/latency preferences, and performance
-  characteristics are typically exchanged with any router on the path,
-  regardless of their inclusion in a closed network or not.
-
-* Even in truly closed networks, such as in an automation network
-  operated by a factory, it may be beneficial to rely on established,
-  specific mechanisms rather than pass some extra information about
-  the application. For instance, priority settings can be programmed
-  using applications marking priority traffic, or by binding
-  priorities to specific connections, VLANs, or device or subscription
-  identifiers, rather than passing new information from the
-  application.
-  
-It should be noted that the concept of a closed network may fit far
-fewer situations than appears at first sight. Even in a closed network
-with carefully managed components, there may be compromised components,
-as evidenced in the most extreme way by the Stuxnet worm that operated
-in an airgapped network.  Every system runs large amount of software,
-and it is often not practical or even possible to prevent compromised
-code even in a high-security setting, let alone in commercial or
-private networks. In addition, most "closed" networks have at least
-some needs and means to access rest of the Internet, e.g., corporate
-networks need to allow access to information in the Internet, device
-networks need to allow access to software updates and off-site
-resources, and so on.
+While it is tempting to consider removing these limitations in the
+context of closed, private networks, each interaction is still best
+considered separately, rather than simply allowing all information
+exchanges within the closed network.  Even in a closed network with
+carefully managed components there may be compromised components, as
+evidenced in the most extreme way by the Stuxnet worm that operated in
+an airgapped network.  Most "closed" networks have at least some needs
+and means to access the rest of the Internet, and should not be
+modeled as if they had an impenetrable security barrier.
 
 ## Consent of Parties
 
