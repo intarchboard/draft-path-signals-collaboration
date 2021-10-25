@@ -430,7 +430,7 @@ basis, it is often beneficial to provide declarative information that,
 for instance, expresses application needs than makes specific requests
 for action.
 
-### Carrying Information
+## Carrying Information
 
 There is a distinction between what information is passed and how it
 is carried. The actually sent information may be limited, while the
