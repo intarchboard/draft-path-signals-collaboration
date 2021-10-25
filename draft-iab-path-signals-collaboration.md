@@ -337,8 +337,8 @@ blanket closed network/other network model. Some examples:
   application.
   
 It should be noted that the concept of a closed network may fit far
-less situations than appears at first sight. Even in a closed network
-with carefully managed components there may be compromised components,
+fewer situations than appears at first sight. Even in a closed network
+with carefully managed components, there may be compromised components,
 as evidenced in the most extreme way by the Stuxnet worm that operated
 in an airgapped network.  Every system runs large amount of software,
 and it is often not practical or even possible to prevent compromised
