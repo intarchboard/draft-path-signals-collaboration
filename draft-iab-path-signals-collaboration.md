@@ -48,11 +48,11 @@ informative:
   RFC7305: 
   RFC8558:
   RFC9000:
+  RFC9049:
+  RFC9075: 
   I-D.ietf-quic-manageability:
-  I-D.irtf-panrg-what-not-to-do:
   I-D.per-app-networking-considerations:
   I-D.arkko-path-signals-information:
-  I-D.iab-covid19-workshop:
   I-D.trammell-stackevo-explicit-coop:
   I-D.flinck-mobile-throughput-guidance:
   I-D.arkko-dns-confidential:
@@ -224,7 +224,7 @@ network management, debugging, or the ability for networks to provide
 the most efficient services. There are many cases where elements on
 the network path can provide beneficial services, but only if they can
 coordinate with the endpoints. It also affects the ability of service providers
-and others observe why problems occur {{I-D.iab-covid19-workshop}}.
+and others observe why problems occur {{RFC9075}}.
 
 This situation is sometimes cast as an adversarial tradeoff
 between privacy and the ability for the network path to provide
@@ -468,7 +468,7 @@ topics would be welcome.
   their ISP networks. However, it is a business-wise much harder
   proposition for end-to-end connections across multiple
   administrative domains {{Claffy2015}}
-  {{I-D.irtf-panrg-what-not-to-do}}.
+  {{RFC9049}}.
 
 * Secure communications with path elements. This has been a difficult
   topic, both from the mechanics and scalability point view, but also
