@@ -217,7 +217,7 @@ from the path.
 Exposed information encourages pervasive monitoring, which is
 described in RFC 7258 {{RFC7258}}. Exposed information may also be
 used for commercial purposes, or form a basis for filtering that the
-applications or users do not wish.
+applications or users do not desire.
 
 But a lack of all path signaling, on the other hand, may be harmful to
 network management, debugging, or the ability for networks to provide
