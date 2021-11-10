@@ -425,7 +425,7 @@ channel for communication with a specific other party, e.g.,
 between a network element and an application. This channel
 may need to be authenticated, integrity protected and encrypted.
 This is necessary, for instance, if the particular information or
-request needs to be share in confidency only with a particular,
+request needs to be share in confidence only with a particular,
 trusted node, or there's a danger of an attack where someone else
 may forge messages that could endanger the communication.
 
@@ -450,7 +450,7 @@ processed by a party is handled in an appropriate manner.
 
 This is a developing field, and it is expected that our understanding
 continues to grow. The recent changes with regards to much higher use
-of encryption at different protocol layers, the consolidation or more
+of encryption at different protocol layers, the consolidation of more
 and more traffic to the same destinations, and so on have also greatly
 impacted the field.
 
