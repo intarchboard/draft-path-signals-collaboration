@@ -276,11 +276,13 @@ limit the scope of distribution or providing any negotiation or consent.
 Going forward, new standards work in the IETF needs to focus on
 addressing this gap by providing better alternatives and mechanisms
 for building functions that require some collaboration between
-endpoints and path elements. Note that not all of these functions can
-be achieved in a way that preserves a high level of user privacy from
-the network; in such cases, it is incumbent upon us to not ignore the
-use case, but instead to define the high bar for consent and trust,
-and thus define a limited applicability for those functions.
+endpoints and path elements. Note that not all current or possible
+functions can be achieved while satisfying today's stringent
+requirements, such as those on user privacy. In such cases, it is
+incumbent upon us to not ignore the use case, but instead to define
+a high bar for consent and trust, even if it may imply a limited
+applicability for a function, or even the inability to provide such
+functions in some cases.
 
 ## Intentional Distribution
 
