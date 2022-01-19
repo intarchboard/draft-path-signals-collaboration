@@ -273,13 +273,14 @@ find that many if not most of them fall short the standard set up by the
 questions above. Too often, they send unnecessary information or fail to
 limit the scope of distribution or providing any negotiation or consent.
 
-Going forward, new standards work in the IETF needs to focus on addressing
-this gap by providing better alternatives and mechanisms for providing path
-functions. Note that not all of these functions can be achieved in a way that
-preserves a high level of user privacy from the network; in such cases, it is
-incumbent upon us to not ignore the use case, but instead to define the high
-bar for consent and trust, and thus define a limited applicability for those
-functions.
+Going forward, new standards work in the IETF needs to focus on
+addressing this gap by providing better alternatives and mechanisms
+for building functions that require some collaboration between
+endpoints and path elements. Note that not all of these functions can
+be achieved in a way that preserves a high level of user privacy from
+the network; in such cases, it is incumbent upon us to not ignore the
+use case, but instead to define the high bar for consent and trust,
+and thus define a limited applicability for those functions.
 
 ## Intentional Distribution
 
