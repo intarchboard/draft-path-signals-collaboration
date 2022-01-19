@@ -506,9 +506,11 @@ topics would be welcome.
 The authors would like to thank everyone at the IETF, the IAB, and our
 day jobs for interesting thoughts and proposals in this space.
 Fragments of this document were also in
-{{I-D.per-app-networking-considerations}} and 
+{{I-D.per-app-networking-considerations}} and
 {{I-D.arkko-path-signals-information}} that were published earlier. We
 would also like to acknowledge {{I-D.trammell-stackevo-explicit-coop}}
 for presenting similar thoughts. Finally, the authors would like to
-thank Adrian Farrell, Toerless Eckert, and Jeffrey Haas for useful
-feedback in the IABOPEN session at IETF-111.
+thank Adrian Farrell, Toerless Eckert, Martin Thomson, Mark
+Nottingham, Luis M. Contreras, Watson Ladd, Vittorio Bertola, Andrew
+Campling, Eliot Lear, Spencer Dawkins, Christian Huitema, and Jeffrey
+Haas for useful feedback in the IABOPEN sessions and on the list.
