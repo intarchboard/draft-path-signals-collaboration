@@ -128,7 +128,7 @@ limits the evolvability of the protocols in question.
 The unplanned interaction ends up having several negative effects:
 
 * Ossifying protocols by introducing unintended parties that may not be updating
-* Creating systemic incentives against deploying more secure or private versions of protocols
+* Creating systemic incentives against deploying more secure or otherwise better versions of protocols
 * Basing network behaviour on information that may be incomplete or incorrect
 * Creating a model where network entities expect to be able to use
   rich information about sessions passing through
