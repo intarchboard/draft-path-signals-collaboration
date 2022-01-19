@@ -17,7 +17,8 @@ endif
 
 # draft-iab-path-signals-collaboration.txt draft-iab-path-signals-collaboration.html
 
-OLDREV=draft-arkko-iab-path-signals-collaboration-00.txt
+OLDREVNO=01
+OLDREV=draft-arkko-iab-path-signals-collaboration-$(OLDREVNO).txt
 
 compile actually-working-compile-without-v3-garbage: draft-iab-path-signals-collaboration.md
 	-@ssh jar@levy4.arkko.eu 'cd /tmp; rm *.txt *.md *.xml'
@@ -39,6 +40,6 @@ compile actually-working-compile-without-v3-garbage: draft-iab-path-signals-coll
 	scp jar@levy4.arkko.eu:/tmp/draft-iab-path-signals-collaboration.txt \
 		jar@levy4.arkko.eu:/tmp/draft-iab-path-signals-collaboration.html \
 		jar@levy4.arkko.eu:/tmp/draft-iab-path-signals-collaboration-from--beforejuly.diff.html \
-		jar@levy4.arkko.eu:/tmp/draft-iab-path-signals-collaboration-from-arkko-iab-path-signals-collaboration-00.diff.html \
+		jar@levy4.arkko.eu:/tmp/draft-iab-path-signals-collaboration-from-arkko-iab-path-signals-collaboration-$(OLDREVNO).diff.html \
 		.
 	scp draft-*-path-signals-*.txt draft-*-path-signals-*.html root@cloud3.arkko.eu:/var/www/www.arkko.com/html/ietf/iab

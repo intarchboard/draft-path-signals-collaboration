@@ -1,7 +1,7 @@
 ---
 title: Considerations on Application - Network Collaboration Using Path Signals
 abbrev: Path Signals Collab
-docname: draft-arkko-iab-path-signals-collaboration-01
+docname: draft-iab-path-signals-collaboration-00
 date:
 category: info
 
