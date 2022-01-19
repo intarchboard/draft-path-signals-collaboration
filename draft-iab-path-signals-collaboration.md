@@ -128,7 +128,7 @@ limits the evolvability of the protocols in question.
 The unplanned interaction ends up having several negative effects:
 
 * Ossifying protocols by introducing unintended parties that may not be updating
-* Creating systemic incentives against deploying more secure or otherwise better versions of protocols
+* Creating systemic incentives against deploying more secure or  otherwise updated versions of protocols
 * Basing network behaviour on information that may be incomplete or incorrect
 * Creating a model where network entities expect to be able to use
   rich information about sessions passing through
@@ -276,13 +276,13 @@ limit the scope of distribution or providing any negotiation or consent.
 Going forward, new standards work in the IETF needs to focus on
 addressing this gap by providing better alternatives and mechanisms
 for building functions that require some collaboration between
-endpoints and path elements. Note that not all current or possible
-functions can be achieved while satisfying today's stringent
-requirements, such as those on user privacy. In such cases, it is
-incumbent upon us to not ignore the use case, but instead to define
-a high bar for consent and trust, even if it may imply a limited
-applicability for a function, or even the inability to provide such
-functions in some cases.
+endpoints and path elements.
+
+Some types of information shared between endpoints and path elements
+have inherent privacy concerns. Careful scrutiny and a high bar of
+consent and trust needs to be applied.
+
+
 
 ## Intentional Distribution
 
