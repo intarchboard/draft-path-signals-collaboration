@@ -378,10 +378,7 @@ For the application to the network direction, user-identifying
 information can be problematic for privacy and tracking reasons.
 Similarly, application identity can be problematic, if it might form
 the basis for prioritization or discrimination that the that
-application provider may not wish to happen. It may also have
-undesirable economic consequences, such as extra charges for the
-consumer from a priority service where a regular service would have
-worked.
+application provider may not wish to happen.
 
 On the other hand, as noted above, information about general classes
 of applications may be desirable to be given by application providers,
