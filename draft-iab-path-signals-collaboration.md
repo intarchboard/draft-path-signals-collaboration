@@ -106,12 +106,15 @@ by RFC 8558 {{RFC8558}}.
 
 RFC 8558 defines the term path signals as signals to or from on-path
 elements. Today path signals are often implicit, e.g. derived from
-in-clear end-to-end information by e.g. examining transport protocols. For
-instance, on-path elements use various fields of the TCP header {{RFC0793}}
-to derive information about end-to-end latency as well as congestion.
-These techniques have evolved because the information was simply available
-and use of this information is easier and therefore also cheaper than any
-explicit and potentially complex cooperative approach.
+in-clear end-to-end information by e.g. examining transport
+protocols. For instance, on-path elements use various fields of the
+TCP header {{RFC0793}} to derive information about end-to-end latency
+as well as congestion.  These techniques have evolved because the
+information was available and its use required no coordination with
+anyone. This made such techniques more easily deployed than
+alternative, potentially more explicit or cooperative approaches. Such
+techniques had some drawbacks as well, such as having to interpret
+information designed to be carried for another purpose.
 
 As such, applications and networks have evolved their interaction
 without comprehensive design for how this interaction should
