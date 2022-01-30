@@ -104,7 +104,7 @@ Internet architecture that have rather used implicit derivation of input
 signals for on-path functions than explicit signaling, as recommended
 by RFC 8558 {{RFC8558}}.
 
-RFC 8558 defines the term path signals as signals to or from on-path
+RFC 8558 defines the term "path signals" as signals to or from on-path
 elements. Today path signals are often implicit, e.g. derived from
 in-clear end-to-end information by e.g. examining transport
 protocols. For instance, on-path elements use various fields of the
@@ -128,7 +128,7 @@ limits the evolvability of the protocols in question.
 The unplanned interaction ends up having several negative effects:
 
 * Ossifying protocols by introducing unintended parties that may not be updating
-* Creating systemic incentives against deploying more secure or  otherwise updated versions of protocols
+* Creating systemic incentives against deploying more secure or otherwise updated versions of protocols
 * Basing network behaviour on information that may be incomplete or incorrect
 * Creating a model where network entities expect to be able to use
   rich information about sessions passing through
@@ -148,12 +148,12 @@ for latency measurements or connection ID that can be used by
 load balancers {{I-D.ietf-quic-manageability}} but information is limited
 to only those use cases. Each new use cases requires additional action.
 
-Explicit signals that are specifically designed for the use of on-path
-function leave all other information is appropriately protected. This
-enables an architecturally clean approach and evolvability, while
-allowing an information exchage that is important for improving the
-quality of experience for users and efficient management of the network
-infrastructure built for them.
+Designing explicit signals between applications and network elements,
+and ensuring that all other information is appropriately protected,
+enables information exchange in both directions that is important
+for improving the quality of experience and network management.
+This kind of cleanly separated architecture is also more conducive
+to protocol evolvability.
 
 This draft discusses different approaches for explicit collaboration
 and provides guidance on architectural principles to design new
@@ -246,7 +246,10 @@ Another approach is to employ explicit trust and coordination between
 endpoints and network devices. VPNs are a good example of a case where
 there is an explicit authentication and negotiation with a network
 path element that’s used to optimize behavior or gain access to
-specific resources.
+specific resources. Authentication and trust must be considered in
+multiple directions: how endpoints trust and authenticate signals
+from network devices, and how network devices trust and authenticate
+signals from endpoints.
 
 The goal of improving privacy and trust on the Internet does not necessarily
 need to remove the ability for network elements to perform beneficial
@@ -432,6 +435,14 @@ request needs to be share in confidence only with a particular,
 trusted node, or there's a danger of an attack where someone else
 may forge messages that could endanger the communication.
 
+Authenticated integrity protections on signalled data can help
+ensure that data received in a signal has not been modified by
+other parties, but both network elements and endpoints need to
+be careful in processing or responding to any signal. Whether
+through bugs or attacks, the content of path signals can lead
+to unexpected behaviors or security vulernabilities if not
+properly handled.
+
 However, it is important to note that authentication does not equal
 trust. Whether a communication is with an application server or
 network element that can be shown to be associated with a particular
@@ -448,6 +459,15 @@ a specific trust arrangement may be established between a particular
 network and application. Or technologies such as confidential
 computing can be applied to provide an assurance that information
 processed by a party is handled in an appropriate manner.
+
+In general, any action that an endpoint or network element takes based
+on a path signal needs to be filtered appropriately based on the
+level of authentication and trust that has been established. For example,
+an ICMP signal from a network element to an endpoint can be used to
+influence future behavior on that particular network path (such as
+changing the effective packet size or closing a path-specific connection),
+but should not be able to cause a multipath or migration-capable transport
+connection to close.
 
 # Further Work {#research}
 
