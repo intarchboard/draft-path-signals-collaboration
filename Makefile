@@ -19,27 +19,42 @@ endif
 
 OLDREVNO=01
 OLDREV=draft-arkko-iab-path-signals-collaboration-$(OLDREVNO).txt
+MACHINE=jar@router1.arkko.eu
+VERSOPT=
+#VERSOPT="--v2v3"
 
-compile actually-working-compile-without-v3-garbage: draft-iab-path-signals-collaboration.md
-	-@ssh jar@levy4.arkko.eu 'cd /tmp; rm *.txt *.md *.xml'
-	scp draft-iab-path-signals-collaboration.md $(OLDREV) draft-iab-path-signals-collaboration-beforejuly.txt old/draft-arkko-path-signals-information.md jar@levy4.arkko.eu:/tmp
-	ssh jar@levy4.arkko.eu 'cd /tmp; cat draft-iab-path-signals-collaboration.md  | kramdown-rfc2629 | lib/add-note.py > draft-iab-path-signals-collaboration-pre.xml'
-	ssh jar@levy4.arkko.eu 'cd /tmp; xml2rfc -q --cache=/home/jar/.cache/xml2rfc --v2v3 draft-iab-path-signals-collaboration-pre.xml -o draft-iab-path-signals-collaboration.xml'
-	ssh jar@levy4.arkko.eu 'cd /tmp; xml2rfc -q --cache=/home/jar/.cache/xml2rfc draft-iab-path-signals-collaboration.xml -o draft-iab-path-signals-collaboration.txt --text'
-	ssh jar@levy4.arkko.eu 'cd /tmp; xml2rfc -q --cache=/home/jar/.cache/xml2rfc draft-iab-path-signals-collaboration.xml -o draft-iab-path-signals-collaboration.html --html'
-	scp jar@levy4.arkko.eu:/tmp/draft-iab-path-signals-collaboration.txt .
-	scp jar@levy4.arkko.eu:/tmp/draft-iab-path-signals-collaboration.html .
-	ssh jar@levy4.arkko.eu 'cd /tmp; cat draft-arkko-path-signals-information.md  | kramdown-rfc2629 | lib/add-note.py > draft-arkko-path-signals-information-pre.xml'
-	ssh jar@levy4.arkko.eu 'cd /tmp; xml2rfc -q --cache=/home/jar/.cache/xml2rfc --v2v3 draft-arkko-path-signals-information-pre.xml -o draft-arkko-path-signals-information.xml'
-	ssh jar@levy4.arkko.eu 'cd /tmp; xml2rfc -q --cache=/home/jar/.cache/xml2rfc draft-arkko-path-signals-information.xml -o draft-arkko-path-signals-information.txt --text'
-	ssh jar@levy4.arkko.eu 'cd /tmp; xml2rfc -q --cache=/home/jar/.cache/xml2rfc draft-arkko-path-signals-information.xml -o draft-arkko-path-signals-information.html --html'
-	ssh jar@levy4.arkko.eu 'cd /tmp; rfcdiff draft-iab-path-signals-collaboration-beforejuly.txt draft-iab-path-signals-collaboration.txt'
-	ssh jar@levy4.arkko.eu 'cd /tmp; rfcdiff $(OLDREV) draft-iab-path-signals-collaboration.txt'
-	scp jar@levy4.arkko.eu:/tmp/draft-arkko-path-signals-information.txt \
-		jar@levy4.arkko.eu:/tmp/draft-arkko-path-signals-information.html ./old
-	scp jar@levy4.arkko.eu:/tmp/draft-iab-path-signals-collaboration.txt \
-		jar@levy4.arkko.eu:/tmp/draft-iab-path-signals-collaboration.html \
-		jar@levy4.arkko.eu:/tmp/draft-iab-path-signals-collaboration-from--beforejuly.diff.html \
-		jar@levy4.arkko.eu:/tmp/draft-iab-path-signals-collaboration-from-arkko-iab-path-signals-collaboration-$(OLDREVNO).diff.html \
+compile: draft-iab-path-signals-collaboration.md
+	-@ssh $(MACHINE) 'cd /tmp; rm *.txt *.md *.xml'
+	scp draft-iab-path-signals-collaboration.md $(OLDREV) draft-iab-path-signals-collaboration-beforejuly.txt old/draft-arkko-path-signals-information.md $(MACHINE):/tmp
+	ssh $(MACHINE) 'cd /tmp; cat draft-iab-path-signals-collaboration.md  | kramdown-rfc2629 | lib/add-note.py > draft-iab-path-signals-collaboration-pre.xml'
+	ssh $(MACHINE) 'cd /tmp; xml2rfc -q --cache=/home/jar/.cache/xml2rfc $(VERSOPT) draft-iab-path-signals-collaboration-pre.xml; cp draft-iab-path-signals-collaboration-pre.txt draft-iab-path-signals-collaboration.txt'
+	scp $(MACHINE):/tmp/draft-iab-path-signals-collaboration.txt .
+	ssh $(MACHINE) 'cd /tmp; rfcdiff $(OLDREV) draft-iab-path-signals-collaboration.txt'
+	scp $(MACHINE):/tmp/draft-iab-path-signals-collaboration.txt \
+		$(MACHINE):/tmp/draft-iab-path-signals-collaboration-from-arkko-iab-path-signals-collaboration-$(OLDREVNO).diff.html \
+		.
+	scp draft-*-path-signals-*.txt draft-*-path-signals-*.html root@cloud3.arkko.eu:/var/www/www.arkko.com/html/ietf/iab
+
+oldcompile actually-working-compile-without-v3-garbage: draft-iab-path-signals-collaboration.md
+	-@ssh $(MACHINE) 'cd /tmp; rm *.txt *.md *.xml'
+	scp draft-iab-path-signals-collaboration.md $(OLDREV) draft-iab-path-signals-collaboration-beforejuly.txt old/draft-arkko-path-signals-information.md $(MACHINE):/tmp
+	ssh $(MACHINE) 'cd /tmp; cat draft-iab-path-signals-collaboration.md  | kramdown-rfc2629 | lib/add-note.py > draft-iab-path-signals-collaboration-pre.xml'
+	ssh $(MACHINE) 'cd /tmp; xml2rfc -q --cache=/home/jar/.cache/xml2rfc $(VERSOPT) draft-iab-path-signals-collaboration-pre.xml -o draft-iab-path-signals-collaboration.xml'
+	ssh $(MACHINE) 'cd /tmp; xml2rfc -q --cache=/home/jar/.cache/xml2rfc draft-iab-path-signals-collaboration.xml -o draft-iab-path-signals-collaboration.txt --text'
+	ssh $(MACHINE) 'cd /tmp; xml2rfc -q --cache=/home/jar/.cache/xml2rfc draft-iab-path-signals-collaboration.xml -o draft-iab-path-signals-collaboration.html --html'
+	scp $(MACHINE):/tmp/draft-iab-path-signals-collaboration.txt .
+	scp $(MACHINE):/tmp/draft-iab-path-signals-collaboration.html .
+	ssh $(MACHINE) 'cd /tmp; cat draft-arkko-path-signals-information.md  | kramdown-rfc2629 | lib/add-note.py > draft-arkko-path-signals-information-pre.xml'
+	ssh $(MACHINE) 'cd /tmp; xml2rfc -q --cache=/home/jar/.cache/xml2rfc --v2v3 draft-arkko-path-signals-information-pre.xml -o draft-arkko-path-signals-information.xml'
+	ssh $(MACHINE) 'cd /tmp; xml2rfc -q --cache=/home/jar/.cache/xml2rfc draft-arkko-path-signals-information.xml -o draft-arkko-path-signals-information.txt --text'
+	ssh $(MACHINE) 'cd /tmp; xml2rfc -q --cache=/home/jar/.cache/xml2rfc draft-arkko-path-signals-information.xml -o draft-arkko-path-signals-information.html --html'
+	ssh $(MACHINE) 'cd /tmp; rfcdiff draft-iab-path-signals-collaboration-beforejuly.txt draft-iab-path-signals-collaboration.txt'
+	ssh $(MACHINE) 'cd /tmp; rfcdiff $(OLDREV) draft-iab-path-signals-collaboration.txt'
+	scp $(MACHINE):/tmp/draft-arkko-path-signals-information.txt \
+		$(MACHINE):/tmp/draft-arkko-path-signals-information.html ./old
+	scp $(MACHINE):/tmp/draft-iab-path-signals-collaboration.txt \
+		$(MACHINE):/tmp/draft-iab-path-signals-collaboration.html \
+		$(MACHINE):/tmp/draft-iab-path-signals-collaboration-from--beforejuly.diff.html \
+		$(MACHINE):/tmp/draft-iab-path-signals-collaboration-from-arkko-iab-path-signals-collaboration-$(OLDREVNO).diff.html \
 		.
 	scp draft-*-path-signals-*.txt draft-*-path-signals-*.html root@cloud3.arkko.eu:/var/www/www.arkko.com/html/ietf/iab
