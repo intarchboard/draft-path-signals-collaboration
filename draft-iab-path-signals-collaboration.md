@@ -256,16 +256,6 @@ need to remove the ability for network elements to perform beneficial
 functions. We should instead improve the way that these functions are
 achieved.
 
-It is important to understand which functions may need
-collaborative solutions and which are purely local, running entirely
-in an endpont or a network node. Most higher layer functions are
-entirely local to endpoints, from end-to-end security to processing
-application messages. An example of a function that necessarily
-includes some elements of collaboration is congestion control. Today,
-network nodes inform endpoints about congestion through implicit
-(packet delay or drop) or explicit signals (ECN). Other functions can
-operate without collaboration but might benefit from it.
-
 Our goals should be:
 
 * To ensure that information is distributed intentionally, not accidentally;
@@ -318,11 +308,13 @@ of the security and privacy implications of that information.
 
 It is recommended that a design identify the minimum number of
 entities needed to share a specific signal required for an identified
-function. In some cases this will be a very limited set, e.g. when the
-application needs to provide a signal to a specific gateway
-function. In other cases, such as congestion control, a signal might
-be shared with every router along the path, since each should be aware
-of the congestion.
+function.
+
+Often this will be a very limited set, such as when an application
+only needs to provide a signal to its peer at the other end of the
+connection. Or a host needs to contact a specific VPN gateway. In
+other cases a broader set is neeeded, such as in congestion control
+explicit or implicit signals from routers along the path inform the endpoints.
 
 While it is tempting to consider removing these limitations in the
 context of closed, private networks, each interaction is still best
