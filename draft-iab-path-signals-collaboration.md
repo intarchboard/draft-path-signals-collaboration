@@ -81,16 +81,21 @@ informative:
    
 --- abstract
 
-Encryption and other security mechanisms are on the rise on all layers of
-the stack, protecting user data and making network operations more secured.
-Further, encryption is also a tool to address ossification that has been observed
-over time. Separation of functions into layers
-and enforcement of layer boundaries based on encryption supports selected exposure to
-those entities that are addressed by a function on a certain layer. A clear
-separation supports innovation and also enables new opportunities for collaborative
-functions. RFC 8558 describes path signals as messages to or from on-path elements.
 This document states principles for designing mechanisms that use or provide
 path signals and calls for actions on specific valuable cases.
+RFC 8558 describes path signals as messages to or from on-path elements.
+The main guidance in {{RFC8558}} is to be aware that implicit signals
+will be used whether intended or not. Protocol designers should
+consider either hiding these signals when the information should not
+be visible, or using explicit signals when it should be. 
+
+Both can be achieved (hinding) or supported (explicit expose) using encryption.
+While encryption is primarily deployed to protect and authenticate access to
+user data, it also supports selected exposure to those entities that are
+addressed by a certain function on a certain layer. As such a clear separation
+of layer boundaries based on encryption improves privacy, supports innovation
+by avoiding ossification, and can also enable new opportunities for collaborative
+functions. 
 
 --- middle
 
