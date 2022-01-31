@@ -143,10 +143,10 @@ Increased deployment of encryption can and will change this situation.
 For instance, QUIC replaces TCP for various application and protects all end-to-end
 signals to only be accessible by the endpoint, ensuring evolvability {{RFC9000}}. 
 QUIC does expose information dedicated for on-path elements to consume
-by design explicit signal for specific use cases, such as the Spin bit
+by using explicit signals for specific use cases, such as the Spin bit
 for latency measurements or connection ID that can be used by 
-load balancers {{I-D.ietf-quic-manageability}} but information is limited
-to only those use cases. Each new use cases requires additional action.
+load balancers {{I-D.ietf-quic-manageability}}. But information is limited
+to only those use cases. Each new use case requires additional action.
 
 Designing explicit signals between applications and network elements,
 and ensuring that all other information is appropriately protected,
