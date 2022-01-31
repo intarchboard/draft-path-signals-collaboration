@@ -254,7 +254,19 @@ signals from endpoints.
 The goal of improving privacy and trust on the Internet does not necessarily
 need to remove the ability for network elements to perform beneficial
 functions. We should instead improve the way that these functions are
-achieved. Our goals should be:
+achieved.
+
+It is important to understand which functions may need
+collaborative solutions and which are purely local, running entirely
+in an endpont or a network node. Most higher layer functions are
+entirely local to endpoints, from end-to-end security to processing
+application messages. An example of a function that necessarily
+includes some elements of collaboration is congestion control. Today,
+network nodes inform endpoints about congestion through implicit
+(packet delay or drop) or explicit signals (ECN). Other functions can
+operate without collaboration but might benefit from it.
+
+Our goals should be:
 
 * To ensure that information is distributed intentionally, not accidentally;
 * to understand the privacy and other implications of any distributed information;
@@ -284,8 +296,6 @@ endpoints and path elements.
 Some types of information shared between endpoints and path elements
 have inherent privacy concerns. Careful scrutiny and a high bar of
 consent and trust needs to be applied.
-
-
 
 ## Intentional Distribution
 
