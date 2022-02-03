@@ -101,7 +101,7 @@ to control information access and protects again ossification by avoiding
 unintended dependencies and requiring active maintenance. The increased
 deployment of encryption provides an opportunity to reconsider parts of
 Internet architecture that have rather used implicit derivation of input
-signals for on-path functions than explicit signaling, as recommended
+signals for on-path elements than explicit signaling, as recommended
 by RFC 8558 {{RFC8558}}.
 
 RFC 8558 defines the term "path signals" as signals to or from on-path
@@ -266,14 +266,14 @@ Our goals should be:
 These goals for distribution apply equally to senders, receivers, and path
 elements.
 
-We can establish some basic questions that any new network path functions
+We can establish some basic questions that any new network functions
 should consider:
 
 * What is the minimum set of entities that need to be involved?
 * What is the minimum information each entity in this set needs?
 * Which entities must consent to the information exchange?
 
-If we look at many of the ways network path functions are achieved today, we
+If we look at many of the ways network functions are achieved today, we
 find that many if not most of them fall short the standard set up by the
 questions above. Too often, they send unnecessary information or fail to
 limit the scope of distribution or providing any negotiation or consent.
@@ -521,7 +521,7 @@ topics would be welcome.
   These solutions address also very specific parts of the issue,
   and more work remains.
 
-* Sharing information from networks to applications. Some proposals
+* Sharing information from networks to applications and vice versa. Some proposals
   have been made in this space (see, e.g.,
   {{I-D.flinck-mobile-throughput-guidance}}) but there are no
   successful or deployed mechanisms today.
