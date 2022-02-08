@@ -161,7 +161,7 @@ to protocol evolvability.
 
 This draft discusses different approaches for explicit collaboration
 and provides guidance on architectural principles to design new
-mechanisms. {{past}} discusses past guidance. {{principles}} discusses
+mechanisms. {{principles}} discusses
 principles that good design can follow. This section also provides
 some examples and explanation of situations that not following the
 principles can lead to. {{research}} points to topics that need more
