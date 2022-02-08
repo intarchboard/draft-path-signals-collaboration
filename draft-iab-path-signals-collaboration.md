@@ -167,44 +167,15 @@ some examples and explanation of situations that not following the
 principles can lead to. {{research}} points to topics that need more
 to be looked at more carefully before any guidance can be given.
 
-# Past Guidance {#past}
-
-Incentives are a well understood problem in general but perhaps not
-fully internalised for various designs attempting to establish
-collaboration between applications and path elements. The
-principle is that both receiver and sender of information must acquire
-tangible and immediate benefits from the communication, such as
-improved performance.
-
-A related issue is understanding whether a business model or ecosystem
-change is needed. For instance, relative prioritization between
-different flows of a user or an application does not require
-agreements or payments. But requesting prioritization over other
-people’s traffic may imply that you have to pay for that which may not
-be easy even for a single provider let alone across many.
-
-But on to more technical aspects.
-
-The main guidance in {{RFC8558}} is to be aware that implicit signals
-will be used whether intended or not. Protocol designers should
-consider either hiding these signals when the information should not
-be visible, or using explicit signals when it should be.
-
-{{RFC9049}} discusses many past failure cases, a
-catalogue of past issues to avoid. It also provides relevant
-guidelines for new work, from discussion of incentives to more
-specific observations, such as the need for outperforming end-to-end
-mechanisms (Section 4.4), considering the need for per-connection
-state (Section 4.6), taking into account the latency involved in
-reacting to distant signals, and so on.
-
-There are also more general guidance documents, e.g., {{RFC5218}}
-discusses protocol successes and failures, and provides general advice
-on incremental deployability etc. Internet Technology Adoption and
-Transition (ITAT) workshop report {{RFC7305}} is also recommended
-reading on this same general topic. And {{RFC6709}} discusses protocol
-extensibility, and provides general advice on the importance of global
-interoperability and so on.
+Beyond the recommandation in {{RFC8558}}, the IAB provided further
+guidance on protocol design e.g., {{RFC5218}} provides general advice
+on incremental deployability based on an analysis of successes and failures
+and {{RFC6709}} discusses protocol extensibility. The Internet Technology
+Adoption and Transition (ITAT) workshop report {{RFC7305}} is also recommended
+reading on this same general topic. Also {{RFC9049}}, an IRTF document, provides
+a catalogue of past issues to avoid and discusses incentives for adoption of
+path signals such as the need for outperforming end-to-end mechanisms or
+considering per-connection state.
 
 # Principles {#principles}
 
