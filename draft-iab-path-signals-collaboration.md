@@ -100,13 +100,6 @@ functions.
 
 # Introduction
 
-Encryption, besides its important role in security in general, provides a tool
-to control information access and protects again ossification by avoiding
-unintended dependencies and requiring active maintenance. The increased
-deployment of encryption provides an opportunity to reconsider parts of
-Internet architecture that have rather used implicit derivation of input
-signals for on-path elements than explicit signaling, as recommended
-by RFC 8558 {{RFC8558}}.
 
 RFC 8558 defines the term "path signals" as signals to or from on-path
 elements. Today path signals are often implicit, e.g. derived from
@@ -120,7 +113,7 @@ alternative, potentially more explicit or cooperative approaches. Such
 techniques had some drawbacks as well, such as having to interpret
 information designed to be carried for another purpose.
 
-As such, applications and networks have evolved their interaction
+Today, applications and networks have often evolved their interaction
 without comprehensive design for how this interaction should
 happen or which information would be desired for a certain function.
 This has lead to a situation where sometimes information is used that
@@ -143,14 +136,92 @@ filtering. MAC addresses have been used for access control, captive
 portal implementations that employ taking over cleartext HTTP
 sessions, and so on.
 
-Increased deployment of encryption can and will change this situation.
+A large number of protocol mechanisms today fall into one of two
+categories: authenticated and private communication that is only visible
+to the a very limited set nodes, often one on each "end"; and unauthenticated
+public communication that is visible to all nodes on a path.
+
+Exposed information encourages pervasive monitoring, which is
+described in RFC 7258 {{RFC7258}}, and may also be
+used for commercial purposes, or form a basis for filtering that the
+applications or users do not desire.
+But a lack of all path signaling, on the other hand, may be harmful to
+network management, debugging, or the ability for networks to provide
+the most efficient services. There are many cases where elements on
+the network path can provide beneficial services, but only if they can
+coordinate with the endpoints. It also affects the ability of service providers
+and others observe why problems occur {{RFC9075}}.
+
+As such, this situation is sometimes cast as an adversarial tradeoff
+between privacy and the ability for the network path to provide
+intended functions. However, this is perhaps an unnecessarily
+polarized characterization as a zero-sum situation. Not all
+information passing implies loss of privacy. For instance, performance
+information or preferences do not require disclosing user or
+application identity or what content is being accessed, network
+congestion status information does not have reveal network topology or
+the status of other users, and so on.
+
+Increased deployment of encryption is changing this situation.
+Encryption, besides its important role in security in general, provides a tool
+to control information access and protects again ossification by avoiding
+unintended dependencies and requiring active maintenance. The increased
+deployment of encryption provides an opportunity to reconsider parts of
+Internet architecture that have rather used implicit derivation of input
+signals for on-path functions than explicit signaling, as recommended
+by RFC 8558 {{RFC8558}}.
+
 For instance, QUIC replaces TCP for various application and protects all end-to-end
 signals to only be accessible by the endpoint, ensuring evolvability {{RFC9000}}. 
 QUIC does expose information dedicated for on-path elements to consume
 by using explicit signals for specific use cases, such as the Spin bit
 for latency measurements or connection ID that can be used by 
-load balancers {{I-D.ietf-quic-manageability}}. But information is limited
+load balancers {{I-D.ietf-quic-manageability}}. This information
+is accessible by all on-path deivices but information is limited
 to only those use cases. Each new use case requires additional action.
+This points to one way to resolve the adversity: the careful of design
+of what information is passed.
+
+Another extreme is to employ explicit trust and coordination between
+all involved entities, endpoints as well as network devices.
+VPNs are a good example of a case where
+there is an explicit authentication and negotiation with a network
+path element that is used to optimize behavior or gain access to
+specific resources. Authentication and trust must be considered in
+multiple directions: how endpoints trust and authenticate signals
+from network devices, and how network devices trust and authenticate
+signals from endpoints.
+
+The goal of improving privacy and trust on the Internet does not necessarily
+need to remove the ability for network elements to perform beneficial
+functions. We should instead improve the way that these functions are
+achieved and design new protocol to support explicit collaboration where it
+is seen as beneficial. As such our goals should be:
+
+* To ensure that information is distributed intentionally, not accidentally;
+* to understand the privacy and other implications of any distributed information;
+* to ensure that the information distribution targets the intended parties; and
+* to gate the distribution of information on the consent of the relevant parties
+
+These goals for exposeure and distribution apply equally to senders, receivers,
+and path elements.
+
+Going forward, new standards work in the IETF needs to focus on
+addressing this gap by providing better alternatives and mechanisms
+for building functions that require some collaboration between
+endpoints and path elements.
+
+We can establish some basic questions that any new network functions
+should consider:
+
+* What is the minimum set of entities that need to be involved?
+* What is the minimum information each entity in this set needs?
+* Which entities must consent to the information exchange?
+
+If we look at many of the ways network functions are achieved today, we
+find that many if not most of them fall short the standard set up by the
+questions above. Too often, they send unnecessary information or fail to
+limit the scope of distribution or providing any negotiation or consent.
 
 Designing explicit signals between applications and network elements,
 and ensuring that all other information is appropriately protected,
@@ -179,8 +250,8 @@ considering per-connection state.
 
 # Principles {#principles}
 
-This section attempts to provide some architecture-level principles
-that would help future designers and recommend useful models to apply.
+This section provides architecture-level principles for protocol designers
+and recommend models to apply for network collaboration and signaling.
 
 While RFC 8558 {{RFC8558}} is focusing specifically on "on-path elements",
 the principles described in this document are effectively applicable to
@@ -188,82 +259,6 @@ all kind of information exposure and distribution, not matter if an
 involved node is considered as an "end" or any kind of network control element
 that is explicitly addressed in the communication,
 or if the node is "on-path" and therefore potentially not explicitly addressed. 
-
-A large number of our protocol mechanisms today fall into one of two
-categories: authenticated and private communication that is only visible
-to the end-to-end nodes; and unauthenticated public communication that
-is visible to all nodes on a path. RFC 8558 explores the line between data
-that is protected and path signals.
-
-There is a danger in taking a position that is too extreme towards
-either exposing all information to the path, or hiding all information
-from the path.
-
-Exposed information encourages pervasive monitoring, which is
-described in RFC 7258 {{RFC7258}}. Exposed information may also be
-used for commercial purposes, or form a basis for filtering that the
-applications or users do not desire.
-
-But a lack of all path signaling, on the other hand, may be harmful to
-network management, debugging, or the ability for networks to provide
-the most efficient services. There are many cases where elements on
-the network path can provide beneficial services, but only if they can
-coordinate with the endpoints. It also affects the ability of service providers
-and others observe why problems occur {{RFC9075}}.
-
-This situation is sometimes cast as an adversarial tradeoff
-between privacy and the ability for the network path to provide
-intended functions. However, this is perhaps an unnecessarily
-polarized characterization as a zero-sum situation. Not all
-information passing implies loss of privacy. For instance, performance
-information or preferences do not require disclosing user or
-application identity or what content is being accessed, network
-congestion status information does not have reveal network topology or
-the status of other users, and so on.
-
-This points to one way to resolve the adversity: the careful of design
-of what information is passed.
-
-Another approach is to employ explicit trust and coordination between
-endpoints and network devices. VPNs are a good example of a case where
-there is an explicit authentication and negotiation with a network
-path element that’s used to optimize behavior or gain access to
-specific resources. Authentication and trust must be considered in
-multiple directions: how endpoints trust and authenticate signals
-from network devices, and how network devices trust and authenticate
-signals from endpoints.
-
-The goal of improving privacy and trust on the Internet does not necessarily
-need to remove the ability for network elements to perform beneficial
-functions. We should instead improve the way that these functions are
-achieved.
-
-Our goals should be:
-
-* To ensure that information is distributed intentionally, not accidentally;
-* to understand the privacy and other implications of any distributed information;
-* to ensure that the information distribution targets the intended parties; and
-* to gate the distribution of information on the consent of the relevant parties
-
-These goals for distribution apply equally to senders, receivers, and path
-elements.
-
-We can establish some basic questions that any new network functions
-should consider:
-
-* What is the minimum set of entities that need to be involved?
-* What is the minimum information each entity in this set needs?
-* Which entities must consent to the information exchange?
-
-If we look at many of the ways network functions are achieved today, we
-find that many if not most of them fall short the standard set up by the
-questions above. Too often, they send unnecessary information or fail to
-limit the scope of distribution or providing any negotiation or consent.
-
-Going forward, new standards work in the IETF needs to focus on
-addressing this gap by providing better alternatives and mechanisms
-for building functions that require some collaboration between
-endpoints and path elements.
 
 Some types of information shared between endpoints and path elements
 have inherent privacy concerns. Careful scrutiny and a high bar of
