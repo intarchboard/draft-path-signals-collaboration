@@ -211,6 +211,13 @@ interoperability and so on.
 This section attempts to provide some architecture-level principles
 that would help future designers and recommend useful models to apply.
 
+While RFC 8558 {{RFC8558}} is focusing specifically on "on-path elements",
+the principles described in this document are effectively applicable to
+all kind of information exposure and distribution, not matter if an
+involved node is considered as an "end" or any kind of network control element
+that is explicitly addressed in the communication,
+or if the node is "on-path" and therefore potentially not explicitly addressed. 
+
 A large number of our protocol mechanisms today fall into one of two
 categories: authenticated and private communication that is only visible
 to the end-to-end nodes; and unauthenticated public communication that
