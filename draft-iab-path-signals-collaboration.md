@@ -96,7 +96,7 @@ devices, and therefore also avoids ossification, and it can also be used to expl
 expose selected signal to a limited set of authenticated entities in the network.
 As such encryption improves privacy, supports innovation
 by avoiding ossification, and can also enable new opportunities for collaborative
-functions. The described principle recommend how to design those function and 
+functions. The described principle recommend how to design those functions and 
 the input signals to these functions as part of existing or new encrypted protocols.
 
 --- middle
