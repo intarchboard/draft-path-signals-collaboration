@@ -255,7 +255,7 @@ and recommend models to apply for network collaboration and signaling.
 
 While RFC 8558 {{RFC8558}} is focusing specifically on "on-path elements",
 the principles described in this document are effectively applicable to
-all kind of information exposure and distribution, not matter if an
+all kinds of information exposure and distribution, whether an
 involved node is considered as an "end" or any kind of network control element
 that is explicitly addressed in the communication,
 or if the node is "on-path" and therefore potentially not explicitly addressed. 
