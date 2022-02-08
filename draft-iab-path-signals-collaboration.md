@@ -92,8 +92,7 @@ be visible, or using explicit signals when it should be.
 Both can be achieved (hinding) or supported (explicit expose) using encryption.
 While encryption is primarily deployed to protect and authenticate access to
 user data, it also supports selected exposure to those entities that are
-addressed by a certain function on a certain layer. As such a clear separation
-of layer boundaries based on encryption improves privacy, supports innovation
+addressed by a certain function. As such encryption improves privacy, supports innovation
 by avoiding ossification, and can also enable new opportunities for collaborative
 functions. 
 
