@@ -81,20 +81,25 @@ informative:
    
 --- abstract
 
-Encryption and other security mechanisms are on the rise on all layers of
-the stack, protecting user data and making network operations more secured.
-Further, encryption is also a tool to address ossification that has been observed
-over time. Separation of functions into layers
-and enforcement of layer boundaries based on encryption supports selected exposure to
-those entities that are addressed by a function on a certain layer. A clear
-separation supports innovation and also enables new opportunities for collaborative
-functions. RFC 8558 describes path signals as messages to or from on-path elements.
 This document states principles for designing mechanisms that use or provide
 path signals and calls for actions on specific valuable cases.
+RFC 8558 describes path signals as messages to or from on-path elements.
+The main guidance in {{RFC8558}} is to be aware that implicit signals
+will be used whether intended or not. Protocol designers should
+consider either hiding these signals when the information should not
+be visible, or using explicit signals when it should be. 
+
+Both can be achieved (hiding) or supported (explicit expose) using encryption.
+While encryption is primarily deployed to protect and authenticate access to
+user data, it also supports selected exposure to those entities that are
+addressed by a certain function. As such encryption improves privacy, supports innovation
+by avoiding ossification, and can also enable new opportunities for collaborative
+functions. 
 
 --- middle
 
 # Introduction
+
 
 RFC 8558 defines the term "path signals" as signals to or from on-path
 elements. Today path signals are often implicit, e.g. derived from
@@ -206,14 +211,14 @@ addressing this gap by providing better alternatives and mechanisms
 for building functions that require some collaboration between
 endpoints and path elements.
 
-We can establish some basic questions that any new network path functions
+We can establish some basic questions that any new network functions
 should consider:
 
 * What is the minimum set of entities that need to be involved?
 * What is the minimum information each entity in this set needs?
 * Which entities must consent to the information exchange?
 
-If we look at many of the ways network path functions are achieved today, we
+If we look at many of the ways network functions are achieved today, we
 find that many if not most of them fall short the standard set up by the
 questions above. Too often, they send unnecessary information or fail to
 limit the scope of distribution or providing any negotiation or consent.
@@ -227,55 +232,33 @@ to protocol evolvability.
 
 This draft discusses different approaches for explicit collaboration
 and provides guidance on architectural principles to design new
-mechanisms. {{past}} discusses past guidance. {{principles}} discusses
+mechanisms. {{principles}} discusses
 principles that good design can follow. This section also provides
 some examples and explanation of situations that not following the
 principles can lead to. {{research}} points to topics that need more
 to be looked at more carefully before any guidance can be given.
 
-# Past Guidance {#past}
-
-Incentives are a well understood problem in general but perhaps not
-fully internalised for various designs attempting to establish
-collaboration between applications and path elements. The
-principle is that both receiver and sender of information must acquire
-tangible and immediate benefits from the communication, such as
-improved performance.
-
-A related issue is understanding whether a business model or ecosystem
-change is needed. For instance, relative prioritization between
-different flows of a user or an application does not require
-agreements or payments. But requesting prioritization over other
-people’s traffic may imply that you have to pay for that which may not
-be easy even for a single provider let alone across many.
-
-But on to more technical aspects.
-
-The main guidance in {{RFC8558}} is to be aware that implicit signals
-will be used whether intended or not. Protocol designers should
-consider either hiding these signals when the information should not
-be visible, or using explicit signals when it should be.
-
-{{RFC9049}} discusses many past failure cases, a
-catalogue of past issues to avoid. It also provides relevant
-guidelines for new work, from discussion of incentives to more
-specific observations, such as the need for outperforming end-to-end
-mechanisms (Section 4.4), considering the need for per-connection
-state (Section 4.6), taking into account the latency involved in
-reacting to distant signals, and so on.
-
-There are also more general guidance documents, e.g., {{RFC5218}}
-discusses protocol successes and failures, and provides general advice
-on incremental deployability etc. Internet Technology Adoption and
-Transition (ITAT) workshop report {{RFC7305}} is also recommended
-reading on this same general topic. And {{RFC6709}} discusses protocol
-extensibility, and provides general advice on the importance of global
-interoperability and so on.
+Beyond the recommandation in {{RFC8558}}, the IAB provided further
+guidance on protocol design e.g., {{RFC5218}} provides general advice
+on incremental deployability based on an analysis of successes and failures
+and {{RFC6709}} discusses protocol extensibility. The Internet Technology
+Adoption and Transition (ITAT) workshop report {{RFC7305}} is also recommended
+reading on this same general topic. Also {{RFC9049}}, an IRTF document, provides
+a catalogue of past issues to avoid and discusses incentives for adoption of
+path signals such as the need for outperforming end-to-end mechanisms or
+considering per-connection state.
 
 # Principles {#principles}
 
 This section provides architecture-level principles for protocol designers
 and recommend models to apply for network collaboration and signaling.
+
+While RFC 8558 {{RFC8558}} is focusing specifically on "on-path elements",
+the principles described in this document are effectively applicable to
+all kind of information exposure and distribution, not matter if an
+involved node is considered as an "end" or any kind of network control element
+that is explicitly addressed in the communication,
+or if the node is "on-path" and therefore potentially not explicitly addressed. 
 
 Some types of information shared between endpoints and path elements
 have inherent privacy concerns. Careful scrutiny and a high bar of
@@ -307,8 +290,9 @@ function.
 Often this will be a very limited set, such as when an application
 only needs to provide a signal to its peer at the other end of the
 connection. Or a host needs to contact a specific VPN gateway. In
-other cases a broader set is neeeded, such as in congestion control
-explicit or implicit signals from routers along the path inform the endpoints.
+other cases a broader set is neeeded, such as when explicit or
+implicit signals from routers along the path inform the endpoints
+about congestion.
 
 While it is tempting to consider removing these limitations in the
 context of closed, private networks, each interaction is still best
@@ -515,7 +499,7 @@ topics would be welcome.
   These solutions address also very specific parts of the issue,
   and more work remains.
 
-* Sharing information from networks to applications. Some proposals
+* Sharing information from networks to applications and vice versa. Some proposals
   have been made in this space (see, e.g.,
   {{I-D.flinck-mobile-throughput-guidance}}) but there are no
   successful or deployed mechanisms today.
