@@ -177,7 +177,7 @@ QUIC does expose information dedicated for on-path elements to consume
 by using explicit signals for specific use cases, such as the Spin bit
 for latency measurements or connection ID that can be used by 
 load balancers {{I-D.ietf-quic-manageability}}. This information
-is accessible by all on-path deivices but information is limited
+is accessible by all on-path devices but information is limited
 to only those use cases. Each new use case requires additional action.
 This points to one way to resolve the adversity: the careful of design
 of what information is passed.
