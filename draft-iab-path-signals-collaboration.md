@@ -85,11 +85,12 @@ This document discusses principles for designing mechanisms that use or provide
 path signals, and calls for standards action in specific valuable cases.
 RFC 8558 describes path signals as messages to or from on-path elements,
 and points out that visible information will be used whether it is
-intended as a signal or not. The principles in this document apply to
-explicit path signals, which are encouraged to be authenticated and include
+intended as a signal or not. The principles in this document are intended as
+guidance for the design of explicit path signals, which are encouraged to be 
+authenticated and include
 a minimal set of parties and minimal information. These principles can
-be achieved through encryption of information and establishing trust relationships
-between entities on a path.
+be achieved through mechanisms like encryption of information and
+establishing trust relationships between entities on a path.
 
 --- middle
 
