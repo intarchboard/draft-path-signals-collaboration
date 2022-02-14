@@ -449,7 +449,7 @@ processed by a party is handled in an appropriate manner.
 Information shared between a network element and an endpoint of a
 connection needs to have a limited impact on the behavior of both
 endpoints and network elements. Any action that an endpoint or
-network element takes based on a path signal needs to be filtered
+network element takes based on a path signal needs to be considered
 appropriately based on the level of authentication and trust that
 has been established, and be scoped to a specific network path.
 
