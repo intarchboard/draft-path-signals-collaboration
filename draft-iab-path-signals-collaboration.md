@@ -88,7 +88,7 @@ and points out that visible information will be used whether it is
 intended as a signal or not. The principles in this document are intended as
 guidance for the design of explicit path signals, which are encouraged to be 
 authenticated and include
-a minimal set of parties and minimal information. These principles can
+a minimal set of parties and minimize information sharing. These principles can
 be achieved through mechanisms like encryption of information and
 establishing trust relationships between entities on a path.
 
