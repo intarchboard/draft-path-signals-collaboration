@@ -89,7 +89,7 @@ will be used whether intended or not. Protocol designers should
 consider either hiding these signals when the information should not
 be visible, or using explicit signals when it should be. 
 
-This documents discusses principles for explicit exposure and provides guidance for 
+This document discusses principles for explicit exposure and provides guidance for 
 selected exposure of minimal information specifically for encrypted protocols.
 Encryption is needed to hide information that is not intended to be used by on-path
 devices, and therefore also avoids ossification, and it can also be used to explicitly
