@@ -81,23 +81,16 @@ informative:
    
 --- abstract
 
-This document states principles for designing mechanisms that use or provide
-path signals and calls for actions on specific valuable cases.
-RFC 8558 describes path signals as messages to or from on-path elements.
-The main guidance in {{RFC8558}} is to be aware that implicit signals
-will be used whether intended or not. Protocol designers should
-consider either hiding these signals when the information should not
-be visible, or using explicit signals when it should be. 
-
-This document discusses principles for explicit exposure and provides guidance for 
-selected exposure of minimal information specifically for encrypted protocols.
-Encryption is needed to hide information that is not intended to be used by on-path
-devices, and therefore also avoids ossification, and it can also be used to explicitly
-expose selected signal to a limited set of authenticated entities in the network.
-As such encryption improves privacy, supports innovation
-by avoiding ossification, and can also enable new opportunities for collaborative
-functions. The described principle recommend how to design those functions and 
-the input signals to these functions as part of existing or new encrypted protocols.
+This document discusses principles for designing mechanisms that use or provide
+path signals, and calls for standards action in specific valuable cases.
+RFC 8558 describes path signals as messages to or from on-path elements,
+and points out that visible information will be used whether it is
+intended as a signal or not. The principles in this document are intended as
+guidance for the design of explicit path signals, which are encouraged to be 
+authenticated and include
+a minimal set of parties and minimize information sharing. These principles can
+be achieved through mechanisms like encryption of information and
+establishing trust relationships between entities on a path.
 
 --- middle
 
