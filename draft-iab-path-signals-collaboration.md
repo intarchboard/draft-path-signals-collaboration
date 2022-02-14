@@ -98,7 +98,7 @@ functions.
 
 --- middle
 
-# Introduction
+# Introduction {#intro}
 
 
 RFC 8558 defines the term "path signals" as signals to or from on-path
@@ -499,10 +499,16 @@ topics would be welcome.
   These solutions address also very specific parts of the issue,
   and more work remains.
 
-* Sharing information from networks to applications and vice versa. Some proposals
-  have been made in this space (see, e.g.,
-  {{I-D.flinck-mobile-throughput-guidance}}) but there are no
-  successful or deployed mechanisms today.
+* Sharing information from networks to applications. There are some
+  working examples of this, e.g., ECN. A few other proposals have been
+  made (see, e.g., {{I-D.flinck-mobile-throughput-guidance}}) but,
+  very few of those have seen deployment.
+
+* Sharing information from applications to networks. There are a few more
+   working examples of this (see {{intro}}). There have been many
+   proposals, in this space, however, but most of them have not
+   progressed through standards or been deployed, in part because of
+   the issues discussed earlier in this document.
 
 # Acknowledgments
 
