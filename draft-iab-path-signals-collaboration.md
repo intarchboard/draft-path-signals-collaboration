@@ -89,12 +89,15 @@ will be used whether intended or not. Protocol designers should
 consider either hiding these signals when the information should not
 be visible, or using explicit signals when it should be. 
 
-Both can be achieved (hiding) or supported (explicit expose) using encryption.
-While encryption is primarily deployed to protect and authenticate access to
-user data, it also supports selected exposure to those entities that are
-addressed by a certain function. As such encryption improves privacy, supports innovation
+This documents discusses principles for explicit exposure and provides guidance for 
+selected exposure of minimal information specifically for encrypted protocols.
+Encryption is needed to hide information that is not intended to be used by on-path
+devices, and therefore also avoids ossification, and it can also be used to explicitly
+expose selected signal to a limited set of authenticated entities in the network.
+As such encryption improves privacy, supports innovation
 by avoiding ossification, and can also enable new opportunities for collaborative
-functions. 
+functions. The described principle recommend how to design those functions and 
+the input signals to these functions as part of existing or new encrypted protocols.
 
 --- middle
 
