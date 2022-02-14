@@ -89,12 +89,15 @@ will be used whether intended or not. Protocol designers should
 consider either hiding these signals when the information should not
 be visible, or using explicit signals when it should be. 
 
-Both can be achieved (hiding) or supported (explicit expose) using encryption.
-While encryption is primarily deployed to protect and authenticate access to
-user data, it also supports selected exposure to those entities that are
-addressed by a certain function. As such encryption improves privacy, supports innovation
+This documents discusses principles for explicit exposure and provides guidance for 
+selected exposure of minimal information specifically for encrypted protocols.
+Encryption is needed to hide information that is not intended to be used by on-path
+devices, and therefore also avoids ossification, and it can also be used to explicitly
+expose selected signal to a limited set of authenticated entities in the network.
+As such encryption improves privacy, supports innovation
 by avoiding ossification, and can also enable new opportunities for collaborative
-functions. 
+functions. The described principle recommend how to design those functions and 
+the input signals to these functions as part of existing or new encrypted protocols.
 
 --- middle
 
@@ -217,6 +220,7 @@ should consider:
 * What is the minimum set of entities that need to be involved?
 * What is the minimum information each entity in this set needs?
 * Which entities must consent to the information exchange?
+* What is the effect that new signals should have?
 
 If we look at many of the ways network functions are achieved today, we
 find that many if not most of them fall short the standard set up by the
@@ -255,7 +259,7 @@ and recommend models to apply for network collaboration and signaling.
 
 While RFC 8558 {{RFC8558}} is focusing specifically on "on-path elements",
 the principles described in this document are effectively applicable to
-all kind of information exposure and distribution, not matter if an
+all kinds of information exposure and distribution, whether an
 involved node is considered as an "end" or any kind of network control element
 that is explicitly addressed in the communication,
 or if the node is "on-path" and therefore potentially not explicitly addressed. 
@@ -440,14 +444,28 @@ network and application. Or technologies such as confidential
 computing can be applied to provide an assurance that information
 processed by a party is handled in an appropriate manner.
 
-In general, any action that an endpoint or network element takes based
-on a path signal needs to be filtered appropriately based on the
-level of authentication and trust that has been established. For example,
-an ICMP signal from a network element to an endpoint can be used to
-influence future behavior on that particular network path (such as
+# Limiting Impact of Information
+
+Information shared between a network element and an endpoint of a
+connection needs to have a limited impact on the behavior of both
+endpoints and network elements. Any action that an endpoint or
+network element takes based on a path signal needs to be filtered
+appropriately based on the level of authentication and trust that
+has been established, and be scoped to a specific network path.
+
+For example, an ICMP signal from a network element to an endpoint can
+be used to influence future behavior on that particular network path (such as
 changing the effective packet size or closing a path-specific connection),
 but should not be able to cause a multipath or migration-capable transport
 connection to close.
+
+In general, path signals should be considered to be advisory information,
+with the effect of optimizing or adjusting the behavior of connections
+on a specific path. In the case of a firewall blocking connectivity
+to a given host, endpoints should only interpret that as the host being
+unavailable on that particular path; this is in contrast to an end-to-end
+authenticated signal, such as a DNSSEC-authenticated denial of existence
+{{?RFC7129}}.
 
 # Further Work {#research}
 
