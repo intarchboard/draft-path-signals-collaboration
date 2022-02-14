@@ -528,6 +528,14 @@ topics would be welcome.
    progressed through standards or been deployed, in part because of
    the issues discussed earlier in this document.
 
+* Rigorous data privacy regimes generally deal with more issues than 
+  merely whether some information is shared with another party or
+  not. For instance, there may be practices and rules regarding how
+  long information is stored, what purpose it may be used for, even
+  for situations where some information is shared. Some aspects of
+  may also be applicable to the kind of information sharing discussed
+  in this document.
+
 # Acknowledgments
 
 The authors would like to thank everyone at the IETF, the IAB, and our
