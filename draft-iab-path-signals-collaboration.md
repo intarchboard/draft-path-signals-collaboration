@@ -217,6 +217,7 @@ should consider:
 * What is the minimum set of entities that need to be involved?
 * What is the minimum information each entity in this set needs?
 * Which entities must consent to the information exchange?
+* What is the effect that new signals should have?
 
 If we look at many of the ways network functions are achieved today, we
 find that many if not most of them fall short the standard set up by the
@@ -440,14 +441,28 @@ network and application. Or technologies such as confidential
 computing can be applied to provide an assurance that information
 processed by a party is handled in an appropriate manner.
 
-In general, any action that an endpoint or network element takes based
-on a path signal needs to be filtered appropriately based on the
-level of authentication and trust that has been established. For example,
-an ICMP signal from a network element to an endpoint can be used to
-influence future behavior on that particular network path (such as
+# Limiting Impact of Information
+
+Information shared between a network element and an endpoint of a
+connection needs to have a limited impact on the behavior of both
+endpoints and network elements. Any action that an endpoint or
+network element takes based on a path signal needs to be filtered
+appropriately based on the level of authentication and trust that
+has been established, and be scoped to a specific network path.
+
+For example, an ICMP signal from a network element to an endpoint can
+be used to influence future behavior on that particular network path (such as
 changing the effective packet size or closing a path-specific connection),
 but should not be able to cause a multipath or migration-capable transport
 connection to close.
+
+In general, path signals should be considered to be advisory information,
+with the effect of optimizing or adjusting the behavior of connections
+on a specific path. In the case of a firewall blocking connectivity
+to a given host, endpoints should only interpret that as the host being
+unavailable on that particular path; this is in contrast to an end-to-end
+authenticated signal, such as a DNSSEC-authenticated denial of existence
+{{?RFC7129}}.
 
 # Further Work {#research}
 
