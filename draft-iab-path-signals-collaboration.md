@@ -523,8 +523,8 @@ topics would be welcome.
   very few of those have seen deployment.
 
 * Sharing information from applications to networks. There are a few more
-   working examples of this (see {{intro}}). There have been many
-   proposals, in this space, however, but most of them have not
+   working examples of this (see {{intro}}). However, numerous 
+   proposals have been made in this space, but most of them have not
    progressed through standards or been deployed, in part because of
    the issues discussed earlier in this document.
 
