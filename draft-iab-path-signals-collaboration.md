@@ -250,16 +250,19 @@ considering per-connection state.
 This section provides architecture-level principles for protocol designers
 and recommend models to apply for network collaboration and signaling.
 
-While RFC 8558 {{RFC8558}} is focusing specifically on "on-path elements",
-the principles described in this document are effectively applicable to
-all kinds of information exposure and distribution, whether an
-involved node is considered as an "end" or any kind of network control element
-that is explicitly addressed in the communication,
-or if the node is "on-path" and therefore potentially not explicitly addressed. 
+While RFC 8558 {{RFC8558}} focused specifically on "on-path elements",
+the principles described in this document can be applied both to
+on-path signalling and signalling with other elements in the network
+that are not directly on-path, but still influence end-to-end connections.
+An example of on-path signalling is communication between an endpoint
+and a router on a network path. An example of signalling with another
+network element is communication between an endpoint and a network-assigned
+DNS server, firewall controller, or captive portal API server.
 
-Some types of information shared between endpoints and path elements
-have inherent privacy concerns. Careful scrutiny and a high bar of
-consent and trust needs to be applied.
+Taken together, these principles focus on the inherent privacy and security
+concerns of sharing information between endpoints and network elements,
+emphasizing that careful scrutiny and a high bar of consent and trust
+need to be applied.
 
 ## Intentional Distribution
 
