@@ -400,8 +400,9 @@ very targeted, minimal information carriage mechanisms.
 Some simple forms of information often exist in cleartext
 form, e.g, ECN bits from routers are generally not authenticated
 or integrity protected. This is possible when the information
-exchanges are advisory in their nature, and do not carry any
-significantly sensitive information from the parties.
+exchanges do not carry any significantly sensitive information
+from the parties. Often these kind of interations are also advisory
+in their nature (see also next section).
 
 In other cases it may be necessary to establish a secure
 channel for communication with a specific other party, e.g.,
@@ -452,7 +453,7 @@ changing the effective packet size or closing a path-specific connection),
 but should not be able to cause a multipath or migration-capable transport
 connection to close.
 
-In general, path signals should be considered to be advisory information,
+In many cases, path signals can be considered to be advisory information,
 with the effect of optimizing or adjusting the behavior of connections
 on a specific path. In the case of a firewall blocking connectivity
 to a given host, endpoints should only interpret that as the host being
