@@ -390,10 +390,11 @@ There is a tradeoff here between flexibility and ensuring the
 minimality of information in the future. The concern is that a fully
 generic data sharing approach between different layers and parties
 could potentially be misused, e.g., by making the availability of some
-information a requirement for passing through a network.
+information a requirement for passing through a network. This is
+undesirable. 
 
-This is undesirable, and our recommendation is to employ
-very targeted, minimal information carriage mechanisms.
+Therefore the used mechanisms needs to be well target to the kind of
+information carried as well as required level of trust and protection.
 
 ## Protecting Information and Authentication
 
