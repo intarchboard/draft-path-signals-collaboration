@@ -248,7 +248,7 @@ considering per-connection state.
 # Principles {#principles}
 
 This section provides architecture-level principles for protocol designers
-and recommend models to apply for network collaboration and signaling.
+and recommends models to apply for network collaboration and signaling.
 
 While RFC 8558 {{RFC8558}} is focusing specifically on "on-path elements",
 the principles described in this document are effectively applicable to
@@ -280,7 +280,7 @@ of the security and privacy implications of that information.
 
 ## Minimum Set of Entities
 
-It is recommended that a design identify the minimum number of
+It is recommended that a design identifies the minimum number of
 entities needed to share a specific signal required for an identified
 function.
 
@@ -351,13 +351,13 @@ information that should be kept private and information that should be
 shared.
 
 In looking at what information can or cannot easily be passed, we
-can look at both information from the network to the application,
+need to consider both, information from the network to the application
 and from the application to the network.
 
 For the application to the network direction, user-identifying
 information can be problematic for privacy and tracking reasons.
 Similarly, application identity can be problematic, if it might form
-the basis for prioritization or discrimination that the that
+the basis for prioritization or discrimination that the
 application provider may not wish to happen.
 
 On the other hand, as noted above, information about general classes
