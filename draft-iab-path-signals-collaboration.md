@@ -402,7 +402,7 @@ form, e.g, ECN bits from routers are generally not authenticated
 or integrity protected. This is possible when the information
 exchanges do not carry any significantly sensitive information
 from the parties. Often these kind of interations are also advisory
-in their nature (see also next section).
+in their nature (see also section {#impact}).
 
 In other cases it may be necessary to establish a secure
 channel for communication with a specific other party, e.g.,
