@@ -153,8 +153,8 @@ between privacy and the ability for the network path to provide
 intended functions. However, this is perhaps an unnecessarily
 polarized characterization as a zero-sum situation. Not all
 information passing implies loss of privacy. For instance, performance
-information or preferences do not require disclosing the content being accessed
-the user identity or he application in use. Similarly, network
+information or preferences do not require disclosing the content being accessed,
+the user identity, or the application in use. Similarly, network
 congestion status information does not have reveal network topology or
 the status of other users, and so on.
 
