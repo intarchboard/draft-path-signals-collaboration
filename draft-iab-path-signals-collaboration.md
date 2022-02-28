@@ -99,7 +99,7 @@ establishing trust relationships between entities on a path.
 
 RFC 8558 defines the term "path signals" as signals to or from on-path
 elements. Today path signals are often implicit, e.g. derived from
-in-clear end-to-end information by e.g. examining transport
+cleartext end-to-end information by e.g. examining transport
 protocols. For instance, on-path elements use various fields of the
 TCP header {{RFC0793}} to derive information about end-to-end latency
 as well as congestion.  These techniques have evolved because the
@@ -146,36 +146,38 @@ network management, debugging, or the ability for networks to provide
 the most efficient services. There are many cases where elements on
 the network path can provide beneficial services, but only if they can
 coordinate with the endpoints. It also affects the ability of service providers
-and others observe why problems occur {{RFC9075}}.
+and others to observe why problems occur {{RFC9075}}.
 
 As such, this situation is sometimes cast as an adversarial tradeoff
 between privacy and the ability for the network path to provide
 intended functions. However, this is perhaps an unnecessarily
 polarized characterization as a zero-sum situation. Not all
 information passing implies loss of privacy. For instance, performance
-information or preferences do not require disclosing user or
-application identity or what content is being accessed, network
+information or preferences do not require disclosing the content being accessed,
+the user identity, or the application in use. Similarly, network
 congestion status information does not have reveal network topology or
 the status of other users, and so on.
 
 Increased deployment of encryption is changing this situation.
-Encryption, besides its important role in security in general, provides a tool
-to control information access and protects again ossification by avoiding
-unintended dependencies and requiring active maintenance. The increased
+Encryption provides tools for controling information access 
+and protects again ossification by avoiding
+unintended dependencies and requiring active maintenance. 
+
+The increased
 deployment of encryption provides an opportunity to reconsider parts of
-Internet architecture that have rather used implicit derivation of input
-signals for on-path functions than explicit signaling, as recommended
+Internet architecture that have used implicit derivation of input
+signals for on-path functions rather than explicit signaling, as recommended
 by RFC 8558 {{RFC8558}}.
 
-For instance, QUIC replaces TCP for various application and protects all end-to-end
-signals to only be accessible by the endpoint, ensuring evolvability {{RFC9000}}. 
+For instance, QUIC replaces TCP for various applications and ensures end-to-end
+signals are only be accessible by the endpoints, ensuring evolvability {{RFC9000}}. 
 QUIC does expose information dedicated for on-path elements to consume
 by using explicit signals for specific use cases, such as the Spin bit
 for latency measurements or connection ID that can be used by 
 load balancers {{I-D.ietf-quic-manageability}}. This information
 is accessible by all on-path devices but information is limited
 to only those use cases. Each new use case requires additional action.
-This points to one way to resolve the adversity: the careful of design
+This points to one way to resolve the adversity: the careful design
 of what information is passed.
 
 Another extreme is to employ explicit trust and coordination between
@@ -191,15 +193,15 @@ signals from endpoints.
 The goal of improving privacy and trust on the Internet does not necessarily
 need to remove the ability for network elements to perform beneficial
 functions. We should instead improve the way that these functions are
-achieved and design new protocol to support explicit collaboration where it
+achieved and design new protocols to support explicit collaboration where it
 is seen as beneficial. As such our goals should be:
 
 * To ensure that information is distributed intentionally, not accidentally;
 * to understand the privacy and other implications of any distributed information;
-* to ensure that the information distribution targets the intended parties; and
-* to gate the distribution of information on the consent of the relevant parties
+* to ensure that the information distribution is limited the intended parties; and
+* to gate the distribution of information on the participation of the relevant parties
 
-These goals for exposeure and distribution apply equally to senders, receivers,
+These goals for exposure and distribution apply equally to senders, receivers,
 and path elements.
 
 Going forward, new standards work in the IETF needs to focus on
@@ -235,12 +237,12 @@ some examples and explanation of situations that not following the
 principles can lead to. {{research}} points to topics that need more
 to be looked at more carefully before any guidance can be given.
 
-Beyond the recommandation in {{RFC8558}}, the IAB provided further
-guidance on protocol design e.g., {{RFC5218}} provides general advice
+Beyond the recommandation in {{RFC8558}}, the IAB has provided further
+guidance on protocol design.  Among other documents, {{RFC5218}} provides general advice
 on incremental deployability based on an analysis of successes and failures
 and {{RFC6709}} discusses protocol extensibility. The Internet Technology
 Adoption and Transition (ITAT) workshop report {{RFC7305}} is also recommended
-reading on this same general topic. Also {{RFC9049}}, an IRTF document, provides
+reading on this same general topic. {{RFC9049}}, an IRTF document, provides
 a catalogue of past issues to avoid and discusses incentives for adoption of
 path signals such as the need for outperforming end-to-end mechanisms or
 considering per-connection state.
@@ -275,9 +277,9 @@ This guideline is best expressed in RFC 8558:
    flows, this may result in the signal being absent but allows it to
    be present when needed."
 
-This guideline applies also in the other direction as well.
+This guideline applies in the other direction as well.
 For instance, a network element should not unintentionally leak
-information that is visible to endpoints. An explicit decision is
+information that is not visible to endpoints. An explicit decision is
 needed for a specific information to be provided, along with analysis
 of the security and privacy implications of that information.
 
@@ -298,7 +300,7 @@ While it is tempting to consider removing these limitations in the
 context of closed, private networks, each interaction is still best
 considered separately, rather than simply allowing all information
 exchanges within the closed network.  Even in a closed network with
-carefully managed components there may be compromised components, as
+carefully managed elements there may be compromised components, as
 evidenced in the most extreme way by the Stuxnet worm that operated in
 an airgapped network.  Most "closed" networks have at least some needs
 and means to access the rest of the Internet, and should not be
@@ -313,15 +315,14 @@ the information being shared.
 Three distinct types of consent are recommended for collaboration or
 information sharing:
 
-* A corollary of the intentional distribution is that the sender
-  needs to agree to sending the information. Or that the requester
-  for an action needs to agree to make a request; it should not be an
-  implicit decision by the receiver that information was sent or a
-  request was made, just because a packet happened to be formed in a
-  particular way.
+* A corollary of the principle of intentional distribution is that the sender
+  needs to agree to sending the information.  Similarly, the requester
+  for an action needs to agree to make a request.  A packet being formed
+  in a particular way should not cause a receiver to assume the implicit
+  consent of the sender or requester. 
 
 * At the same time, the recipient of information or the target of a
-  request should agree to wishing to receive the information. It
+  request should agree to its reception. It
   should not be burdened with extra processing if it does not have
   willigness or a need to do so. This happens naturally in most
   protocol designs, but has been a problem for some cases where
@@ -331,7 +332,7 @@ information sharing:
 * Internet communications are not made for the applications, they are
   ultimately made on behalf of users. Information relating to the
   users is something that both networks and applications should be
-  careful with, and not be shared without the user's consent. This is
+  careful with  and should not share without the user's consent. This is
   not always easy, as the interests of the user and (for instance)
   application developer may not always coincide; some applications
   may wish to collect more information about the user than the user
@@ -342,9 +343,9 @@ information sharing:
 
 ## Minimum Information
 
-Parties should provide only the information that is needed for the
-other party to perform the collaboration task that is desired by this
-party, and not more. This applies to information sent by an
+Each party should provide only the information that is needed for the
+other parties to perform the task for which collaboration is desired,
+and no more. This applies to information sent by an
 application about itself, information sent about users, or information
 sent by the network.
 
@@ -409,7 +410,7 @@ significantly sensitive information from the parties.
 In other cases it may be necessary to establish a secure
 channel for communication with a specific other party, e.g.,
 between a network element and an application. This channel
-may need to be authenticated, integrity protected and encrypted.
+may need to be authenticated, integrity protected and confidential.
 This is necessary, for instance, if the particular information or
 request needs to be share in confidence only with a particular,
 trusted node, or there's a danger of an attack where someone else
@@ -455,7 +456,7 @@ changing the effective packet size or closing a path-specific connection),
 but should not be able to cause a multipath or migration-capable transport
 connection to close.
 
-In general, path signals should be considered to be advisory information,
+In the common case, path signals should be considered to be advisory information,
 with the effect of optimizing or adjusting the behavior of connections
 on a specific path. In the case of a firewall blocking connectivity
 to a given host, endpoints should only interpret that as the host being
@@ -466,9 +467,9 @@ authenticated signal, such as a DNSSEC-authenticated denial of existence
 # Further Work {#research}
 
 This is a developing field, and it is expected that our understanding
-continues to grow. The recent changes with regards to much higher use
-of encryption at different protocol layers, the consolidation of more
-and more traffic to the same destinations, and so on have also greatly
+will continue to grow. Among the recent changes are much higher use
+of encryption at different protocol layers and the consolidation of more
+and more traffic to the same destinations; these have greatly
 impacted the field.
 
 While there are some examples of modern, well-designed collaboration
