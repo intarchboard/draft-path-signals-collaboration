@@ -307,7 +307,7 @@ Trust and mutual agreement between the involved entities must determine
 the distribution of information, in order to give adequate control to 
 each entity over the collaboration or information sharing.
 
-A corollary of the intentional distribution is that the sender
+A corollary of this principle is that the sender
 needs to agree to sending the information. Or that the requester
 for an action needs to agree to make a request; it should not be an
 implicit decision by the receiver that information was sent or a
