@@ -393,7 +393,7 @@ could potentially be misused, e.g., by making the availability of some
 information a requirement for passing through a network. This is
 undesirable. 
 
-Therefore the used mechanisms needs to be well target to the kind of
+Therefore, the signaling mechanisms need to be targeted to the kind of
 information carried as well as required level of trust and protection.
 
 ## Protecting Information and Authentication
