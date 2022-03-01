@@ -341,7 +341,7 @@ information sharing:
   As a result, typically an application's consent is not the same as
   the user's consent.
 
-## Minimum Information
+## Minimize Information
 
 Each party should provide only the information that is needed for the
 other parties to perform the task for which collaboration is desired,
