@@ -393,8 +393,10 @@ could potentially be misused, e.g., by making the availability of some
 information a requirement for passing through a network. This is
 undesirable. 
 
-Therefore, the signaling mechanisms need to be targeted to the kind of
-information carried as well as required level of trust and protection.
+This document recommends the carrying mechanisms to be restricted
+to the type of information that is needed to carry the minimal set of
+information (see Section {minimum-info}) and respectively establish
+sufficient trust to pass that information (see section {auth}).
 
 ## Protecting Information and Authentication
 
