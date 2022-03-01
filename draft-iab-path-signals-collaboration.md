@@ -337,7 +337,7 @@ information sharing:
   As a result, typically an application's consent is not the same as
   the user's consent.
 
-## Minimum Information
+## Minimum Information {#minimum-info}
 
 Parties should provide only the information that is needed for the
 other party to perform the collaboration task that is desired by this
@@ -395,10 +395,10 @@ undesirable.
 
 This document recommends the carrying mechanisms to be restricted
 to the type of information that is needed to carry the minimal set of
-information (see Section {minimum-info}) and respectively establish
-sufficient trust to pass that information (see section {auth}).
+information (see Section {{minimum-info}}) and respectively establish
+sufficient trust to pass that information (see section {{auth}}).
 
-## Protecting Information and Authentication
+## Protecting Information and Authentication {#auth}
 
 Some simple forms of information often exist in cleartext
 form, e.g, ECN bits from routers are generally not authenticated
