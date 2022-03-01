@@ -291,10 +291,10 @@ function.
 
 Often this will be a very limited set, such as when an application
 only needs to provide a signal to its peer at the other end of the
-connection. Or a host needs to contact a specific VPN gateway. In
+connection or a host needs to contact a specific VPN gateway. In
 other cases a broader set is neeeded, such as when explicit or
-implicit signals from routers along the path inform the endpoints
-about congestion.
+implicit signals from a potentially unknown set of multiple routers
+along the path inform the endpoints about congestion.
 
 While it is tempting to consider removing these limitations in the
 context of closed, private networks, each interaction is still best
