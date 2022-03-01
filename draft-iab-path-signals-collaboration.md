@@ -307,12 +307,11 @@ Trust and mutual agreement between the involved entities must determine
 the distribution of information, in order to give adequate control to 
 each entity over the collaboration or information sharing.
 
-A corollary of this principle is that the sender
-needs to agree to sending the information. Or that the requester
-for an action needs to agree to make a request; it should not be an
-implicit decision by the receiver that information was sent or a
-request was made, just because a packet happened to be formed in a
-particular way.
+The sender needs to agree to sending the information.
+Any passing of information or request for an action needs to be explicit,
+and use protocol mechanisms that are designed for the purpose.
+Merely sending a particular kind of packet to a destination should not
+be interpreted as an implicit agreement.
 
 At the same time, the recipient of information or the target of a
 request should agree to wishing to receive the information. It
