@@ -327,7 +327,7 @@ to share certain information.
 
 Many Internet communications are not made for the applications, but
 ultimately made on behalf of users. However, no all information
-that may be shared does directly relate to user action or other
+that may be shared does directly relate to user actions or other
 senstive data. Still, all information shared must be evaluated carefully
 to identify potential privacy implications for users. Information that
 directly relates to the user should not be shared without the user's
