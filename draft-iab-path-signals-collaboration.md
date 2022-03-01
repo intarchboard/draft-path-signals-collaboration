@@ -330,7 +330,7 @@ ultimately made on behalf of users. However, no all information
 that may be shared does directly relate to user action or other
 senstive data. Still, all information shared must be evaluated carefully
 to identify potential privacy implications for users. Information that
-directly relates to the users should not be shared without the user's
+directly relates to the user should not be shared without the user's
 consent. It should be noted that the interests of the user and
 (for instance) application developer may not always coincide;
 some applications may wish to collect more information about
