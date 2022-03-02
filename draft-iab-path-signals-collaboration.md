@@ -306,40 +306,42 @@ an airgapped network.  Most "closed" networks have at least some needs
 and means to access the rest of the Internet, and should not be
 modeled as if they had an impenetrable security barrier.
 
-## Consent of Parties
+## Control of the Distribution of Information
 
-Consent and trust must determine the distribution of information. The set of
-entities that need to consent is determined by the scope and specificity of
-the information being shared. 
+Trust and mutual agreement between the involved entities must determine
+the distribution of information, in order to give adequate control to 
+each entity over the collaboration or information sharing.
 
-Three distinct types of consent are recommended for collaboration or
-information sharing:
+The sender needs to agree to sending the information.
+Any passing of information or request for an action needs to be explicit,
+and use protocol mechanisms that are designed for the purpose.
+Merely sending a particular kind of packet to a destination should not
+be interpreted as an implicit agreement.
 
-* A corollary of the principle of intentional distribution is that the sender
-  needs to agree to sending the information.  Similarly, the requester
-  for an action needs to agree to make a request.  A packet being formed
-  in a particular way should not cause a receiver to assume the implicit
-  consent of the sender or requester. 
+At the same time, the recipient of information or the target of a
+request should agree to receiving the information. It
+should not be burdened with extra processing if it does not have
+willigness or a need to do so. This happens naturally in most
+protocol designs, but has been a problem for some cases where
+"slow path" packet processing is required or implied, and the
+recipient or router is not willing to handle this.
 
-* At the same time, the recipient of information or the target of a
-  request should agree to its reception. It
-  should not be burdened with extra processing if it does not have
-  willigness or a need to do so. This happens naturally in most
-  protocol designs, but has been a problem for some cases where
-  "slow path" packet processing is required or implied, and the
-  recipient or router did not have willingness for this.
+In both cases, all involved entities must be identified and
+potentially authenticated if trust is required as a prerequisite
+to share certain information.
 
-* Internet communications are not made for the applications, they are
-  ultimately made on behalf of users. Information relating to the
-  users is something that both networks and applications should be
-  careful with  and should not share without the user's consent. This is
-  not always easy, as the interests of the user and (for instance)
-  application developer may not always coincide; some applications
-  may wish to collect more information about the user than the user
-  would like.
-
-  As a result, typically an application's consent is not the same as
-  the user's consent.
+Many Internet communications are not performed on behalf of the applications, but are
+ultimately made on behalf of users. However, not all information
+that may be shared directly relates to user actions or other
+senstive data. All information shared must be evaluated carefully
+to identify potential privacy implications for users. Information that
+directly relates to the user should not be shared without the user's
+consent. It should be noted that the interests of the user and
+other parties, such as the application developer, may not always coincide;
+some applications may wish to collect more information about
+the user than the user would like. How to achieve a
+balance of control between the actual user and an application
+representing an user's interest is out of scope for this document.
 
 ## Minimize Information {#minimize-info}
 
