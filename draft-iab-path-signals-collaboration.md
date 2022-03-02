@@ -319,27 +319,27 @@ Merely sending a particular kind of packet to a destination should not
 be interpreted as an implicit agreement.
 
 At the same time, the recipient of information or the target of a
-request should agree to wishing to receive the information. It
+request should agree to receiving the information. It
 should not be burdened with extra processing if it does not have
 willigness or a need to do so. This happens naturally in most
 protocol designs, but has been a problem for some cases where
 "slow path" packet processing is required or implied, and the
-recipient or router did not have willingness for this.
+recipient or router is not willing to handle this.
 
 In both cases, all involved entities must be identified and
 potentially authenticated if trust is required as a prerequisite
 to share certain information.
 
-Many Internet communications are not made for the applications, but
-ultimately made on behalf of users. However, no all information
-that may be shared does directly relate to user actions or other
-senstive data. Still, all information shared must be evaluated carefully
+Many Internet communications are not performed on behalf of the applications, but are
+ultimately made on behalf of users. However, not all information
+that may be shared directly relates to user actions or other
+senstive data. All information shared must be evaluated carefully
 to identify potential privacy implications for users. Information that
 directly relates to the user should not be shared without the user's
 consent. It should be noted that the interests of the user and
-(for instance) application developer may not always coincide;
+other parties, such as the application developer, may not always coincide;
 some applications may wish to collect more information about
-the user than the user would like. However, how to achieve a
+the user than the user would like. How to achieve a
 balance of control between the actual user and an application
 representing an user's interest is out of scope for this document.
 
