@@ -341,7 +341,7 @@ information sharing:
   As a result, typically an application's consent is not the same as
   the user's consent.
 
-## Minimize Information
+## Minimize Information {#minimize-info}
 
 Each party should provide only the information that is needed for the
 other parties to perform the task for which collaboration is desired,
@@ -394,12 +394,15 @@ There is a tradeoff here between flexibility and ensuring the
 minimality of information in the future. The concern is that a fully
 generic data sharing approach between different layers and parties
 could potentially be misused, e.g., by making the availability of some
-information a requirement for passing through a network.
+information a requirement for passing through a network. This is
+undesirable. 
 
-This is undesirable, and our recommendation is to employ
-very targeted, minimal information carriage mechanisms.
+This document recommends that the protocols that carry information
+are specific to the type of information that is needed to carry the
+minimal set of information (see {{minimum-info}}) and can
+establish sufficient trust to pass that information (see {{auth}}).
 
-## Protecting Information and Authentication
+## Protecting Information and Authentication {#auth}
 
 Some simple forms of information often exist in cleartext
 form, e.g, ECN bits from routers are generally not authenticated
