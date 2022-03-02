@@ -57,6 +57,7 @@ informative:
   I-D.flinck-mobile-throughput-guidance:
   I-D.arkko-dns-confidential:
   I-D.thomson-http-oblivious:
+  I-D.yiakoumis-network-tokens:
   Claffy2015:
      title: "Adding Enhanced Services to the Internet: Lessons from History"
      seriesinfo: "TPRC 43: The 43rd Research Conference on Communication, Information and Internet Policy Paper"
@@ -401,7 +402,7 @@ undesirable.
 
 This document recommends that the protocols that carry information
 are specific to the type of information that is needed to carry the
-minimal set of information (see {{minimum-info}}) and can
+minimal set of information (see {{minimize-info}}) and can
 establish sufficient trust to pass that information (see {{auth}}).
 
 ## Protecting Information and Authentication {#auth}
@@ -522,20 +523,20 @@ topics would be welcome.
 
 * Sharing information from networks to applications. There are some
   working examples of this, e.g., ECN. A few other proposals have been
-  made (see, e.g., {{I-D.flinck-mobile-throughput-guidance}}) but,
+  made (see, e.g., {{I-D.flinck-mobile-throughput-guidance}}), but
   very few of those have seen deployment.
 
 * Sharing information from applications to networks. There are a few more
    working examples of this (see {{intro}}). However, numerous 
    proposals have been made in this space, but most of them have not
-   progressed through standards or been deployed, in part because of
-   the issues discussed earlier in this document.
+   progressed through standards or been deployed, for a variety of
+   reasons {{RFC9049}}. Several current or recent proposals exist,
+   however, such as {{I-D.yiakoumis-network-tokens}}.
 
-* Rigorous data privacy regimes generally deal with more issues than 
-  merely whether some information is shared with another party or
-  not. For instance, there may be practices and rules regarding how
-  long information is stored, what purpose it may be used for, even
-  for situations where some information is shared. Some aspects of
+* Data privacy regimes generally deal with more issues than merely
+  whether some information is shared with another party or not. For
+  instance, there may be rules regarding how long information can be
+  stored or what purpose information may be used for.  Similar issues
   may also be applicable to the kind of information sharing discussed
   in this document.
 
