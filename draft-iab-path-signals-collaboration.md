@@ -9,7 +9,7 @@ ipr: trust200902
 keyword: Internet-Draft
 
 stand_alone: yes
-pi: [sortrefs, symrefs]
+pi: [toc, sortrefs, symrefs]
 
 author:
   -
