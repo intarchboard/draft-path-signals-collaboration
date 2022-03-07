@@ -448,7 +448,7 @@ network and application. Or technologies such as confidential
 computing can be applied to provide an assurance that information
 processed by a party is handled in an appropriate manner.
 
-# Limiting Impact of Information
+## Limiting Impact of Information
 
 Information shared between a network element and an endpoint of a
 connection needs to have a limited impact on the behavior of both
