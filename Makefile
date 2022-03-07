@@ -34,6 +34,7 @@ compile: draft-iab-path-signals-collaboration.md
 		$(MACHINE):/tmp/draft-iab-path-signals-collaboration-from-arkko-iab-path-signals-collaboration-$(OLDREVNO).diff.html \
 		.
 	scp draft-*-path-signals-*.txt draft-*-path-signals-*.html root@cloud3.arkko.eu:/var/www/www.arkko.com/html/ietf/iab
+	ssh root@cloud3.arkko.eu rm /var/www/www.arkko.com/html/ietf/iab/draft-iab-path-signals-collaboration.html
 
 oldcompile actually-working-compile-without-v3-garbage: draft-iab-path-signals-collaboration.md
 	-@ssh $(MACHINE) 'cd /tmp; rm *.txt *.md *.xml'
