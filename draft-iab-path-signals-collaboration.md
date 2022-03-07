@@ -284,6 +284,114 @@ information that is not visible to endpoints. An explicit decision is
 needed for a specific information to be provided, along with analysis
 of the security and privacy implications of that information.
 
+## Protecting Information and Authentication {#auth}
+
+Some simple forms of information often exist in cleartext
+form, e.g, ECN bits from routers are generally not authenticated
+or integrity protected. This is possible when the information
+exchanges do not carry any significantly sensitive information
+from the parties. Often these kind of interations are also advisory
+in their nature (see also section {#impact}).
+
+In other cases it may be necessary to establish a secure
+channel for communication with a specific other party, e.g.,
+between a network element and an application. This channel
+may need to be authenticated, integrity protected and confidential.
+This is necessary, for instance, if the particular information or
+request needs to be share in confidence only with a particular,
+trusted node, or there's a danger of an attack where someone else
+may forge messages that could endanger the communication.
+
+Authenticated integrity protections on signalled data can help
+ensure that data received in a signal has not been modified by
+other parties, but both network elements and endpoints need to
+be careful in processing or responding to any signal. Whether
+through bugs or attacks, the content of path signals can lead
+to unexpected behaviors or security vulernabilities if not
+properly handled.
+
+However, it is important to note that authentication does not equal
+trust. Whether a communication is with an application server or
+network element that can be shown to be associated with a particular
+domain name, it does not follow that information about the user can be
+safely sent to it.
+
+In some cases, the ability of a party to show that it is on the path
+can be beneficial. For instance, an ICMP error that refers to a valid
+flow may be more trustworthy than any ICMP error claiming to come from
+an address.
+
+Other cases may require more substantial assurances. For instance,
+a specific trust arrangement may be established between a particular
+network and application. Or technologies such as confidential
+computing can be applied to provide an assurance that information
+processed by a party is handled in an appropriate manner.
+
+## Minimize Information {#minimize-info}
+
+Each party should provide only the information that is needed for the
+other parties to perform the task for which collaboration is desired,
+and no more. This applies to information sent by an
+application about itself, information sent about users, or information
+sent by the network.
+
+An architecture can follow the guideline from RFC 8558 in using
+explicit signals, but still fail to differentiate properly between
+information that should be kept private and information that should be
+shared.
+
+In looking at what information can or cannot easily be passed, we
+need to consider both, information from the network to the application
+and from the application to the network.
+
+For the application to the network direction, user-identifying
+information can be problematic for privacy and tracking reasons.
+Similarly, application identity can be problematic, if it might form
+the basis for prioritization or discrimination that the
+application provider may not wish to happen.
+
+On the other hand, as noted above, information about general classes
+of applications may be desirable to be given by application providers,
+if it enables prioritization that would improve service, e.g.,
+differentiation between interactive and non-interactive services.
+
+For the network to application direction there is similarly sensitive
+information, such as the precise location of the user.  On the other
+hand, various generic network conditions, predictive bandwidth and
+latency capabilities, and so on might be attractive information that
+applications can use to determine, for instance, optimal strategies
+for changing codecs. However, information given by the network about
+load conditions and so on should not form a mechanism to provide a
+side-channel into what other users are doing.
+
+While information needs to be specific and provided on a per-need
+basis, it is often beneficial to provide declarative information that,
+for instance, expresses application needs than makes specific requests
+for action.
+
+## Limiting Impact of Information
+
+Information shared between a network element and an endpoint of a
+connection needs to have a limited impact on the behavior of both
+endpoints and network elements. Any action that an endpoint or
+network element takes based on a path signal needs to be considered
+appropriately based on the level of authentication and trust that
+has been established, and be scoped to a specific network path.
+
+For example, an ICMP signal from a network element to an endpoint can
+be used to influence future behavior on that particular network path (such as
+changing the effective packet size or closing a path-specific connection),
+but should not be able to cause a multipath or migration-capable transport
+connection to close.
+
+In many cases, path signals can be considered to be advisory information,
+with the effect of optimizing or adjusting the behavior of connections
+on a specific path. In the case of a firewall blocking connectivity
+to a given host, endpoints should only interpret that as the host being
+unavailable on that particular path; this is in contrast to an end-to-end
+authenticated signal, such as a DNSSEC-authenticated denial of existence
+{{?RFC7129}}.
+
 ## Minimum Set of Entities
 
 It is recommended that a design identifies the minimum number of
@@ -344,48 +452,6 @@ the user than the user would like. How to achieve a
 balance of control between the actual user and an application
 representing an user's interest is out of scope for this document.
 
-## Minimize Information {#minimize-info}
-
-Each party should provide only the information that is needed for the
-other parties to perform the task for which collaboration is desired,
-and no more. This applies to information sent by an
-application about itself, information sent about users, or information
-sent by the network.
-
-An architecture can follow the guideline from RFC 8558 in using
-explicit signals, but still fail to differentiate properly between
-information that should be kept private and information that should be
-shared.
-
-In looking at what information can or cannot easily be passed, we
-need to consider both, information from the network to the application
-and from the application to the network.
-
-For the application to the network direction, user-identifying
-information can be problematic for privacy and tracking reasons.
-Similarly, application identity can be problematic, if it might form
-the basis for prioritization or discrimination that the
-application provider may not wish to happen.
-
-On the other hand, as noted above, information about general classes
-of applications may be desirable to be given by application providers,
-if it enables prioritization that would improve service, e.g.,
-differentiation between interactive and non-interactive services.
-
-For the network to application direction there is similarly sensitive
-information, such as the precise location of the user.  On the other
-hand, various generic network conditions, predictive bandwidth and
-latency capabilities, and so on might be attractive information that
-applications can use to determine, for instance, optimal strategies
-for changing codecs. However, information given by the network about
-load conditions and so on should not form a mechanism to provide a
-side-channel into what other users are doing.
-
-While information needs to be specific and provided on a per-need
-basis, it is often beneficial to provide declarative information that,
-for instance, expresses application needs than makes specific requests
-for action.
-
 ## Carrying Information
 
 There is a distinction between what information is passed and how it
@@ -405,71 +471,6 @@ are specific to the type of information that is needed to carry the
 minimal set of information (see {{minimize-info}}) and can
 establish sufficient trust to pass that information (see {{auth}}).
 
-## Protecting Information and Authentication {#auth}
-
-Some simple forms of information often exist in cleartext
-form, e.g, ECN bits from routers are generally not authenticated
-or integrity protected. This is possible when the information
-exchanges do not carry any significantly sensitive information
-from the parties. Often these kind of interations are also advisory
-in their nature (see also section {#impact}).
-
-In other cases it may be necessary to establish a secure
-channel for communication with a specific other party, e.g.,
-between a network element and an application. This channel
-may need to be authenticated, integrity protected and confidential.
-This is necessary, for instance, if the particular information or
-request needs to be share in confidence only with a particular,
-trusted node, or there's a danger of an attack where someone else
-may forge messages that could endanger the communication.
-
-Authenticated integrity protections on signalled data can help
-ensure that data received in a signal has not been modified by
-other parties, but both network elements and endpoints need to
-be careful in processing or responding to any signal. Whether
-through bugs or attacks, the content of path signals can lead
-to unexpected behaviors or security vulernabilities if not
-properly handled.
-
-However, it is important to note that authentication does not equal
-trust. Whether a communication is with an application server or
-network element that can be shown to be associated with a particular
-domain name, it does not follow that information about the user can be
-safely sent to it.
-
-In some cases, the ability of a party to show that it is on the path
-can be beneficial. For instance, an ICMP error that refers to a valid
-flow may be more trustworthy than any ICMP error claiming to come from
-an address.
-
-Other cases may require more substantial assurances. For instance,
-a specific trust arrangement may be established between a particular
-network and application. Or technologies such as confidential
-computing can be applied to provide an assurance that information
-processed by a party is handled in an appropriate manner.
-
-## Limiting Impact of Information
-
-Information shared between a network element and an endpoint of a
-connection needs to have a limited impact on the behavior of both
-endpoints and network elements. Any action that an endpoint or
-network element takes based on a path signal needs to be considered
-appropriately based on the level of authentication and trust that
-has been established, and be scoped to a specific network path.
-
-For example, an ICMP signal from a network element to an endpoint can
-be used to influence future behavior on that particular network path (such as
-changing the effective packet size or closing a path-specific connection),
-but should not be able to cause a multipath or migration-capable transport
-connection to close.
-
-In many cases, path signals can be considered to be advisory information,
-with the effect of optimizing or adjusting the behavior of connections
-on a specific path. In the case of a firewall blocking connectivity
-to a given host, endpoints should only interpret that as the host being
-unavailable on that particular path; this is in contrast to an end-to-end
-authenticated signal, such as a DNSSEC-authenticated denial of existence
-{{?RFC7129}}.
 
 # Further Work {#research}
 
