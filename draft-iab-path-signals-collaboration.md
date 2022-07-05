@@ -108,20 +108,21 @@ information was available and its use required no coordination with
 anyone. This made such techniques more easily deployed than
 alternative, potentially more explicit or cooperative approaches. Such
 techniques had some drawbacks as well, such as having to interpret
-information designed to be carried for another purpose.
+information designed to be carried for one purpose for a new, different purpose.
 
 Today, applications and networks have often evolved their interaction
 without comprehensive design for how this interaction should
-happen or which information would be desired for a certain function.
-This has lead to a situation where sometimes information is used that
-maybe incomplete, incorrect, or only indirectly representative of the 
-information that was actually desired. In addition, dependencies on
+happen or which information would be needed for a certain function.
+This has led to a situation where sometimes information that happens 
+to be easily available is used. But that information
+may be incomplete, incorrect, or only indirectly representative of the 
+information that is actually needed. In addition, dependencies on
 information and mechanisms that were designed for a different function
 limits the evolvability of the protocols in question.
 
 The unplanned interaction ends up having several negative effects:
 
-* Ossifying protocols by introducing unintended parties that may not be updating
+* Ossifying protocols by introducing dependencies to unintended parties that may not be updating, such as how middleboxes have limited the use of TCP options
 * Creating systemic incentives against deploying more secure or otherwise updated versions of protocols
 * Basing network behaviour on information that may be incomplete or incorrect
 * Creating a model where network entities expect to be able to use
@@ -130,12 +131,12 @@ The unplanned interaction ends up having several negative effects:
 For instance, features such as DNS resolution or TLS setup have been
 used beyond their original intent, such as in name-based
 filtering. MAC addresses have been used for access control, captive
-portal implementations that employ taking over cleartext HTTP
+portals have been used to take over cleartext HTTP
 sessions, and so on.
 
 A large number of protocol mechanisms today fall into one of two
 categories: authenticated and private communication that is only visible
-to the a very limited set nodes, often one on each "end"; and unauthenticated
+to a very limited set nodes, often one on each "end"; and unauthenticated
 public communication that is visible to all nodes on a path.
 
 Exposed information encourages pervasive monitoring, which is
@@ -160,8 +161,8 @@ congestion status information does not have reveal network topology or
 the status of other users, and so on.
 
 Increased deployment of encryption is changing this situation.
-Encryption provides tools for controling information access 
-and protects again ossification by avoiding
+Encryption provides tools for controlling information access 
+and protects against ossification by avoiding
 unintended dependencies and requiring active maintenance. 
 
 The increased
@@ -224,10 +225,10 @@ questions above. Too often, they send unnecessary information or fail to
 limit the scope of distribution or providing any negotiation or consent.
 
 Designing explicit signals between applications and network elements,
-and ensuring that all other information is appropriately protected,
+and ensuring that all information is appropriately protected,
 enables information exchange in both directions that is important
 for improving the quality of experience and network management.
-This kind of cleanly separated architecture is also more conducive
+The clean separation provided by explicit signals is also more conducive
 to protocol evolvability.
 
 This draft discusses different approaches for explicit collaboration
@@ -238,7 +239,7 @@ some examples and explanation of situations that not following the
 principles can lead to. {{research}} points to topics that need more
 to be looked at more carefully before any guidance can be given.
 
-Beyond the recommandation in {{RFC8558}}, the IAB has provided further
+Beyond the recommendation in {{RFC8558}}, the IAB has provided further
 guidance on protocol design.  Among other documents, {{RFC5218}} provides general advice
 on incremental deployability based on an analysis of successes and failures
 and {{RFC6709}} discusses protocol extensibility. The Internet Technology
@@ -293,7 +294,7 @@ function.
 Often this will be a very limited set, such as when an application
 only needs to provide a signal to its peer at the other end of the
 connection or a host needs to contact a specific VPN gateway. In
-other cases a broader set is neeeded, such as when explicit or
+other cases a broader set is needed, such as when explicit or
 implicit signals from a potentially unknown set of multiple routers
 along the path inform the endpoints about congestion.
 
