@@ -323,7 +323,7 @@ be interpreted as an implicit agreement.
 At the same time, the recipient of information or the target of a
 request should agree to receiving the information. It
 should not be burdened with extra processing if it does not have
-willigness or a need to do so. This happens naturally in most
+willingness or a need to do so. This happens naturally in most
 protocol designs, but has been a problem for some cases where
 "slow path" packet processing is required or implied, and the
 recipient or router is not willing to handle this.
@@ -335,7 +335,7 @@ to share certain information.
 Many Internet communications are not performed on behalf of the applications, but are
 ultimately made on behalf of users. However, not all information
 that may be shared directly relates to user actions or other
-senstive data. All information shared must be evaluated carefully
+sensitive data. All information shared must be evaluated carefully
 to identify potential privacy implications for users. Information that
 directly relates to the user should not be shared without the user's
 consent. It should be noted that the interests of the user and
