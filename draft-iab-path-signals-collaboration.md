@@ -143,7 +143,7 @@ Exposed information encourages pervasive monitoring, which is
 described in RFC 7258 {{RFC7258}}, and may also be
 used for commercial purposes, or form a basis for filtering that the
 applications or users do not desire.
-But a lack of all path signaling, on the other hand, may be harmful to
+But a lack of all path signalling, on the other hand, may be harmful to
 network management, debugging, or the ability for networks to provide
 the most efficient services. There are many cases where elements on
 the network path can provide beneficial services, but only if they can
@@ -168,7 +168,7 @@ unintended dependencies and requiring active maintenance.
 The increased
 deployment of encryption provides an opportunity to reconsider parts of
 Internet architecture that have used implicit derivation of input
-signals for on-path functions rather than explicit signaling, as recommended
+signals for on-path functions rather than explicit signalling, as recommended
 by RFC 8558 {{RFC8558}}.
 
 For instance, QUIC replaces TCP for various applications and ensures end-to-end
@@ -195,7 +195,7 @@ signals from endpoints.
 The goal of improving privacy and trust on the Internet does not necessarily
 need to remove the ability for network elements to perform beneficial
 functions. We should instead improve the way that these functions are
-achieved and design new protocols to support explicit collaboration where it
+achieved and design new ways to support explicit collaboration where it
 is seen as beneficial. As such our goals should be:
 
 * To ensure that information is distributed intentionally, not accidentally;
@@ -252,7 +252,7 @@ considering per-connection state.
 # Principles {#principles}
 
 This section provides architecture-level principles for protocol designers
-and recommends models to apply for network collaboration and signaling.
+and recommends models to apply for network collaboration and signalling.
 
 While RFC 8558 {{RFC8558}} focused specifically on "on-path elements",
 the principles described in this document can be applied both to
@@ -308,7 +308,7 @@ an airgapped network.  Most "closed" networks have at least some needs
 and means to access the rest of the Internet, and should not be
 modeled as if they had an impenetrable security barrier.
 
-## Control of the Distribution of Information
+## Control of the Distribution of Information {#control-distr}
 
 Trust and mutual agreement between the involved entities must determine
 the distribution of information, in order to give adequate control to 
@@ -316,7 +316,7 @@ each entity over the collaboration or information sharing.
 
 The sender needs to agree to sending the information.
 Any passing of information or request for an action needs to be explicit,
-and use protocol mechanisms that are designed for the purpose.
+and use signalling mechanisms that are designed for the purpose.
 Merely sending a particular kind of packet to a destination should not
 be interpreted as an implicit agreement.
 
@@ -389,22 +389,23 @@ for action.
 
 ## Carrying Information
 
-There is a distinction between what information is passed and how it
-is carried. The actually sent information may be limited, while the
+There is a distinction between what information is sent and how it
+is sent. The actually sent information may be limited, while the
 mechanisms for sending or requesting information can be capable of
-sending much more.
+sharing much more.
 
 There is a tradeoff here between flexibility and ensuring the
 minimality of information in the future. The concern is that a fully
 generic data sharing approach between different layers and parties
 could potentially be misused, e.g., by making the availability of some
-information a requirement for passing through a network. This is
+information a requirement for passing through a network, such as 
+making it mandatory to identify specific applications or users. This is
 undesirable. 
 
-This document recommends that the protocols that carry information
-are specific to the type of information that is needed to carry the
-minimal set of information (see {{minimize-info}}) and can
-establish sufficient trust to pass that information (see {{auth}}).
+This document recommends that signalling mechanisms that send information
+are built to specifically support sending the necessary, minimal set of information (see {{minimize-info}})
+and no more. Such mechanisms also need have an ability for establishing an agreement (see {{control-distr}}) and to
+sufficient trust to pass the information (see {{auth}}).
 
 ## Protecting Information and Authentication {#auth}
 
@@ -412,11 +413,11 @@ Some simple forms of information often exist in cleartext
 form, e.g, ECN bits from routers are generally not authenticated
 or integrity protected. This is possible when the information
 exchanges do not carry any significantly sensitive information
-from the parties. Often these kind of interations are also advisory
-in their nature (see also section {#impact}).
+from the parties. Often these kind of interactions are also advisory
+in their nature (see also section {{impact}}).
 
 In other cases it may be necessary to establish a secure
-channel for communication with a specific other party, e.g.,
+signalling channel for communication with a specific other party, e.g.,
 between a network element and an application. This channel
 may need to be authenticated, integrity protected and confidential.
 This is necessary, for instance, if the particular information or
@@ -429,8 +430,10 @@ ensure that data received in a signal has not been modified by
 other parties, but both network elements and endpoints need to
 be careful in processing or responding to any signal. Whether
 through bugs or attacks, the content of path signals can lead
-to unexpected behaviors or security vulernabilities if not
-properly handled.
+to unexpected behaviors or security vulnerabilities if not
+properly handled. As a result, the advice in {{impact}} still 
+applies even in situations where there's a secure channel for 
+sending information.
 
 However, it is important to note that authentication does not equal
 trust. Whether a communication is with an application server or
