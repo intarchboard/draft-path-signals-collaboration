@@ -265,7 +265,10 @@ DNS server, firewall controller, or captive portal API server.
 Taken together, these principles focus on the inherent privacy and security
 concerns of sharing information between endpoints and network elements,
 emphasizing that careful scrutiny and a high bar of consent and trust
-need to be applied.
+need to be applied.  Given the known threat of pervasive monitoring, the
+application of these principles is critical to ensuring that the use
+of path signals does not create a disproportionate opportunity for observers 
+to extract new data from flows.
 
 ## Intentional Distribution
 
