@@ -135,8 +135,8 @@ sessions, and so on.
 
 A large number of protocol mechanisms today fall into one of two
 categories: authenticated and private communication that is only visible
-to the a very limited set nodes, often one on each "end"; and unauthenticated
-public communication that is visible to all nodes on a path.
+to the a very limited set of parties, often one on each "end"; and unauthenticated
+public communication that is also visible to all network elements on a path.
 
 Exposed information encourages pervasive monitoring, which is
 described in RFC 7258 {{RFC7258}}, and may also be
@@ -422,8 +422,8 @@ channel for communication with a specific other party, e.g.,
 between a network element and an application. This channel
 may need to be authenticated, integrity protected and confidential.
 This is necessary, for instance, if the particular information or
-request needs to be share in confidence only with a particular,
-trusted node, or there's a danger of an attack where someone else
+request needs to be shared in confidence only with a particular,
+trusted network element or endpoint, or there's a danger of an attack where someone else
 may forge messages that could endanger the communication.
 
 Authenticated integrity protections on signalled data can help
@@ -504,7 +504,7 @@ topics would be welcome.
   what trust roots would be appropriate. Some application-network
   element interaction designs have focused on information (such as ECN
   bits) that is distributed openly within a path, but there are limited
-  examples of designs with secure information exchange with specific nodes.
+  examples of designs with secure information exchange with specific network elements or endpoints.
 
 * The use of path signals for reducing the effects of
   denial-of-service attacks, e.g., in the form of modern "source
@@ -513,7 +513,7 @@ topics would be welcome.
 * Ways of protecting information when held by network elements or
   servers, beyond communications security. For instance, host
   applications commonly share sensitive information about the user's
-  actions with other nodes, starting from basic data such as domain
+  actions with other parties, starting from basic data such as domain
   names learned by DNS infrastructure or source and destination
   addresses and protocol header information learned by all routers on
   the path, to detailed end user identity and other information
