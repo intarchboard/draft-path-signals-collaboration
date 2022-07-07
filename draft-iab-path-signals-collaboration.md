@@ -278,11 +278,14 @@ This guideline is best expressed in RFC 8558:
    flows, this may result in the signal being absent but allows it to
    be present when needed."
 
-This guideline applies in the other direction as well.
-For instance, a network element should not unintentionally leak
-information that is not visible to endpoints. An explicit decision is
-needed for a specific information to be provided, along with analysis
-of the security and privacy implications of that information.
+The goal is that any information should be provided knowingly, for a 
+specific purpose, sent in signals designed for that purpose, and that 
+any use of information should be done within that purpose. And that
+an analysis of the security and privacy implications of the specific
+purpose and associated information information is needed.
+
+This guideline applies in the network element to application direction as well: a 
+network element should not unintentionally leak information.
 
 ## Minimum Set of Entities
 
