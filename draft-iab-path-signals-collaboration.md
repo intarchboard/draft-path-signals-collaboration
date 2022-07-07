@@ -199,8 +199,8 @@ is seen as beneficial. As such our goals should be:
 
 * To ensure that information is distributed intentionally, not accidentally;
 * to understand the privacy and other implications of any distributed information;
-* to ensure that the information distribution is limited the intended parties; and
-* to gate the distribution of information on the participation of the relevant parties
+* to ensure that the information distribution is limited to the intended parties; and
+* to gate the distribution of information on the participation of the relevant parties.
 
 These goals for exposure and distribution apply equally to senders, receivers,
 and path elements.
@@ -214,8 +214,9 @@ We can establish some basic questions that any new network functions
 should consider:
 
 * What is the minimum set of entities that need to be involved?
-* What is the minimum information each entity in this set needs?
 * Which entities must consent to the information exchange?
+* What is the minimum information each entity in this set needs?
+* What is the right mechanism and needed level of trust to convey this kind of information? 
 * What is the effect that new signals should have?
 
 If we look at many of the ways network functions are achieved today, we
@@ -282,10 +283,14 @@ The goal is that any information should be provided knowingly, for a
 specific purpose, sent in signals designed for that purpose, and that 
 any use of information should be done within that purpose. And that
 an analysis of the security and privacy implications of the specific
-purpose and associated information information is needed.
+purpose and associated information is needed.
 
 This guideline applies in the network element to application direction as well: a 
 network element should not unintentionally leak information.
+
+Intentional distribution is a precondition for explicit collaboration enabling
+each entity to have the highest posssible level of control about what information
+to share.
 
 ## Minimum Set of Entities
 
