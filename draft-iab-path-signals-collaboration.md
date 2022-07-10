@@ -326,7 +326,7 @@ willigness or a need to do so. This happens naturally in most
 protocol designs, but has been a problem for some cases where
 "slow path" packet processing is required or implied, and the
 recipient or router is not willing to handle this. Performance 
-impacts like this are perhaps best avoided, however.
+impacts like this are best avoided, however.
 
 In any case, all involved entities must be identified and
 potentially authenticated if trust is required as a prerequisite
