@@ -404,7 +404,7 @@ undesirable.
 
 This document recommends that signalling mechanisms that send information
 are built to specifically support sending the necessary, minimal set of information (see {{minimize-info}})
-and no more. Such mechanisms also need have an ability for establishing an agreement (see {{control-distr}}) and to
+and no more. Such mechanisms also need have an ability for establishing an agreement (see {{control-distr}}) and to establish
 sufficient trust to pass the information (see {{auth}}).
 
 ## Protecting Information and Authentication {#auth}
