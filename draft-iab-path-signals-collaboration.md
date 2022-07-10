@@ -108,20 +108,21 @@ information was available and its use required no coordination with
 anyone. This made such techniques more easily deployed than
 alternative, potentially more explicit or cooperative approaches. Such
 techniques had some drawbacks as well, such as having to interpret
-information designed to be carried for another purpose.
+information designed to be carried for one purpose for a new, different purpose.
 
 Today, applications and networks have often evolved their interaction
 without comprehensive design for how this interaction should
-happen or which information would be desired for a certain function.
-This has lead to a situation where sometimes information is used that
-maybe incomplete, incorrect, or only indirectly representative of the 
-information that was actually desired. In addition, dependencies on
+happen or which information would be needed for a certain function.
+This has led to a situation where sometimes information that happens 
+to be easily available is used. But that information
+may be incomplete, incorrect, or only indirectly representative of the 
+information that is actually needed. In addition, dependencies on
 information and mechanisms that were designed for a different function
 limits the evolvability of the protocols in question.
 
 The unplanned interaction ends up having several negative effects:
 
-* Ossifying protocols by introducing unintended parties that may not be updating
+* Ossifying protocols by introducing dependencies to unintended parties that may not be updating, such as how middleboxes have limited the use of TCP options
 * Creating systemic incentives against deploying more secure or otherwise updated versions of protocols
 * Basing network behaviour on information that may be incomplete or incorrect
 * Creating a model where network entities expect to be able to use
@@ -130,19 +131,19 @@ The unplanned interaction ends up having several negative effects:
 For instance, features such as DNS resolution or TLS setup have been
 used beyond their original intent, such as in name-based
 filtering. MAC addresses have been used for access control, captive
-portal implementations that employ taking over cleartext HTTP
+portals have been used to take over cleartext HTTP
 sessions, and so on.
 
 A large number of protocol mechanisms today fall into one of two
 categories: authenticated and private communication that is only visible
-to the a very limited set nodes, often one on each "end"; and unauthenticated
+to a very limited set nodes, often one on each "end"; and unauthenticated
 public communication that is visible to all nodes on a path.
 
 Exposed information encourages pervasive monitoring, which is
 described in RFC 7258 {{RFC7258}}, and may also be
 used for commercial purposes, or form a basis for filtering that the
 applications or users do not desire.
-But a lack of all path signaling, on the other hand, may be harmful to
+But a lack of all path signalling, on the other hand, may be harmful to
 network management, debugging, or the ability for networks to provide
 the most efficient services. There are many cases where elements on
 the network path can provide beneficial services, but only if they can
@@ -160,14 +161,14 @@ congestion status information does not have reveal network topology or
 the status of other users, and so on.
 
 Increased deployment of encryption is changing this situation.
-Encryption provides tools for controling information access 
-and protects again ossification by avoiding
+Encryption provides tools for controlling information access 
+and protects against ossification by avoiding
 unintended dependencies and requiring active maintenance. 
 
 The increased
 deployment of encryption provides an opportunity to reconsider parts of
 Internet architecture that have used implicit derivation of input
-signals for on-path functions rather than explicit signaling, as recommended
+signals for on-path functions rather than explicit signalling, as recommended
 by RFC 8558 {{RFC8558}}.
 
 For instance, QUIC replaces TCP for various applications and ensures end-to-end
@@ -194,7 +195,7 @@ signals from endpoints.
 The goal of improving privacy and trust on the Internet does not necessarily
 need to remove the ability for network elements to perform beneficial
 functions. We should instead improve the way that these functions are
-achieved and design new protocols to support explicit collaboration where it
+achieved and design new ways to support explicit collaboration where it
 is seen as beneficial. As such our goals should be:
 
 * To ensure that information is distributed intentionally, not accidentally;
@@ -224,13 +225,13 @@ questions above. Too often, they send unnecessary information or fail to
 limit the scope of distribution or providing any negotiation or consent.
 
 Designing explicit signals between applications and network elements,
-and ensuring that all other information is appropriately protected,
+and ensuring that all information is appropriately protected,
 enables information exchange in both directions that is important
 for improving the quality of experience and network management.
-This kind of cleanly separated architecture is also more conducive
+The clean separation provided by explicit signals is also more conducive
 to protocol evolvability.
 
-Beyond the recommandation in {{RFC8558}}, the IAB has provided further
+Beyond the recommendation in {{RFC8558}}, the IAB has provided further
 guidance on protocol design.  Among other documents, {{RFC5218}} provides general advice
 on incremental deployability based on an analysis of successes and failures
 and {{RFC6709}} discusses protocol extensibility. The Internet Technology
@@ -251,7 +252,7 @@ to be looked at more carefully before any guidance can be given.
 # Principles {#principles}
 
 This section provides architecture-level principles for protocol designers
-and recommends models to apply for network collaboration and signaling.
+and recommends models to apply for network collaboration and signalling.
 
 While RFC 8558 {{RFC8558}} focused specifically on "on-path elements",
 the principles described in this document can be applied both to
@@ -296,7 +297,7 @@ function.
 Often this will be a very limited set, such as when an application
 only needs to provide a signal to its peer at the other end of the
 connection or a host needs to contact a specific VPN gateway. In
-other cases a broader set is neeeded, such as when explicit or
+other cases a broader set is needed, such as when explicit or
 implicit signals from a potentially unknown set of multiple routers
 along the path inform the endpoints about congestion.
 
@@ -310,7 +311,7 @@ an airgapped network.  Most "closed" networks have at least some needs
 and means to access the rest of the Internet, and should not be
 modeled as if they had an impenetrable security barrier.
 
-## Control of the Distribution of Information
+## Control of the Distribution of Information {#control-distr}
 
 Trust and mutual agreement between the involved entities must determine
 the distribution of information, in order to give adequate control to 
@@ -318,14 +319,14 @@ each entity over the collaboration or information sharing.
 
 The sender needs to agree to sending the information.
 Any passing of information or request for an action needs to be explicit,
-and use protocol mechanisms that are designed for the purpose.
+and use signalling mechanisms that are designed for the purpose.
 Merely sending a particular kind of packet to a destination should not
 be interpreted as an implicit agreement.
 
 At the same time, the recipient of information or the target of a
 request should agree to receiving the information. It
 should not be burdened with extra processing if it does not have
-willigness or a need to do so. This happens naturally in most
+willingness or a need to do so. This happens naturally in most
 protocol designs, but has been a problem for some cases where
 "slow path" packet processing is required or implied, and the
 recipient or router is not willing to handle this.
@@ -337,7 +338,7 @@ to share certain information.
 Many Internet communications are not performed on behalf of the applications, but are
 ultimately made on behalf of users. However, not all information
 that may be shared directly relates to user actions or other
-senstive data. All information shared must be evaluated carefully
+sensitive data. All information shared must be evaluated carefully
 to identify potential privacy implications for users. Information that
 directly relates to the user should not be shared without the user's
 consent. It should be noted that the interests of the user and
@@ -391,22 +392,23 @@ for action.
 
 ## Carrying Information
 
-There is a distinction between what information is passed and how it
-is carried. The actually sent information may be limited, while the
+There is a distinction between what information is sent and how it
+is sent. The actually sent information may be limited, while the
 mechanisms for sending or requesting information can be capable of
-sending much more.
+sharing much more.
 
 There is a tradeoff here between flexibility and ensuring the
 minimality of information in the future. The concern is that a fully
 generic data sharing approach between different layers and parties
 could potentially be misused, e.g., by making the availability of some
-information a requirement for passing through a network. This is
+information a requirement for passing through a network, such as 
+making it mandatory to identify specific applications or users. This is
 undesirable. 
 
-This document recommends that the protocols that carry information
-are specific to the type of information that is needed to carry the
-minimal set of information (see {{minimize-info}}) and can
-establish sufficient trust to pass that information (see {{auth}}).
+This document recommends that signalling mechanisms that send information
+are built to specifically support sending the necessary, minimal set of information (see {{minimize-info}})
+and no more. Such mechanisms also need have an ability for establishing an agreement (see {{control-distr}}) and to establish
+sufficient trust to pass the information (see {{auth}}).
 
 ## Protecting Information and Authentication {#auth}
 
@@ -414,11 +416,11 @@ Some simple forms of information often exist in cleartext
 form, e.g, ECN bits from routers are generally not authenticated
 or integrity protected. This is possible when the information
 exchanges do not carry any significantly sensitive information
-from the parties. Often these kind of interations are also advisory
-in their nature (see also section {#impact}).
+from the parties. Often these kind of interactions are also advisory
+in their nature (see also section {{impact}}).
 
 In other cases it may be necessary to establish a secure
-channel for communication with a specific other party, e.g.,
+signalling channel for communication with a specific other party, e.g.,
 between a network element and an application. This channel
 may need to be authenticated, integrity protected and confidential.
 This is necessary, for instance, if the particular information or
@@ -431,8 +433,10 @@ ensure that data received in a signal has not been modified by
 other parties, but both network elements and endpoints need to
 be careful in processing or responding to any signal. Whether
 through bugs or attacks, the content of path signals can lead
-to unexpected behaviors or security vulernabilities if not
-properly handled.
+to unexpected behaviors or security vulnerabilities if not
+properly handled. As a result, the advice in {{impact}} still 
+applies even in situations where there's a secure channel for 
+sending information.
 
 However, it is important to note that authentication does not equal
 trust. Whether a communication is with an application server or
