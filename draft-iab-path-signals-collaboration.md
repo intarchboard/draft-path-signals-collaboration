@@ -134,7 +134,7 @@ filtering. MAC addresses have been used for access control, captive
 portals have been used to take over cleartext HTTP
 sessions, and so on.
 
-A large number of protocol mechanisms today fall into one of two
+Many protocol mechanisms throughout the stack fall into one of two
 categories: authenticated and private communication that is only visible
 to a very limited set of parties, often one on each "end"; and unauthenticated
 public communication that is also visible to all network elements on a path.
