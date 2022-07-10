@@ -490,20 +490,28 @@ authenticated signal, such as a DNSSEC-authenticated denial of existence
 # Further Work {#research}
 
 This is a developing field, and it is expected that our understanding
-will continue to grow. Among the recent changes are much higher use
-of encryption at different protocol layers and the consolidation of more
-and more traffic to the same destinations; these have greatly
-impacted the field.
+will continue to grow. One recent change is much higher use
+of encryption at different protocol layers. This obviously impacts
+the field greatly, by removing the ability to use most implicit signals.
+But it may also provide new tools for secure collaboration, and force
+a rethinking of how collaboration should be performed.
 
 While there are some examples of modern, well-designed collaboration
-mechanisms, clearly more work is needed. Many complex cases would
+mechanisms, the list of examples is not long. Clearly more work is needed, if
+we wish to realize the potential benefits of collaboration in further cases.
+This requires a mindset change, a migration away from using implicit signals.
+And of course, we need to choose such cases where the collaboration can
+be performed safely, is not a privacy concern, and the incentives of 
+the relevant parties are aligned. Path signals collaboration is not
+for all situations, however. It should also be noted that many complex cases would
 require significant developments in order to become feasible.
 
 Some of the most difficult areas are listed below. Research on these
 topics would be welcome.
 
-* Business arrangements. Many designs -- for instance those related to
-  quality-of-service -- involve an expectation of paying for a
+* Some forms of collaboration may depend on business arrangements, which may or
+  may not be easy to put in place. For instance, some
+  quality-of-service mechanisms involve an expectation of paying for a
   service.  This is possible and has been successful within individual
   domains, e.g., users can pay for higher data rates or data caps in
   their ISP networks. However, it is a business-wise much harder
@@ -511,8 +519,9 @@ topics would be welcome.
   administrative domains {{Claffy2015}}
   {{RFC9049}}.
 
-* Secure communications with path elements. This has been a difficult
-  topic, both from the mechanics and scalability point view, but also
+* Secure communications with path elements is needed as discussed in {{auth}}. Finding practical
+  ways for this has been difficult,
+  however, both from the mechanics and scalability point view. And also
   because there is no easy way to find out which parties to trust or
   what trust roots would be appropriate. Some application-network
   element interaction designs have focused on information (such as ECN
