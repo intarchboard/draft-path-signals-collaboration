@@ -546,6 +546,12 @@ topics would be welcome.
   stored or what purpose information may be used for.  Similar issues
   may also be applicable to the kind of information sharing discussed
   in this document.
+  
+* The present work has
+  focused on the technical aspects of making collabration safe and
+  mutually beneficial, but of course, deployments need to take into account various
+  regulatory and other policy matters. These include privacy regulation,
+  competitive issues & network neutrality aspects, and so on.
 
 # Acknowledgments
 
