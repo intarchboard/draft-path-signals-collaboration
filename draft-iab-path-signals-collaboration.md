@@ -231,14 +231,6 @@ for improving the quality of experience and network management.
 The clean separation provided by explicit signals is also more conducive
 to protocol evolvability.
 
-This draft discusses different approaches for explicit collaboration
-and provides guidance on architectural principles to design new
-mechanisms. {{principles}} discusses
-principles that good design can follow. This section also provides
-some examples and explanation of situations that not following the
-principles can lead to. {{research}} points to topics that need more
-to be looked at more carefully before any guidance can be given.
-
 Beyond the recommendation in {{RFC8558}}, the IAB has provided further
 guidance on protocol design.  Among other documents, {{RFC5218}} provides general advice
 on incremental deployability based on an analysis of successes and failures
@@ -248,6 +240,14 @@ reading on this same general topic. {{RFC9049}}, an IRTF document, provides
 a catalogue of past issues to avoid and discusses incentives for adoption of
 path signals such as the need for outperforming end-to-end mechanisms or
 considering per-connection state.
+
+This draft discusses different approaches for explicit collaboration
+and provides guidance on architectural principles to design new
+mechanisms. {{principles}} discusses
+principles that good design can follow. This section also provides
+some examples and explanation of situations that not following the
+principles can lead to. {{research}} points to topics that need more
+to be looked at more carefully before any guidance can be given.
 
 # Principles {#principles}
 
@@ -279,11 +279,14 @@ This guideline is best expressed in RFC 8558:
    flows, this may result in the signal being absent but allows it to
    be present when needed."
 
-This guideline applies in the other direction as well.
-For instance, a network element should not unintentionally leak
-information that is not visible to endpoints. An explicit decision is
-needed for a specific information to be provided, along with analysis
-of the security and privacy implications of that information.
+The goal is that any information should be provided knowingly, for a 
+specific purpose, sent in signals designed for that purpose, and that 
+any use of information should be done within that purpose. And that
+an analysis of the security and privacy implications of the specific
+purpose and associated information information is needed.
+
+This guideline applies in the network element to application direction as well: a 
+network element should not unintentionally leak information.
 
 ## Minimum Set of Entities
 
