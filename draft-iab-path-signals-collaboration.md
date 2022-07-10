@@ -214,6 +214,7 @@ endpoints and path elements.
 We can establish some basic questions that any new network functions
 should consider:
 
+* Can information provided for some other purpose be used?
 * What is the minimum set of entities that need to be involved?
 * Which entities must consent to the information exchange?
 * What is the minimum information each entity in this set needs?
@@ -321,6 +322,8 @@ modeled as if they had an impenetrable security barrier.
 
 ## Control of the Distribution of Information {#control-distr}
 
+A minimal set of entities and explicit signals are not enough. The parties
+need to agree to the process.
 Trust and mutual agreement between the involved entities must determine
 the distribution of information, in order to give adequate control to 
 each entity over the collaboration or information sharing.
