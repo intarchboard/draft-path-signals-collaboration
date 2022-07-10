@@ -573,5 +573,6 @@ would also like to acknowledge {{I-D.trammell-stackevo-explicit-coop}}
 for presenting similar thoughts. Finally, the authors would like to
 thank Adrian Farrell, Toerless Eckert, Martin Thomson, Mark
 Nottingham, Luis M. Contreras, Watson Ladd, Vittorio Bertola, Andrew
-Campling, Eliot Lear, Spencer Dawkins, Christian Huitema, and Jeffrey
+Campling, Eliot Lear, Spencer Dawkins, Christian Huitema, Mallory
+Knodel, Zhenbin Li, and Jeffrey
 Haas for useful feedback in the IABOPEN sessions and on the list.
