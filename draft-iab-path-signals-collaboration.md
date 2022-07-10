@@ -543,7 +543,7 @@ topics would be welcome.
   may also be applicable to the kind of information sharing discussed
   in this document.
   
-* Policy and technology need to fit each other. The present work has
+* The present work has
   focused on the technical aspects of making collabration safe and
   mutually beneficial, but of course, deployments need to take into account various
   regulatory and other policy matters. These include privacy regulation,
