@@ -230,14 +230,6 @@ for improving the quality of experience and network management.
 This kind of cleanly separated architecture is also more conducive
 to protocol evolvability.
 
-This draft discusses different approaches for explicit collaboration
-and provides guidance on architectural principles to design new
-mechanisms. {{principles}} discusses
-principles that good design can follow. This section also provides
-some examples and explanation of situations that not following the
-principles can lead to. {{research}} points to topics that need more
-to be looked at more carefully before any guidance can be given.
-
 Beyond the recommandation in {{RFC8558}}, the IAB has provided further
 guidance on protocol design.  Among other documents, {{RFC5218}} provides general advice
 on incremental deployability based on an analysis of successes and failures
@@ -247,6 +239,14 @@ reading on this same general topic. {{RFC9049}}, an IRTF document, provides
 a catalogue of past issues to avoid and discusses incentives for adoption of
 path signals such as the need for outperforming end-to-end mechanisms or
 considering per-connection state.
+
+This draft discusses different approaches for explicit collaboration
+and provides guidance on architectural principles to design new
+mechanisms. {{principles}} discusses
+principles that good design can follow. This section also provides
+some examples and explanation of situations that not following the
+principles can lead to. {{research}} points to topics that need more
+to be looked at more carefully before any guidance can be given.
 
 # Principles {#principles}
 
