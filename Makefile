@@ -30,6 +30,8 @@ compile: draft-iab-path-signals-collaboration.md
 	ssh $(MACHINE) 'cd /tmp; xml2rfc -q --cache=/home/jar/.cache/xml2rfc $(VERSOPT) draft-iab-path-signals-collaboration-pre.xml; cp draft-iab-path-signals-collaboration-pre.txt draft-iab-path-signals-collaboration.txt'
 	scp $(MACHINE):/tmp/draft-iab-path-signals-collaboration.txt .
 	ssh $(MACHINE) 'cd /tmp; rfcdiff $(OLDREV) draft-iab-path-signals-collaboration.txt'
+	scp $(MACHINE):/tmp/draft-iab-path-signals-collaboration-pre.xml \
+		./draft-iab-path-signals-collaboration.xml
 	scp $(MACHINE):/tmp/draft-iab-path-signals-collaboration.txt \
 		$(MACHINE):/tmp/draft-iab-path-signals-collaboration-from-arkko-iab-path-signals-collaboration-$(OLDREVNO).diff.html \
 		.

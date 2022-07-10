@@ -1,0 +1,109 @@
+
+Last version produced: March 7, 2022
+
+In the IETF-112 IABOPEN meeting:
+
+- Issue R1: Robin commented that there's a similarity between APN and this work, and that one difference is whether it is intended for limited domains or more general use (I think we can ignore this for now)
+
+In the IETF-113 IABOPEN meeting:
+
+- not discussed in detail
+
+Retreat:
+
+- not discussed in detail
+
+IAB reviews (Cullen):
+
+- March 9th: "looked fine"
+
+IAB reviews (Robin):
+
+- Issue R2: Is name/MAC/IP address filtering a good example, industry seems to be doing it. (I guess the issue is that they were not originally designed for that purpose, not that this draft should dislike or favor this usage, we're just making a factual statement about the original purpose. But would be good to review language that this is indeed what we are doing.)
+
+- Issue R3: What is the scope of the "large number of protocol mechanisms, L1-L7, or just transport protocol signals? (need to look at this)
+
+- Issue R4: Can RFC 8558 principles be applied to non-on-path-elements?
+
+- Issue R5: I am a little confused about the “explicit”. Does it mean the explicit information or the explicit decision?
+In the previous text “For instance, features such as DNS resolution or TLS setup have been used beyond their original intent, such as in name-based filtering.”, I assumed that for the path signal there should be explicit information, that is, for what purpose there should be explicit information. But here it is mentioned that an explicit decision is needed. My understanding the explicit decision and the explicit information are different concepts. (need to look at this)
+
+- Issue R6: In Section 2.2, I am little confused about the signal. My previous understanding is that the signal means the path signaling, that is, the signaling is in the packet. But if the path signal is in the packet, for example, in the transport layer or the network layer, this information can be exposed to the all network elements along the path. If so, how to implement the principles 2.1 Intentional Distribution and 2.2 Minimum Set of Entities? (need to look at this, but I suppose we need to explain the use of encryption for instance even when information is carried in packets)
+
+- Issue R6: In Section 2.3, how is the trust and mutual agreement applied? Is it applied to the path signaling or to the protocol to request and send the information?
+
+- Issue R7: In Section 2.6, ensure that we use the same terminology throughout. Robin's comment was: I am confused about the concepts in this chapter: 1. Is the signaling the same as the protocols? 2. Is the on-path signaling the same as the protocols? 3. What is the protocol to carry information? What is the protocol to send and request information? What is the protocol to pass information? I suggest that this concept should be defined clearly before the principle. My understanding 2.5 is not an independent principle. Does it mean the protocol carrying information should comply with the principles 2.4/2.6? If so, why not define the different protocols and signaling before principles and in section 2.4/2.6 explain what protocols and signaling comply with these principles?
+
+- Issue R8: In Section 2.7 last paragraph, I think it is better to explicitly specify that it should limit the information’ effect on the forwarding performance. In my opinion, if the information has much negative effect on the forwarding performance, it is better to keep the forwarding performance with higher priority. Moreover, in order for Limiting Impact of Information, is it necessary to specify that some adaptive mechanism should be introduced or before sending the informing the effect should be evaluated?
+
+- Issue R9: In Section 3, 4th bullet: Is it related with path signals? It seems at least not on-path signaling. (need to look at this, but I certainly want to keep in mind how information gets used both by on-path elements and others, including the endpoints)
+
+- Issue RE (editorial):
+   . Brackets around 8558 reference in the abstract. (disagree)
+   . If the "not" is needed in the abstract. (is needed)
+   . Explain the introduction comment about "having to intepret infomration signed for another purpose" better (ok)
+   . Expand on why some information is desired in the introduction. (need to think about this)
+   . In introduction, s/lead/led/ (ok)
+   . Clarify in introdcution, in the lead-to sentence whether the situation or the information is incorrect (ok)
+   . Is vs. was in the incomplete-incorrect sentence? (need to check)
+   . Ossifying is too abstract, needs an example (perhaps)
+   . Captive portals text misses part about them taking over plaintext HTTP sessions (ok)
+   . "Controling" => "Controlling" and "again" => "against" in the introduction (ok)
+   . After the question list, why is it "all other" and not "all" (need to look at this)
+   . What is the "cleanly separated architecture"? (need to look at this)
+   . Recommandation => recommendation (ok)
+   . Neeeded => needed (ok)
+   . Willigness => willingness (ok)
+   . Clarify in Section 2.3, Is the protocol mechanism an additional protocol instead of the path signaling? (need to look at this)
+   . Senstive => sensitive
+   . Check Section 2.5: "The logic may be not right. Definitely there is a distinction between “what” and “how”. Should it be “there is a distinction between what information is passed and what information is carried”?" (our text looks right to me)
+   . In Section 2.5, the "actually sent informtation": Does it mean the carried information? (ok)
+   . In Section 2.5, clarify this: Request information is naturally different from carrying information. What is difference between sending information and carrying information? (ok, need to look at language to be consistent)
+   . In Section 2.5, add an example on what we mean by carrying some information being a requirement for passing traffic through (ok)
+   . In Section 2.5: In 2.3, Trust and mutual agreement between the involved entities is also mentioned. Does it has nothing with the 2.3? If it needs to refer to 2.6, why not put 2.5 after 2.6? (need to look at this)
+   . In Section 2.5, pass/carry terminology needs to be aligned (ok)
+   . In Section 2.6., interations => interactions (ok)
+   . In Section 2.6. there's an odd # reference (ok)
+   . In Section 2.6: about the "particular information or request": Same issue as the above. The particular information means the possible information like ECN bits which is used for the path signaling. Is request for another protocol? (need to look at this)
+   . vulernabilities => vulnerabilities (ok)
+   . decide whether to use signalled or signaled (ok)
+   . 
+   
+IAB reviews (Mallory, May 27th):
+
+- Issue M1: Do more to shift the tone of the document to actually improving upon, deepening and iterating on what RFC7258 says, e.g., on where signals mitigate or do not worsen PM situation; talk more about privacy - signals (non-)tradeoff, highlight the point about intentionality being key and being good for network management. (seems reasonable.. need to see text)
+
+- Issue M2: What's the distinction between limiting distribution to intendended recipients and gating the distribution on the participation? (clarify)
+   . There's a similar question about the distinction between principle 2.1 and 2.3
+
+- Issue M3: Why do we assume symmetry between network elements and endpoints? (good question, may need more text)
+
+- Issue M4: I'm noting that the principles reflect almost exactly the questions on Page 5. Maybe a tighter conceptual structure would make those identical mirrors of one another. (ok)
+
+- Issue M5: It occurs to me that a discussion of network neutrality might be useful somewhere in the document. (ok, needs text though.)
+
+- Issue M6: Future work suggestions (all good question marks)
+   . I think that you identify two distinct trends: encryption and consolidation. It might be worth noting those as such and giving them their own descriptive sentence as to why those trends highlight future work on difficult problems.
+   . "Business arrangements" seems a vague characterisation-- is this network slicing?
+   .  Secure communications-- how does this draw from the previous principle on authentication, if at all?
+   .  DDoS-- there might be a tension here with increased censorship capabilities that could be treated. Ie if you can more easily block DDoS with signals, couldn't you more easily block other things, too.
+   .  Sharing info between apps <> networks-- from the introduction it seemed that this would be the crux of this document. Might be useful to bring forward a conjecture as to why these are hard problems that are failing to find solutions.
+
+- Issue ME (editorial):
+   . The last paragraph of the introduction seems like it would be better as the penultimate paragraph so that you have the document's outline right at the end (at least that's where I kept looking for it).
+   
+Comments from the architecture-discuss mailing list (thread on March 23rd by Mark, Melinda, Vittorio):
+
+- Issue N1 (Mark): Could we frame the discussions as two-party vs. multiparty communication? (perhaps, but lets develop text and see how this feels. FWIW, for background I've never been super comfortable with Mark's notion that endpoints and browsers are special and have the interests of the users in mind. some endpoints have, not all... and in that sense making a big distinction here doesn't really advance the situation.)
+   - Vittorio commented that having a decision on when multiparty design effort is initiated is very hard
+
+- Issue S1 (Melinda): Might be useful to look at history of middlebox communication. (not sure if we need to go there)
+
+Otherwise sent to us or on iab list:
+
+- cannot find any emails on this (but I changed my email setup and computer in April; as a result some old mails may not be accessible)
+
+Our own observations:
+
+- none at this point
+
