@@ -551,8 +551,10 @@ as well as some adjacent issues that would influence such collaboration.
   examples of designs with secure information exchange with specific network elements or endpoints.
 
 * The use of path signals for reducing the effects of
-  denial-of-service attacks, e.g., in the form of modern "source
-  quench" designs.
+  denial-of-service attacks, e.g., perhaps modern forms of "source
+  quench" designs could be developed. The difficulty is finding a solution
+  that would be both effective against attacks and would not enable third
+  parties from slowing down or censoring someone else's commmunication.
 
 * Ways of protecting information when held by network elements or
   servers, beyond communications security. For instance, host
