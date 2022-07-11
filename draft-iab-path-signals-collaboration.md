@@ -1,7 +1,7 @@
 ---
 title: Considerations on Application - Network Collaboration Using Path Signals
 abbrev: Path Signals Collab
-docname: draft-iab-path-signals-collaboration-00
+docname: draft-iab-path-signals-collaboration-01
 date:
 category: info
 
@@ -442,7 +442,7 @@ basis, it is often beneficial to provide declarative information that,
 for instance, expresses application needs than makes specific requests
 for action.
 
-## Limiting Impact of Information {#limit}
+## Limiting Impact of Information {#impact}
 
 Information shared between a network element and an endpoint of a
 connection needs to have a limited impact on the behavior of both
