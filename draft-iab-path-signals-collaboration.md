@@ -132,7 +132,9 @@ For instance, features such as DNS resolution or TLS setup have been
 used beyond their original intent, such as in name-based
 filtering. MAC addresses have been used for access control, captive
 portals have been used to take over cleartext HTTP
-sessions, and so on.
+sessions, and so on. (This document is not about whether those
+practices are good or bad, it is simply stating a fact that the
+features were used beyond their original intent.)
 
 Many protocol mechanisms throughout the stack fall into one of two
 categories: authenticated and private communication that is only visible
