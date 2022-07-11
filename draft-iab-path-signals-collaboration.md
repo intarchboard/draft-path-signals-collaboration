@@ -499,8 +499,10 @@ While there are some examples of modern, well-designed collaboration
 mechanisms, clearly more work is needed. Many complex cases would
 require significant developments in order to become feasible.
 
-Some of the most difficult areas are listed below. Research on these
-topics would be welcome.
+Some of the most difficult areas are listed below. Research on  
+these topics would be welcome. Note that the topics include
+both those dealing directly with on-path network element collaboration,
+as well as some adjacent issues that would influence such collaboration.
 
 * Business arrangements. Many designs -- for instance those related to
   quality-of-service -- involve an expectation of paying for a
