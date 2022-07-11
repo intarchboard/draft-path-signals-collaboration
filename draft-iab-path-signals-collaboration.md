@@ -300,7 +300,8 @@ the analysis, and can lead to very different conclusions about what information 
 shared or with whom. For instance, it is easy to find examples of information
 that applications should not share with network elements (e.g., content of communications)
 or network elements should not share with applications (e.g., detailed user location in
-a wireless network).
+a wireless network). But, equally, information about other things such as the onset 
+of congestion should be possible to share, and can be beneficial information to all parties.
 
 Intentional distribution is a precondition for explicit collaboration enabling
 each entity to have the highest posssible level of control about what information
