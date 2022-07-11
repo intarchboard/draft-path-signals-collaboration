@@ -258,10 +258,12 @@ to be looked at more carefully before any guidance can be given.
 This section provides architecture-level principles for protocol designers
 and recommends models to apply for network collaboration and signalling.
 
-While RFC 8558 {{RFC8558}} focused specifically on "on-path elements",
-the principles described in this document can be applied both to
-on-path signalling and signalling with other elements in the network
+While RFC 8558 {{RFC8558}} focused specifically on communication to "on-path elements",
+the principles described in this document apply potentially to
+* on-path signalling, in either direction
+* signalling with other elements in the network
 that are not directly on-path, but still influence end-to-end connections.
+
 An example of on-path signalling is communication between an endpoint
 and a router on a network path. An example of signalling with another
 network element is communication between an endpoint and a network-assigned
