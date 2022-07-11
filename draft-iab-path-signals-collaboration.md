@@ -267,7 +267,10 @@ that are not directly on-path, but still influence end-to-end connections.
 An example of on-path signalling is communication between an endpoint
 and a router on a network path. An example of signalling with another
 network element is communication between an endpoint and a network-assigned
-DNS server, firewall controller, or captive portal API server.
+DNS server, firewall controller, or captive portal API server.  Note that
+these communications are conceptually independent of the base flow, even if
+they share a packet; they are from and to other parties, rather than 
+creating a multiparty communication.
 
 Taken together, these principles focus on the inherent privacy and security
 concerns of sharing information between endpoints and network elements,
