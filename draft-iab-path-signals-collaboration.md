@@ -502,8 +502,7 @@ we wish to realize the potential benefits of collaboration in further cases.
 This requires a mindset change, a migration away from using implicit signals.
 And of course, we need to choose such cases where the collaboration can
 be performed safely, is not a privacy concern, and the incentives of 
-the relevant parties are aligned. Path signals collaboration is not
-for all situations, however. It should also be noted that many complex cases would
+the relevant parties are aligned. It should also be noted that many complex cases would
 require significant developments in order to become feasible.
 
 Some of the most difficult areas are listed below. Research on these
