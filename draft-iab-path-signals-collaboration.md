@@ -214,7 +214,6 @@ endpoints and path elements.
 We can establish some basic questions that any new network functions
 should consider:
 
-* Can information provided for some other purpose be used?
 * What is the minimum set of entities that need to be involved?
 * Which entities must consent to the information exchange?
 * What is the minimum information each entity in this set needs?
