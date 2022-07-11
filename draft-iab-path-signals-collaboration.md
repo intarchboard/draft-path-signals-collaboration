@@ -322,8 +322,8 @@ modeled as if they had an impenetrable security barrier.
 
 ## Control of the Distribution of Information {#control-distr}
 
-A minimal set of entities and explicit signals are not enough. The parties
-need to agree to the process.
+A minimal set of entities and explicit signals are not enough. The entities
+need to agree to exchange the information.
 Trust and mutual agreement between the involved entities must determine
 the distribution of information, in order to give adequate control to 
 each entity over the collaboration or information sharing.
