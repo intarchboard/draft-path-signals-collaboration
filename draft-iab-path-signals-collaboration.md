@@ -314,29 +314,6 @@ Intentional distribution is a precondition for explicit collaboration enabling
 each entity to have the highest posssible level of control about what information
 to share.
 
-## Minimum Set of Entities {#min-ents}
-
-It is recommended that a design identifies the minimum number of
-entities needed to share a specific signal required for an identified
-function.
-
-Often this will be a very limited set, such as when an application
-only needs to provide a signal to its peer at the other end of the
-connection or a host needs to contact a specific VPN gateway. In
-other cases a broader set is needed, such as when explicit or
-implicit signals from a potentially unknown set of multiple routers
-along the path inform the endpoints about congestion.
-
-While it is tempting to consider removing these limitations in the
-context of closed, private networks, each interaction is still best
-considered separately, rather than simply allowing all information
-exchanges within the closed network.  Even in a closed network with
-carefully managed elements there may be compromised components, as
-evidenced in the most extreme way by the Stuxnet worm that operated in
-an airgapped network.  Most "closed" networks have at least some needs
-and means to access the rest of the Internet, and should not be
-modeled as if they had an impenetrable security barrier.
-
 ## Control of the Distribution of Information {#control-distr}
 
 A minimal set of entities and explicit signals are not enough. The entities
@@ -377,68 +354,6 @@ some applications may wish to collect more information about
 the user than the user would like. How to achieve a
 balance of control between the actual user and an application
 representing an user's interest is out of scope for this document.
-
-## Minimize Information {#minimize-info}
-
-Each party should provide only the information that is needed for the
-other parties to perform the task for which collaboration is desired,
-and no more. This applies to information sent by an
-application about itself, information sent about users, or information
-sent by the network.
-
-An architecture can follow the guideline from RFC 8558 in using
-explicit signals, but still fail to differentiate properly between
-information that should be kept private and information that should be
-shared.
-
-In looking at what information can or cannot easily be passed, we
-need to consider both, information from the network to the application
-and from the application to the network.
-
-For the application to the network direction, user-identifying
-information can be problematic for privacy and tracking reasons.
-Similarly, application identity can be problematic, if it might form
-the basis for prioritization or discrimination that the
-application provider may not wish to happen.
-
-On the other hand, as noted above, information about general classes
-of applications may be desirable to be given by application providers,
-if it enables prioritization that would improve service, e.g.,
-differentiation between interactive and non-interactive services.
-
-For the network to application direction there is similarly sensitive
-information, such as the precise location of the user.  On the other
-hand, various generic network conditions, predictive bandwidth and
-latency capabilities, and so on might be attractive information that
-applications can use to determine, for instance, optimal strategies
-for changing codecs. However, information given by the network about
-load conditions and so on should not form a mechanism to provide a
-side-channel into what other users are doing.
-
-While information needs to be specific and provided on a per-need
-basis, it is often beneficial to provide declarative information that,
-for instance, expresses application needs than makes specific requests
-for action.
-
-## Carrying Information {#info-carry}
-
-There is a distinction between what information is sent and how it
-is sent. The actually sent information may be limited, while the
-mechanisms for sending or requesting information can be capable of
-sharing much more.
-
-There is a tradeoff here between flexibility and ensuring the
-minimality of information in the future. The concern is that a fully
-generic data sharing approach between different layers and parties
-could potentially be misused, e.g., by making the availability of some
-information a requirement for passing through a network, such as 
-making it mandatory to identify specific applications or users. This is
-undesirable. 
-
-This document recommends that signalling mechanisms that send information
-are built to specifically support sending the necessary, minimal set of information (see {{minimize-info}})
-and no more. Such mechanisms also need have an ability for establishing an agreement (see {{control-distr}}) and to establish
-sufficient trust to pass the information (see {{auth}}).
 
 ## Protecting Information and Authentication {#auth}
 
@@ -485,6 +400,48 @@ network and application. Or technologies such as confidential
 computing can be applied to provide an assurance that information
 processed by a party is handled in an appropriate manner.
 
+## Minimize Information {#minimize-info}
+
+Each party should provide only the information that is needed for the
+other parties to perform the task for which collaboration is desired,
+and no more. This applies to information sent by an
+application about itself, information sent about users, or information
+sent by the network.
+
+An architecture can follow the guideline from RFC 8558 in using
+explicit signals, but still fail to differentiate properly between
+information that should be kept private and information that should be
+shared.
+
+In looking at what information can or cannot easily be passed, we
+need to consider both, information from the network to the application
+and from the application to the network.
+
+For the application to the network direction, user-identifying
+information can be problematic for privacy and tracking reasons.
+Similarly, application identity can be problematic, if it might form
+the basis for prioritization or discrimination that the
+application provider may not wish to happen.
+
+On the other hand, as noted above, information about general classes
+of applications may be desirable to be given by application providers,
+if it enables prioritization that would improve service, e.g.,
+differentiation between interactive and non-interactive services.
+
+For the network to application direction there is similarly sensitive
+information, such as the precise location of the user.  On the other
+hand, various generic network conditions, predictive bandwidth and
+latency capabilities, and so on might be attractive information that
+applications can use to determine, for instance, optimal strategies
+for changing codecs. However, information given by the network about
+load conditions and so on should not form a mechanism to provide a
+side-channel into what other users are doing.
+
+While information needs to be specific and provided on a per-need
+basis, it is often beneficial to provide declarative information that,
+for instance, expresses application needs than makes specific requests
+for action.
+
 ## Limiting Impact of Information {#limit}
 
 Information shared between a network element and an endpoint of a
@@ -507,6 +464,49 @@ to a given host, endpoints should only interpret that as the host being
 unavailable on that particular path; this is in contrast to an end-to-end
 authenticated signal, such as a DNSSEC-authenticated denial of existence
 {{?RFC7129}}.
+
+## Minimum Set of Entities {#min-ents}
+
+It is recommended that a design identifies the minimum number of
+entities needed to share a specific signal required for an identified
+function.
+
+Often this will be a very limited set, such as when an application
+only needs to provide a signal to its peer at the other end of the
+connection or a host needs to contact a specific VPN gateway. In
+other cases a broader set is needed, such as when explicit or
+implicit signals from a potentially unknown set of multiple routers
+along the path inform the endpoints about congestion.
+
+While it is tempting to consider removing these limitations in the
+context of closed, private networks, each interaction is still best
+considered separately, rather than simply allowing all information
+exchanges within the closed network.  Even in a closed network with
+carefully managed elements there may be compromised components, as
+evidenced in the most extreme way by the Stuxnet worm that operated in
+an airgapped network.  Most "closed" networks have at least some needs
+and means to access the rest of the Internet, and should not be
+modeled as if they had an impenetrable security barrier.
+
+## Carrying Information {#info-carry}
+
+There is a distinction between what information is sent and how it
+is sent. The actually sent information may be limited, while the
+mechanisms for sending or requesting information can be capable of
+sharing much more.
+
+There is a tradeoff here between flexibility and ensuring the
+minimality of information in the future. The concern is that a fully
+generic data sharing approach between different layers and parties
+could potentially be misused, e.g., by making the availability of some
+information a requirement for passing through a network, such as 
+making it mandatory to identify specific applications or users. This is
+undesirable. 
+
+This document recommends that signalling mechanisms that send information
+are built to specifically support sending the necessary, minimal set of information (see {{minimize-info}})
+and no more. Such mechanisms also need have an ability for establishing an agreement (see {{control-distr}}) and to establish
+sufficient trust to pass the information (see {{auth}}).
 
 # Further Work {#research}
 
@@ -607,5 +607,5 @@ for presenting similar thoughts. Finally, the authors would like to
 thank Adrian Farrell, Toerless Eckert, Martin Thomson, Mark
 Nottingham, Luis M. Contreras, Watson Ladd, Vittorio Bertola, Andrew
 Campling, Eliot Lear, Spencer Dawkins, Christian Huitema, Mallory
-Knodel, Zhenbin Li, and Jeffrey
-Haas for useful feedback in the IABOPEN sessions and on the list.
+Knodel, Zhenbin Li, and Jeffrey Haas for useful feedback in the
+IABOPEN sessions and on the list.
