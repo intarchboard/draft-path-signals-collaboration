@@ -44,22 +44,18 @@ oldcompile actually-working-compile-without-v3-garbage: draft-iab-path-signals-c
 	-@ssh $(PORT) $(MACHINE) 'cd /tmp; rm *.txt *.md *.xml'
 	scp $(SCPPORT) draft-iab-path-signals-collaboration.md txt/$(OLDREV) txt/draft-iab-path-signals-collaboration-beforejuly.txt old/draft-arkko-path-signals-information.md $(MACHINE):/tmp
 	ssh $(PORT) $(MACHINE) 'cd /tmp; cat draft-iab-path-signals-collaboration.md  | kramdown-rfc2629 | lib/add-note.py > draft-iab-path-signals-collaboration-pre.xml'
-	ssh $(PORT) $(MACHINE) 'cd /tmp; xml2rfc -q --cache=/home/jar/.cache/xml2rfc $(VERSOPT) draft-iab-path-signals-collaboration-pre.xml -o draft-iab-path-signals-collaboration.xml'
-	ssh $(PORT) $(MACHINE) 'cd /tmp; xml2rfc -q --cache=/home/jar/.cache/xml2rfc draft-iab-path-signals-collaboration.xml -o draft-iab-path-signals-collaboration.txt --text'
-	ssh $(PORT) $(MACHINE) 'cd /tmp; xml2rfc -q --cache=/home/jar/.cache/xml2rfc draft-iab-path-signals-collaboration.xml -o draft-iab-path-signals-collaboration.html --html'
+	ssh $(PORT) $(MACHINE) 'cd /tmp; xml2rfc -q --cache=/home/jar/.cache/xml2rfc $(VERSOPT) draft-iab-path-signals-collaboration-pre.xml -o draft-iab-path-signals-collaboration.txt'
 	scp $(SCPPORT) $(MACHINE):/tmp/draft-iab-path-signals-collaboration.txt .
-	scp $(SCPPORT) $(MACHINE):/tmp/draft-iab-path-signals-collaboration.html .
-	ssh $(SCPPORT) $(MACHINE) 'cd /tmp; cat draft-arkko-path-signals-information.md  | kramdown-rfc2629 | lib/add-note.py > draft-arkko-path-signals-information-pre.xml'
-	ssh $(PORT) $(MACHINE) 'cd /tmp; xml2rfc -q --cache=/home/jar/.cache/xml2rfc --v2v3 draft-arkko-path-signals-information-pre.xml -o draft-arkko-path-signals-information.xml'
-	ssh $(PORT) $(MACHINE) 'cd /tmp; xml2rfc -q --cache=/home/jar/.cache/xml2rfc draft-arkko-path-signals-information.xml -o draft-arkko-path-signals-information.txt --text'
-	ssh $(PORT) $(MACHINE) 'cd /tmp; xml2rfc -q --cache=/home/jar/.cache/xml2rfc draft-arkko-path-signals-information.xml -o draft-arkko-path-signals-information.html --html'
-	ssh $(PORT) $(MACHINE) 'cd /tmp; rfcdiff draft-iab-path-signals-collaboration-beforejuly.txt draft-iab-path-signals-collaboration.txt'
 	ssh $(PORT) $(MACHINE) 'cd /tmp; rfcdiff $(OLDREV) draft-iab-path-signals-collaboration.txt'
-	scp $(SCPPORT) $(MACHINE):/tmp/draft-arkko-path-signals-information.txt \
-		$(MACHINE):/tmp/draft-arkko-path-signals-information.html ./old
 	scp $(SCPPORT) $(MACHINE):/tmp/draft-iab-path-signals-collaboration.txt \
-		$(MACHINE):/tmp/draft-iab-path-signals-collaboration.html \
-		$(MACHINE):/tmp/draft-iab-path-signals-collaboration-from--beforejuly.diff.html \
-		$(MACHINE):/tmp/draft-iab-path-signals-collaboration-from-arkko-iab-path-signals-collaboration-$(OLDREVNO).diff.html \
+		$(MACHINE):/tmp/draft-iab-path-signals-collaboration-from--$(OLDREVNO).diff.html \
 		.
 	scp draft-*-path-signals-*.txt draft-*-path-signals-*.html root@cloud3.arkko.eu:/var/www/www.arkko.com/html/ietf/iab
+
+#	scp $(SCPPORT) $(MACHINE):/tmp/draft-iab-path-signals-collaboration.html .
+#	ssh $(PORT) $(MACHINE) 'cd /tmp; xml2rfc -q --cache=/home/jar/.cache/xml2rfc draft-iab-path-signals-collaboration.xml -o draft-iab-path-signals-collaboration.txt --text'
+#	ssh $(PORT) $(MACHINE) 'cd /tmp; xml2rfc -q --cache=/home/jar/.cache/xml2rfc draft-iab-path-signals-collaboration.xml -o draft-iab-path-signals-collaboration.html --html'
+#	ssh $(SCPPORT) $(MACHINE) 'cd /tmp; cat draft-arkko-path-signals-information.md  | kramdown-rfc2629 | lib/add-note.py > draft-arkko-path-signals-information-pre.xml'
+#	ssh $(PORT) $(MACHINE) 'cd /tmp; xml2rfc -q --cache=/home/jar/.cache/xml2rfc --v2v3 draft-arkko-path-signals-information-pre.xml -o draft-arkko-path-signals-information.txt'
+#	ssh $(PORT) $(MACHINE) 'cd /tmp; xml2rfc -q --cache=/home/jar/.cache/xml2rfc draft-arkko-path-signals-information.xml -o draft-arkko-path-signals-information.txt --text'
+#	ssh $(PORT) $(MACHINE) 'cd /tmp; xml2rfc -q --cache=/home/jar/.cache/xml2rfc draft-arkko-path-signals-information.xml -o draft-arkko-path-signals-information.html --html'
