@@ -122,7 +122,8 @@ limits the evolvability of the protocols in question.
 
 The unplanned interaction ends up having several negative effects:
 
-* Ossifying protocols by introducing dependencies to unintended parties that may not be updating, such as how middleboxes have limited the use of TCP options
+* Ossifying protocols by introducing dependencies to unintended parties
+  that may not be updating, such as how middleboxes have limited the use of TCP options
 * Creating systemic incentives against deploying more secure or otherwise updated versions of protocols
 * Basing network behaviour on information that may be incomplete or incorrect
 * Creating a model where network entities expect to be able to use
@@ -292,7 +293,17 @@ an analysis of the security and privacy implications of the specific
 purpose and associated information is needed.
 
 This guideline applies in the network element to application direction as well: a 
-network element should not unintentionally leak information.
+network element should not unintentionally leak information. While this document
+makes recommendations that are applicable to many different situations,
+it is important to note that the above call
+for careful analysis is key. Different types of information,
+different applications, and different directions of communication influence the
+the analysis, and can lead to very different conclusions about what information can be 
+shared or with whom. For instance, it is easy to find examples of information
+that applications should not share with network elements (e.g., content of communications)
+or network elements should not share with applications (e.g., detailed user location in
+a wireless network). But, equally, information about other things such as the onset 
+of congestion should be possible to share, and can be beneficial information to all parties.
 
 Intentional distribution is a precondition for explicit collaboration enabling
 each entity to have the highest posssible level of control about what information
