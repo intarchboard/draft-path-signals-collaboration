@@ -272,7 +272,7 @@ application of these principles is critical to ensuring that the use
 of path signals does not create a disproportionate opportunity for observers 
 to extract new data from flows.
 
-## Intentional Distribution
+## Intentional Distribution {#intent}
 
 This guideline is best expressed in RFC 8558:
 
@@ -296,7 +296,7 @@ Intentional distribution is a precondition for explicit collaboration enabling
 each entity to have the highest posssible level of control about what information
 to share.
 
-## Minimum Set of Entities
+## Minimum Set of Entities {#min-ents}
 
 It is recommended that a design identifies the minimum number of
 entities needed to share a specific signal required for an identified
@@ -323,7 +323,8 @@ modeled as if they had an impenetrable security barrier.
 
 Trust and mutual agreement between the involved entities must determine
 the distribution of information, in order to give adequate control to 
-each entity over the collaboration or information sharing.
+each entity over the collaboration or information sharing. This can
+be achieved as discussed below.
 
 The sender needs to agree to sending the information.
 Any passing of information or request for an action needs to be explicit,
@@ -399,7 +400,7 @@ basis, it is often beneficial to provide declarative information that,
 for instance, expresses application needs than makes specific requests
 for action.
 
-## Carrying Information
+## Carrying Information {#info-carry}
 
 There is a distinction between what information is sent and how it
 is sent. The actually sent information may be limited, while the
@@ -464,7 +465,7 @@ network and application. Or technologies such as confidential
 computing can be applied to provide an assurance that information
 processed by a party is handled in an appropriate manner.
 
-## Limiting Impact of Information
+## Limiting Impact of Information {#limit}
 
 Information shared between a network element and an endpoint of a
 connection needs to have a limited impact on the behavior of both
