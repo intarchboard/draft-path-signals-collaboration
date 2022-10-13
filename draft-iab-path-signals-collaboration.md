@@ -98,7 +98,7 @@ establishing trust relationships between entities on a path.
 # Introduction {#intro}
 
 
-RFC 8558 defines the term "path signals" as signals to or from on-path
+{{RFC8558}} defines the term "path signals" as signals to or from on-path
 elements. Today path signals are often implicit, e.g. derived from
 cleartext end-to-end information by e.g. examining transport
 protocols. For instance, on-path elements use various fields of the
@@ -281,7 +281,7 @@ to extract new data from flows.
 
 ## Intentional Distribution {#intent}
 
-This guideline is best expressed in RFC 8558:
+This guideline is best expressed in {{RFC8558}}:
 
    "Fundamentally, this document recommends that implicit signals
    should be avoided and that an implicit signal should be replaced
