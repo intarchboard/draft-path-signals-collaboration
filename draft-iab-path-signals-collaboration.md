@@ -405,7 +405,8 @@ Each party should provide only the information that is needed for the
 other parties to perform the task for which collaboration is desired,
 and no more. This applies to information sent by an
 application about itself, information sent about users, or information
-sent by the network.
+sent by the network and it also includes information
+that can be used to associate packets to a flow or user context. 
 
 An architecture can follow the guideline from {{RFC8558}} in using
 explicit signals, but still fail to differentiate properly between
@@ -505,7 +506,10 @@ undesirable.
 
 This document recommends that signalling mechanisms that send information
 are built to specifically support sending the necessary, minimal set of information (see {{minimize-info}})
-and no more. Such mechanisms also need have an ability for establishing an agreement (see {{control-distr}}) and to establish
+and no more. As previsouly noted flow-identifying information are a path signal in itself,
+and as such provisioning of flow identifiers also requires protocol specific analysis.
+
+Further, such mechanisms also need have an ability for establishing an agreement (see {{control-distr}}) and to establish
 sufficient trust to pass the information (see {{auth}}).
 
 # Further Work {#research}
