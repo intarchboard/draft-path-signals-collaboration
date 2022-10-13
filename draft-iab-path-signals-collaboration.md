@@ -322,14 +322,15 @@ the distribution of information, in order to give adequate control to
 each entity over the collaboration or information sharing. This can
 be achieved as discussed below.
 
-The sender needs to agree to sending the information.
+The sender should have an option to decide that it wants to send the information
+to a specific entities or set of entities.
 Any passing of information or request for an action needs to be explicit,
 and use signalling mechanisms that are designed for the purpose.
 Merely sending a particular kind of packet to a destination should not
 be interpreted as an implicit agreement.
 
 At the same time, the recipient of information or the target of a
-request should agree to receiving the information. It
+request should have the option to agree or deny to receiving the information. It
 should not be burdened with extra processing if it does not have
 willingness or a need to do so. This happens naturally in most
 protocol designs, but has been a problem for some cases where
