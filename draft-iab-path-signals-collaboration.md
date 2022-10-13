@@ -146,9 +146,9 @@ Exposed information encourages pervasive monitoring, which is
 described in RFC 7258 {{RFC7258}}, and may also be
 used for commercial purposes, or form a basis for filtering that the
 applications or users do not desire.
-But a lack of all path signalling, on the other hand, may be harmful to
-network management, debugging, or the ability for networks to provide
-the most efficient services. There are many cases where elements on
+But a lack of all path signalling, on the other hand, may limit network
+management, debugging, or the ability for networks to optimize their services.
+There are many cases where elements on
 the network path can provide beneficial services, but only if they can
 coordinate with the endpoints. It also affects the ability of service providers
 and others to observe why problems occur {{RFC9075}}.
