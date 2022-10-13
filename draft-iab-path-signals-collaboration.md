@@ -89,7 +89,7 @@ and points out that visible information will be used whether it is
 intended as a signal or not. The principles in this document are intended as
 guidance for the design of explicit path signals, which are encouraged to be 
 authenticated and include
-a minimal set of parties and minimize information sharing. These principles can
+a minimal set of parties to minimize information sharing. These principles can
 be achieved through mechanisms like encryption of information and
 establishing trust relationships between entities on a path.
 
@@ -105,22 +105,21 @@ protocols. For instance, on-path elements use various fields of the
 TCP header {{RFC0793}} to derive information about end-to-end latency
 as well as congestion.  These techniques have evolved because the
 information was available and its use required no coordination with
-anyone. This made such techniques more easily deployed than
-alternative, potentially more explicit or cooperative approaches. Such
-techniques had some drawbacks as well, such as having to interpret
-information designed to be carried for one purpose for a new, different purpose.
+anyone. This made such techniques more easily deployable than
+alternative, potentially more explicit or cooperative, approaches. 
 
-Today, applications and networks have often evolved their interaction
+However, this also means that applications and networks have often evolved their interaction
 without comprehensive design for how this interaction should
-happen or which information would be needed for a certain function.
-This has led to a situation where sometimes information that happens 
-to be easily available is used. But that information
+happen or which (minimal) information would be needed for a certain function.
+This has led to a situation where simply information that happens 
+to be easily available is used instead the information that would be actually needed.
+As such that information
 may be incomplete, incorrect, or only indirectly representative of the 
 information that is actually needed. In addition, dependencies on
 information and mechanisms that were designed for a different function
 limits the evolvability of the protocols in question.
 
-The unplanned interaction ends up having several negative effects:
+In summary, such unplanned interactions end up having several negative effects:
 
 * Ossifying protocols by introducing dependencies to unintended parties
   that may not be updating, such as how middleboxes have limited the use of TCP options
@@ -167,7 +166,6 @@ Increased deployment of encryption is changing this situation.
 Encryption provides tools for controlling information access 
 and protects against ossification by avoiding
 unintended dependencies and requiring active maintenance. 
-
 The increased
 deployment of encryption provides an opportunity to reconsider parts of
 Internet architecture that have used implicit derivation of input
@@ -175,7 +173,7 @@ signals for on-path functions rather than explicit signalling, as recommended
 by RFC 8558 {{RFC8558}}.
 
 For instance, QUIC replaces TCP for various applications and ensures end-to-end
-signals are only be accessible by the endpoints, ensuring evolvability {{RFC9000}}. 
+signals are only accessible by the endpoints, ensuring evolvability {{RFC9000}}. 
 QUIC does expose information dedicated for on-path elements to consume
 by using explicit signals for specific use cases, such as the Spin bit
 for latency measurements or connection ID that can be used by 
@@ -223,7 +221,7 @@ should consider:
 * What is the minimum set of entities that need to be involved? 
 * What is the right mechanism and needed level of trust to convey this kind of information? 
 
-If we look at many of the ways network functions are achieved today, we
+If we look ways network functions are achieved today, we
 find that many if not most of them fall short the standard set up by the
 questions above. Too often, they send unnecessary information or fail to
 limit the scope of distribution or providing any negotiation or consent.
@@ -376,7 +374,7 @@ may forge messages that could endanger the communication.
 
 Authenticated integrity protections on signalled data can help
 ensure that data received in a signal has not been modified by
-other parties, but both network elements and endpoints need to
+other parties. Still, both network elements and endpoints need to
 be careful in processing or responding to any signal. Whether
 through bugs or attacks, the content of path signals can lead
 to unexpected behaviors or security vulnerabilities if not
@@ -409,10 +407,11 @@ and no more. This applies to information sent by an
 application about itself, information sent about users, or information
 sent by the network.
 
-An architecture can follow the guideline from RFC 8558 in using
+An architecture can follow the guideline from {{RFC8558}} in using
 explicit signals, but still fail to differentiate properly between
 information that should be kept private and information that should be
-shared.
+shared. {{RFC6973}} also outlines this principle of data minimization
+as mitigation technique to protect privacy and provides further guidance.
 
 In looking at what information can or cannot easily be passed, we
 need to consider both, information from the network to the application
@@ -543,8 +542,7 @@ as well as some adjacent issues that would influence such collaboration.
   {{RFC9049}}.
 
 * Secure communications with path elements is needed as discussed in {{auth}}. Finding practical
-  ways for this has been difficult,
-  however, both from the mechanics and scalability point view. And also
+  ways for this has been difficult, both from the mechanics and scalability point view. And also
   because there is no easy way to find out which parties to trust or
   what trust roots would be appropriate. Some application-network
   element interaction designs have focused on information (such as ECN
