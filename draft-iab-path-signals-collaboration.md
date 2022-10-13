@@ -184,13 +184,13 @@ This points to one way to resolve the adversity: the careful design
 of what information is passed.
 
 Another extreme is to employ explicit trust and coordination between
-all involved entities, endpoints as well as network devices.
+specific entities, endpoints as well as network path elements.
 VPNs are a good example of a case where
 there is an explicit authentication and negotiation with a network
-path element that is used to optimize behavior or gain access to
+path element that is used to gain access to
 specific resources. Authentication and trust must be considered in
-multiple directions: how endpoints trust and authenticate signals
-from network devices, and how network devices trust and authenticate
+both directions: how endpoints trust and authenticate signals
+from network path elements, and how network path elements trust and authenticate
 signals from endpoints.
 
 The goal of improving privacy and trust on the Internet does not necessarily
