@@ -405,8 +405,8 @@ Each party should provide only the information that is needed for the
 other parties to perform the task for which collaboration is desired,
 and no more. This applies to information sent by an
 application about itself, information sent about users, or information
-sent by the network and it also includes information
-that can be used to associate packets to a flow or user context. 
+sent by the network. This also applies to any information
+related to flow identification.
 
 An architecture can follow the guideline from {{RFC8558}} in using
 explicit signals, but still fail to differentiate properly between
