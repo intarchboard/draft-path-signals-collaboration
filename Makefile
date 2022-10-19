@@ -17,7 +17,7 @@ endif
 
 # draft-iab-path-signals-collaboration.txt draft-iab-path-signals-collaboration.html
 
-OLDREVNO=00
+OLDREVNO=01
 OLDREV=draft-iab-path-signals-collaboration-$(OLDREVNO).txt
 PORT=-p 8820
 SCPPORT=-P 8820
