@@ -508,7 +508,7 @@ undesirable.
 
 This document recommends that signalling mechanisms that send information
 are built to specifically support sending the necessary, minimal set of information (see {{minimize-info}})
-and no more. As previsouly noted, flow-identifying information is a path signal in itself,
+and no more. As previously noted, flow-identifying information is a path signal in itself,
 and as such provisioning of flow identifiers also requires protocol specific analysis.
 
 Further, such mechanisms also need have an ability for establishing an agreement (see {{control-distr}}) and to establish
