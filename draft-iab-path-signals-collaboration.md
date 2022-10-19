@@ -44,6 +44,7 @@ informative:
   RFC0793:
   RFC5218: 
   RFC6709:
+  RFC6973:
   RFC7258: 
   RFC7305: 
   RFC8558:
@@ -610,5 +611,5 @@ for presenting similar thoughts. Finally, the authors would like to
 thank Adrian Farrell, Toerless Eckert, Martin Thomson, Mark
 Nottingham, Luis M. Contreras, Watson Ladd, Vittorio Bertola, Andrew
 Campling, Eliot Lear, Spencer Dawkins, Christian Huitema, Mallory
-Knodel, Zhenbin Li, and Jeffrey Haas for useful feedback in the
-IABOPEN sessions and on the list.
+Knodel, Zhenbin Li, Chris Box, and Jeffrey Haas for useful feedback on this topic
+and this draft.
