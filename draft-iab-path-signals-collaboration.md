@@ -1,7 +1,7 @@
 ---
 title: Considerations on Application - Network Collaboration Using Path Signals
 abbrev: Path Signals Collab
-docname: draft-iab-path-signals-collaboration-02
+docname: draft-iab-path-signals-collaboration-03
 date:
 category: info
 
@@ -48,6 +48,7 @@ informative:
   RFC7258: 
   RFC7305: 
   RFC8558:
+  RFC8890:
   RFC9000:
   RFC9049:
   RFC9075: 
@@ -352,8 +353,10 @@ directly relates to the user should not be shared without the user's
 consent. It should be noted that the interests of the user and
 other parties, such as the application developer, may not always coincide;
 some applications may wish to collect more information about
-the user than the user would like. How to achieve a
-balance of control between the actual user and an application
+the user than the user would like. 
+As discussed in {{RFC8890}}, from an IETF point view, the interests of the user should be
+prioritized over those of the application developer. The general issue
+of how to achieve a balance of control between the actual user and an application
 representing an user's interest is out of scope for this document.
 
 ## Protecting Information and Authentication {#auth}
@@ -611,6 +614,7 @@ would also like to acknowledge {{I-D.trammell-stackevo-explicit-coop}}
 for presenting similar thoughts. Finally, the authors would like to
 thank Adrian Farrell, Toerless Eckert, Martin Thomson, Mark
 Nottingham, Luis M. Contreras, Watson Ladd, Vittorio Bertola, Andrew
-Campling, Eliot Lear, Spencer Dawkins, Christian Huitema, Mallory
+Campling, Eliot Lear, Spencer Dawkins, Christian Huitema, David
+Schinazi, Cullen Jennings, Mallory
 Knodel, Zhenbin Li, Chris Box, and Jeffrey Haas for useful feedback on this topic
 and this draft.
